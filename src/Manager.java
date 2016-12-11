@@ -106,6 +106,15 @@ public class Manager extends User {
    {
          query="Delete * from users WHERE username='"+username+"'";
          dbc.deleteData(query);
+   }
+   public void modifyUser(String fname,String lname,String phone,String mail, Address addr, String usern,String passw){
+   
+       query="Update users SET password ='"+passw+"',firstname ='"+fname+"',lastname ='"+lname+"',phonenumber ='"+phone+"',email ='"+mail+"',country ='"+addr.getCountry()+"',city ='"+addr.getCity()+"',street ='"+addr.getStreet()+"',zipcode ='"+addr.getZipCode()+"', WHERE username = '"+usern+"'";
+       dbc.updateData(query);
+   }
+   
+   public void searchUser(String fname, String lname){
+   
        
    }
 }

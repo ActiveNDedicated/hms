@@ -1,12 +1,12 @@
 
 import java.awt.Cursor;
-import java.awt.Font;
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import org.joda.time.DateTime;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,17 +20,15 @@ import javax.swing.JOptionPane;
  */
 public class MainFrame extends javax.swing.JFrame {
 
-    Date date = new Date(); // todaysdate
     User user;
-    
+    Date date = new Date(); // todaysdate
+    Date dateAfterTwo = new DateTime().plusDays(2).toDate();
+       
     /**
      * Creates new form MainFrame
      */
     public MainFrame(User user) {
         initComponents();
-        GregorianCalendar cal = new GregorianCalendar();
-        cal.add(Calendar.DATE, 2);
-        Date dateAfterTwo = cal.getTime();
         roomBookingPanel1.setVisible(true);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
@@ -51,7 +49,13 @@ public class MainFrame extends javax.swing.JFrame {
             new String [] {
                 "Room Number", "Type of bed", "Type of room","Room rate"
             }
-        );
+        )   {
+                            public boolean isCellEditable(int row, int column)
+                        {
+                          return false;//This causes all cells to be not editable
+                        }
+            
+        };
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -609,7 +613,7 @@ public class MainFrame extends javax.swing.JFrame {
         receptionistCheckBox.setForeground(new java.awt.Color(255, 255, 255));
         receptionistCheckBox.setText("Receptionist");
         staffManagementPanel2.add(receptionistCheckBox);
-        receptionistCheckBox.setBounds(540, 440, 125, 30);
+        receptionistCheckBox.setBounds(540, 440, 123, 30);
 
         managerCheckBox.setBackground(new java.awt.Color(0, 87, 160));
         userBoxGroup.add(managerCheckBox);
@@ -995,6 +999,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_roomsManagementButtonMouseClicked
 
     private void staffManagementButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_staffManagementButtonMouseClicked
+        if (user instanceof Manager){
         roomBookingPanel1.setVisible(false);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
@@ -1003,7 +1008,9 @@ public class MainFrame extends javax.swing.JFrame {
         roomsManagementPanel.setVisible(false);
         guestsManagementPanel.setVisible(false);
         bookingManagementPanel.setVisible(false);
-        aboutPanel.setVisible(false);
+        aboutPanel.setVisible(false);}
+        else 
+            JOptionPane.showMessageDialog(null, "Login as a Manager!");
     }//GEN-LAST:event_staffManagementButtonMouseClicked
 
     private void roomBookingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomBookingButtonMouseClicked
@@ -1023,26 +1030,26 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchRoomBookingButtonMouseEntered
 
     private void searchRoomBookingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchRoomBookingButtonMouseClicked
-        GregorianCalendar cal = new GregorianCalendar();
-        cal.add(Calendar.DATE, 2);
-        Date dateAfterTwo = cal.getTime();
-        
-        if (date.after(checkInCalendar.getDate()) || checkOutCalendar.getDate().before(checkInCalendar.getDate())){
-            JOptionPane.showMessageDialog(null, "Wrong check-in or check-out dates! Please enter again ", "Alert", JOptionPane.ERROR_MESSAGE);
+
+        if (    checkInCalendar.getDate()==null ||
+                checkOutCalendar.getDate()==null ||
+                checkInCalendar.getDate().before(date) || 
+                checkOutCalendar.getDate().before(checkInCalendar.getDate())){
+            JOptionPane.showMessageDialog(null, "Wrong check-in or check-out date! Please enter again ", "Alert", JOptionPane.ERROR_MESSAGE);
             checkInCalendar.setDate(date);
             checkOutCalendar.setDate(dateAfterTwo);
         }
+        
         else {
-            Date checkIn=new Date();
-            checkIn=checkInCalendar.getDate();
-            Date checkOut=new Date();
-            checkOut=checkOutCalendar.getDate();
-            int numOccupants= Integer.parseInt((String)adultsNumberBox.getSelectedItem())+Integer.parseInt((String)childrenNumberBox.getSelectedItem());
-            Vector <Room> availableRooms=user.CheckRoomAvailability(checkIn, checkOut, numOccupants);
-            for (int i=0;i<availableRooms.size();i++)
-            {
-                System.out.println(availableRooms.get(i).getRoomNo());
-            }
+            
+            int numOccupants = Integer.parseInt((String)adultsNumberBox.getSelectedItem())+Integer.parseInt((String)childrenNumberBox.getSelectedItem());
+            
+            Vector <Room> availableRooms=user.CheckRoomAvailability(checkInCalendar.getDate(), checkOutCalendar.getDate(), numOccupants);
+            
+//            for (int i=0;i<availableRooms.size();i++)
+//            {
+//                System.out.println(availableRooms.get(i).getRoomNo());
+//            }
            
             roomBookingPanel1.setVisible(false);
             roomBookingPanel2.setVisible(true);
@@ -1072,23 +1079,40 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_makeBookingButtonMouseEntered
 
     private void bookItButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookItButtonMouseClicked
-        roomBookingPanel1.setVisible(false);
-        roomBookingPanel2.setVisible(false);
-        roomBookingPanel3.setVisible(true);
-        staffManagementPanel1.setVisible(false);
-        staffManagementPanel2.setVisible(false);
-        roomsManagementPanel.setVisible(false);
-        guestsManagementPanel.setVisible(false);
-        bookingManagementPanel.setVisible(false);
-        aboutPanel.setVisible(false);
+        int row = roomsTable.getSelectedRow();
+
+        if(row == -1)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a room before booking it! ", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            int roomNum = Integer.parseInt(roomsTable.getModel().getValueAt(row, 0).toString());
+            
+            int reply = JOptionPane.showConfirmDialog(null, "Client should pay: " 
+                    + user.showRoomPrice(checkInCalendar.getDate(), checkOutCalendar.getDate(), (double) roomsTable.getModel().getValueAt(row, 3)) +
+                    "$\n Are you sure you want to book the room?", "Room booking", JOptionPane.YES_NO_OPTION);
+            
+            if (reply == JOptionPane.YES_OPTION) {
+                Bill bill;
+                bill = user.generateBill(checkInCalendar.getDate(), checkOutCalendar.getDate() , (double) roomsTable.getModel().getValueAt(row, 3));
+                roomBookingPanel1.setVisible(false);
+                roomBookingPanel2.setVisible(false);
+                roomBookingPanel3.setVisible(true);
+                staffManagementPanel1.setVisible(false);
+                staffManagementPanel2.setVisible(false);
+                roomsManagementPanel.setVisible(false);
+                guestsManagementPanel.setVisible(false);
+                bookingManagementPanel.setVisible(false);
+                aboutPanel.setVisible(false);
+            }
+            
+        }
+        
     }//GEN-LAST:event_bookItButtonMouseClicked
 
     private void makeBookingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_makeBookingButtonMouseClicked
-        
-        GregorianCalendar cal = new GregorianCalendar();
-        cal.add(Calendar.DATE, 2);
-        Date dateAfterTwo = cal.getTime();
-        
+                
         if (expiryMonthRoomBookingCalendar.getMonth() < Calendar.getInstance().get(Calendar.MONTH) || Calendar.getInstance().get(Calendar.YEAR) > expiryYearRoomBookingCalendar.getYear()){
             JOptionPane.showMessageDialog(null, "Your credit card is already expired or you entered wrong expiry date!", "Alert", JOptionPane.ERROR_MESSAGE);
             expiryMonthRoomBookingCalendar.setMonth(Calendar.getInstance().get(Calendar.MONTH));
@@ -1108,6 +1132,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         
         else {
+            
             JOptionPane.showMessageDialog(null, "Successfully booked!", "Success!", JOptionPane.INFORMATION_MESSAGE);
             roomBookingPanel1.setVisible(true);
             roomBookingPanel2.setVisible(false);

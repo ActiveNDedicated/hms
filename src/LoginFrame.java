@@ -132,6 +132,7 @@ public class LoginFrame extends javax.swing.JFrame {
                 java.awt.EventQueue.invokeLater(new Runnable() {
                     public void run() {
                         new MainFrame(user).setVisible(true);
+                        dbc.closeconnection();
                     }
                 });
                 }               

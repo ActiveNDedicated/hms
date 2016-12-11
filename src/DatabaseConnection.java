@@ -69,8 +69,8 @@ public class DatabaseConnection
     	{
     		System.out.println(e);
     	}
-    	finally
-    	{
+//    	finally
+//    	{
 //    		try{
 //    			if(statement!=null)
 //    			{
@@ -80,7 +80,7 @@ public class DatabaseConnection
 //    		catch(SQLException se)
 //    		{
 //    		}
-    	      
+//    	      
 //    		try
 //    		{
 //    			if(connection!=null)
@@ -92,7 +92,7 @@ public class DatabaseConnection
 //    		{
 //    			se.printStackTrace();
 //    		}
-    	}	
+//    	}	
 		System.out.println("Retrieving data .........\n");
 
     	return this.resultSet;
@@ -103,10 +103,10 @@ public class DatabaseConnection
     	try
 		{
 			
-			Statement statement = null;
+			//Statement statement = null;
 
-    		connectToDB();
-			statement = connection.createStatement();
+    		//connectToDB();
+			//statement = connection.createStatement();
 			statement.executeUpdate(query);
 			System.out.println("Data stored successfully .........\n");
 		}
@@ -121,9 +121,9 @@ public class DatabaseConnection
     {
     	try
 		{			
-			Statement statement = null;
-    		connectToDB();
-			statement = connection.createStatement();
+//			Statement statement = null;
+//                        connectToDB();
+//			statement = connection.createStatement();
 			statement.executeUpdate(query);
 			System.out.println("Data updated successfully .........\n");
 		}
@@ -139,10 +139,10 @@ public class DatabaseConnection
     	try
 		{
 			
-			Statement statement = null;
-
-    		connectToDB();
-			statement = connection.createStatement();
+//			Statement statement = null;
+//
+//                        connectToDB();
+//			statement = connection.createStatement();
 			statement.executeUpdate(query);
 			System.out.println("Data deleted successfully .........\n");
 		}
@@ -151,6 +151,37 @@ public class DatabaseConnection
 			System.out.println(e);
 		}
     }    
+    
+    public void  closeconnection(){
+    
+    	
+    		try{
+    			if(statement!=null)
+    			{
+    				connection.close();
+                                System.out.println("Connection closed!");
+    			}
+    		}
+    		catch(SQLException se)
+    		{
+    		}
+    	      
+    		try
+    		{
+    			if(connection!=null)
+    			{
+    				connection.close();
+                                System.out.println("Connection closed!");
+
+    			}
+    		}
+    		catch(SQLException se)
+    		{
+    			se.printStackTrace();
+    		}
+    	
+    
+    }
     
    
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
 
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -99,6 +100,18 @@ public class User extends Human{
 
       
        return available;
+    }
+    
+    public double showRoomPrice(Date checkIn, Date checkOut, double roomRate){
+        long diffTime = checkOut.getTime() - checkIn.getTime();
+        int diffDays = (int) (diffTime / (1000 * 60 * 60 * 24));
+        double total = diffDays * roomRate;
+        return total;
+    }
+    
+    public Bill generateBill(Date checkIn, Date checkOut, double roomRate){
+        Bill bill = new Bill(showRoomPrice(checkIn, checkOut, roomRate) , 0.0);
+        return bill;
     }
     
     public void BookRoom(Room r,String firstname,String lastName,String phonenumber,String email, 
