@@ -42,11 +42,14 @@ public class Main {
         //</editor-fold>
 
         setUIFont (new javax.swing.plaf.FontUIResource("Roboto Lt", Font.TRUETYPE_FONT, 13));
-        
+         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginFrame().setVisible(true);
+             LoginFrame lf=   new LoginFrame();
+                lf.setVisible(true);
+                
+                
             }
         });
     }

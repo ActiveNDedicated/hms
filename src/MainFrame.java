@@ -1,9 +1,11 @@
 
 import java.awt.Cursor;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 
 /*
@@ -19,12 +21,12 @@ import javax.swing.JOptionPane;
 public class MainFrame extends javax.swing.JFrame {
 
     Date date = new Date(); // todaysdate
-    
+    User user;
     
     /**
      * Creates new form MainFrame
      */
-    public MainFrame() {
+    public MainFrame(User user) {
         initComponents();
         GregorianCalendar cal = new GregorianCalendar();
         cal.add(Calendar.DATE, 2);
@@ -40,8 +42,16 @@ public class MainFrame extends javax.swing.JFrame {
         aboutPanel.setVisible(false);
         checkInCalendar.setDate(date);
         checkOutCalendar.setDate(dateAfterTwo);
+        this.user=user;
     }
 
+    javax.swing.table.DefaultTableModel roomBookingTableModel = new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "Room Number", "Type of bed", "Type of room","Room rate"
+            }
+        );
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -164,9 +174,10 @@ public class MainFrame extends javax.swing.JFrame {
         mainBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 87, 160));
-        setBounds(new java.awt.Rectangle(300, 100, 0, 0));
-        setMinimumSize(new java.awt.Dimension(1280, 745));
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setMinimumSize(new java.awt.Dimension(1285, 745));
         setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
 
@@ -231,17 +242,7 @@ public class MainFrame extends javax.swing.JFrame {
         roomBookingPanel2.setBackground(new java.awt.Color(0, 87, 167));
         roomBookingPanel2.setLayout(null);
 
-        roomsTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
+        roomsTable.setModel(roomBookingTableModel);
         roomsBookingScrollPane.setViewportView(roomsTable);
 
         roomBookingPanel2.add(roomsBookingScrollPane);
@@ -267,91 +268,46 @@ public class MainFrame extends javax.swing.JFrame {
 
         firstNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         firstNameRoomBookingField.setBorder(null);
-        firstNameRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(firstNameRoomBookingField);
         firstNameRoomBookingField.setBounds(50, 90, 280, 30);
 
         lastNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         lastNameRoomBookingField.setBorder(null);
-        lastNameRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(lastNameRoomBookingField);
         lastNameRoomBookingField.setBounds(370, 90, 280, 30);
 
         countryRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         countryRoomBookingField.setBorder(null);
-        countryRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                countryRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(countryRoomBookingField);
         countryRoomBookingField.setBounds(50, 180, 140, 30);
 
         cityRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cityRoomBookingField.setBorder(null);
-        cityRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cityRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(cityRoomBookingField);
         cityRoomBookingField.setBounds(230, 180, 140, 30);
 
         streetRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         streetRoomBookingField.setBorder(null);
-        streetRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                streetRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(streetRoomBookingField);
         streetRoomBookingField.setBounds(410, 180, 210, 30);
 
         zipCodeRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         zipCodeRoomBookingField.setBorder(null);
-        zipCodeRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zipCodeRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(zipCodeRoomBookingField);
         zipCodeRoomBookingField.setBounds(660, 180, 140, 30);
 
         cardNumberRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cardNumberRoomBookingField.setBorder(null);
-        cardNumberRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cardNumberRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(cardNumberRoomBookingField);
         cardNumberRoomBookingField.setBounds(50, 410, 260, 30);
 
         emailRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         emailRoomBookingField.setBorder(null);
-        emailRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(emailRoomBookingField);
         emailRoomBookingField.setBounds(50, 270, 280, 30);
 
         phoneNumberRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         phoneNumberRoomBookingField.setBorder(null);
-        phoneNumberRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneNumberRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(phoneNumberRoomBookingField);
         phoneNumberRoomBookingField.setBounds(370, 270, 230, 30);
 
@@ -445,11 +401,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         cardHolderNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cardHolderNameRoomBookingField.setBorder(null);
-        cardHolderNameRoomBookingField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cardHolderNameRoomBookingFieldActionPerformed(evt);
-            }
-        });
         roomBookingPanel3.add(cardHolderNameRoomBookingField);
         cardHolderNameRoomBookingField.setBounds(350, 410, 260, 30);
 
@@ -548,81 +499,41 @@ public class MainFrame extends javax.swing.JFrame {
 
         firstNameStaffManagementField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         firstNameStaffManagementField.setBorder(null);
-        firstNameStaffManagementField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameStaffManagementFieldActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(firstNameStaffManagementField);
         firstNameStaffManagementField.setBounds(50, 100, 280, 30);
 
         lastNameStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         lastNameStaffManagementField2.setBorder(null);
-        lastNameStaffManagementField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lastNameStaffManagementField2ActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(lastNameStaffManagementField2);
         lastNameStaffManagementField2.setBounds(370, 100, 280, 30);
 
         countryStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         countryStaffManagementField2.setBorder(null);
-        countryStaffManagementField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                countryStaffManagementField2ActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(countryStaffManagementField2);
         countryStaffManagementField2.setBounds(50, 190, 140, 30);
 
         cityStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cityStaffManagementField2.setBorder(null);
-        cityStaffManagementField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cityStaffManagementField2ActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(cityStaffManagementField2);
         cityStaffManagementField2.setBounds(230, 190, 140, 30);
 
         streetStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         streetStaffManagementField2.setBorder(null);
-        streetStaffManagementField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                streetStaffManagementField2ActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(streetStaffManagementField2);
         streetStaffManagementField2.setBounds(410, 190, 210, 30);
 
         zipStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         zipStaffManagementField2.setBorder(null);
-        zipStaffManagementField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zipStaffManagementField2ActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(zipStaffManagementField2);
         zipStaffManagementField2.setBounds(650, 190, 140, 30);
 
         passwordStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         passwordStaffManagementField2.setBorder(null);
-        passwordStaffManagementField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordStaffManagementField2ActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(passwordStaffManagementField2);
         passwordStaffManagementField2.setBounds(230, 370, 140, 30);
 
         phoneNumberStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         phoneNumberStaffManagementField2.setBorder(null);
-        phoneNumberStaffManagementField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneNumberStaffManagementField2ActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(phoneNumberStaffManagementField2);
         phoneNumberStaffManagementField2.setBounds(230, 280, 140, 30);
 
@@ -710,11 +621,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         emailStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         emailStaffManagementField2.setBorder(null);
-        emailStaffManagementField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailStaffManagementField2ActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(emailStaffManagementField2);
         emailStaffManagementField2.setBounds(50, 280, 140, 30);
 
@@ -726,11 +632,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         userNameStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         userNameStaffManagementField2.setBorder(null);
-        userNameStaffManagementField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userNameStaffManagementField2ActionPerformed(evt);
-            }
-        });
         staffManagementPanel2.add(userNameStaffManagementField2);
         userNameStaffManagementField2.setBounds(50, 370, 140, 30);
 
@@ -1132,57 +1033,39 @@ public class MainFrame extends javax.swing.JFrame {
             checkOutCalendar.setDate(dateAfterTwo);
         }
         else {
-        roomBookingPanel1.setVisible(false);
-        roomBookingPanel2.setVisible(true);
-        roomBookingPanel3.setVisible(false);
-        staffManagementPanel1.setVisible(false);
-        staffManagementPanel2.setVisible(false);
-        roomsManagementPanel.setVisible(false);
-        guestsManagementPanel.setVisible(false);
-        bookingManagementPanel.setVisible(false);
-        aboutPanel.setVisible(false);
+            Date checkIn=new Date();
+            checkIn=checkInCalendar.getDate();
+            Date checkOut=new Date();
+            checkOut=checkOutCalendar.getDate();
+            int numOccupants= Integer.parseInt((String)adultsNumberBox.getSelectedItem())+Integer.parseInt((String)childrenNumberBox.getSelectedItem());
+            Vector <Room> availableRooms=user.CheckRoomAvailability(checkIn, checkOut, numOccupants);
+            for (int i=0;i<availableRooms.size();i++)
+            {
+                System.out.println(availableRooms.get(i).getRoomNo());
+            }
+           
+            roomBookingPanel1.setVisible(false);
+            roomBookingPanel2.setVisible(true);
+            roomBookingPanel3.setVisible(false);
+            staffManagementPanel1.setVisible(false);
+            staffManagementPanel2.setVisible(false);
+            roomsManagementPanel.setVisible(false);
+            guestsManagementPanel.setVisible(false);
+            bookingManagementPanel.setVisible(false);
+            aboutPanel.setVisible(false);
+            
+            for (int i=0;i<availableRooms.size();i++)
+                {
+                    Object[] row = { null, null, null,null};
+                    roomBookingTableModel.addRow(row); 
+                    roomsTable.setValueAt(availableRooms.get(i).getRoomNo(), i, 0);
+                    roomsTable.setValueAt(availableRooms.get(i).getTypeOfBed(), i, 1);
+                    roomsTable.setValueAt(availableRooms.get(i).getTypeOfRoom(), i, 2);
+                    roomsTable.setValueAt(availableRooms.get(i).getCost(), i, 3);
+
+                }
         }
     }//GEN-LAST:event_searchRoomBookingButtonMouseClicked
-
-    private void firstNameRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameRoomBookingFieldActionPerformed
-
-    private void lastNameRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastNameRoomBookingFieldActionPerformed
-
-    private void countryRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_countryRoomBookingFieldActionPerformed
-
-    private void cityRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cityRoomBookingFieldActionPerformed
-
-    private void streetRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_streetRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_streetRoomBookingFieldActionPerformed
-
-    private void zipCodeRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipCodeRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_zipCodeRoomBookingFieldActionPerformed
-
-    private void cardNumberRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cardNumberRoomBookingFieldActionPerformed
-
-    private void emailRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailRoomBookingFieldActionPerformed
-
-    private void phoneNumberRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNumberRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneNumberRoomBookingFieldActionPerformed
-
-    private void cardHolderNameRoomBookingFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardHolderNameRoomBookingFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cardHolderNameRoomBookingFieldActionPerformed
 
     private void makeBookingButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_makeBookingButtonMouseEntered
         makeBookingButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -1260,38 +1143,6 @@ public class MainFrame extends javax.swing.JFrame {
         bookItButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }//GEN-LAST:event_bookItButtonMouseEntered
 
-    private void firstNameStaffManagementFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameStaffManagementFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameStaffManagementFieldActionPerformed
-
-    private void lastNameStaffManagementField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameStaffManagementField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lastNameStaffManagementField2ActionPerformed
-
-    private void countryStaffManagementField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryStaffManagementField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_countryStaffManagementField2ActionPerformed
-
-    private void cityStaffManagementField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityStaffManagementField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cityStaffManagementField2ActionPerformed
-
-    private void streetStaffManagementField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_streetStaffManagementField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_streetStaffManagementField2ActionPerformed
-
-    private void zipStaffManagementField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipStaffManagementField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_zipStaffManagementField2ActionPerformed
-
-    private void passwordStaffManagementField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordStaffManagementField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordStaffManagementField2ActionPerformed
-
-    private void phoneNumberStaffManagementField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNumberStaffManagementField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneNumberStaffManagementField2ActionPerformed
-
     private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_registerButtonMouseClicked
@@ -1299,14 +1150,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void registerButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_registerButtonMouseEntered
-
-    private void emailStaffManagementField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailStaffManagementField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailStaffManagementField2ActionPerformed
-
-    private void userNameStaffManagementField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameStaffManagementField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userNameStaffManagementField2ActionPerformed
 
     private void firstNameGuestsManagementFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameGuestsManagementFieldActionPerformed
         // TODO add your handling code here:
