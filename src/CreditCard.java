@@ -8,6 +8,7 @@
  *
  * @author MAF
  */
+import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -15,17 +16,19 @@ public class CreditCard {
     private String cardNumber;
     private String cardHolder;
     private Date expiryDate;
+    Calendar calendar = Calendar.getInstance();
+    
     
     public CreditCard(){
         
     }
-    public CreditCard(String cardNumber, String cardHolder, Date expiryDate){
+    public CreditCard(String cardNumber, String cardHolder, int month, int year){
         setCardNumber(cardNumber);
         setCardHolder(cardHolder);
-        setExpiryDate(expiryDate);
+        setExpiryDate(month, year);
     }
     
-  public static boolean validateCard (String cardNumber)
+  public boolean validateCard (String cardNumber)
   {
     int sum = 0;
     boolean alternate = false;
@@ -86,10 +89,14 @@ public class CreditCard {
     }
 
     /**
-     * @param expiryDate the expiryDate to set
+     * @param month
+     * @param year
      */
-    public void setExpiryDate(Date expiryDate) {
-        this.expiryDate = expiryDate;
+    public void setExpiryDate(int month, int year) {
+        calendar.clear();
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.YEAR, year);
+        this.expiryDate = calendar.getTime();
     }
 
 }
