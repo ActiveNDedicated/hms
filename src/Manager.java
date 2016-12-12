@@ -1,4 +1,7 @@
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class Manager extends User {
     DatabaseConnection dbc=new DatabaseConnection();
@@ -113,8 +116,27 @@ public class Manager extends User {
        dbc.updateData(query);
    }
    
-   public void searchUser(String fname, String lname){
-   
-       
+   public Vector<User> searchUser(String fname, String lname){
+       query="SELECT * FROM users WHERE firstname='"+fname+"' OR lastname='"+lname+"';";
+       Vector  <User> found=new Vector<User>();
+       ResultSet rs = dbc.getData(query);
+       User user;
+     try
+            {
+                while (rs.next()) 
+                {
+                   if (rs.getInt("isManager")==1)
+                      user=new Manager(rs.getString("firstname"),rs.getString("lastname"),rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),rs.getString("password"));
+                   else
+                       user=new Receptionist(rs.getString("firstname"),rs.getString("lastname"),rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),rs.getString("password"));
+                found.add(user);
+                }
+            }
+            catch(SQLException e)
+            {
+                    System.out.println(e);
+            }
+       return found;
    }
+   
 }

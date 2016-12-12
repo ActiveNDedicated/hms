@@ -1,6 +1,6 @@
 
 import java.awt.Cursor;
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
@@ -21,10 +21,11 @@ import org.joda.time.DateTime;
 public class MainFrame extends javax.swing.JFrame {
 
     User user;
-    Date date = new Date(); // todaysdate
+    Date yesterday = new DateTime().minusDays(1).toDate();
+    Date date = new DateTime().toDate(); // todaysdate
     Date dateAfterTwo = new DateTime().plusDays(2).toDate();
-       
-    /**
+   
+  /**
      * Creates new form MainFrame
      */
     public MainFrame(User user) {
@@ -1033,13 +1034,14 @@ public class MainFrame extends javax.swing.JFrame {
 
         if (    checkInCalendar.getDate()==null ||
                 checkOutCalendar.getDate()==null ||
-                checkInCalendar.getDate().before(date) || 
-                checkOutCalendar.getDate().before(checkInCalendar.getDate())){
+                checkInCalendar.getDate().before(yesterday) ||
+                checkOutCalendar.getDate().before(checkInCalendar.getDate())||
+                checkInCalendar.getDate()==checkOutCalendar.getDate())
+        {
             JOptionPane.showMessageDialog(null, "Wrong check-in or check-out date! Please enter again ", "Alert", JOptionPane.ERROR_MESSAGE);
             checkInCalendar.setDate(date);
             checkOutCalendar.setDate(dateAfterTwo);
         }
-        
         else {
             
             int numOccupants = Integer.parseInt((String)adultsNumberBox.getSelectedItem())+Integer.parseInt((String)childrenNumberBox.getSelectedItem());
@@ -1071,7 +1073,7 @@ public class MainFrame extends javax.swing.JFrame {
                     roomsTable.setValueAt(availableRooms.get(i).getCost(), i, 3);
 
                 }
-        }
+        } 
     }//GEN-LAST:event_searchRoomBookingButtonMouseClicked
 
     private void makeBookingButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_makeBookingButtonMouseEntered
