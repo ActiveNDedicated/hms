@@ -69,9 +69,11 @@ public class User extends Human{
      Vector  <Room> available=new Vector<Room>();
       query="SELECT * FROM roomdetails "
                 + "where room_no NOT IN (SELECT room_number FROM guests WHERE (DATE(checkin) >= '" 
-                + checkin + "' AND DATE(checkin) <= '" + checkout + "') OR(DATE(checkout) > '" 
-                + checkin + "') ) AND typeofbed>='"+numOccupants/2+"';";
+                + checkin + "' AND DATE(checkin) <= '" + new java.sql.Date(checkout.getTime()) + "') OR(DATE(checkout) > '" 
+                + new java.sql.Date(checkin.getTime()) + "') ) AND typeofbed>='"+numOccupants/2+"';";
      ResultSet resultSet = dbc.getData(query);
+     /*
+     */
      try
             {
                 while (resultSet.next()) 
@@ -125,6 +127,7 @@ public class User extends Human{
                 +g.getAddress().getZipCode()+"', '"+g.getCreditCard().getCardNumber()+"', '"+g.getCreditCard().getCardHolder()+"','"+new java.sql.Date(g.getCreditCard().getExpiryDate().getTime())+"', '"+new java.sql.Date(g.getCheckIn().getTime())+"', '"+new java.sql.Date(g.getCheckOut().getTime())+"', '"
                 +g.getOccupantsNumber()+"', '"+g.getGuestRoom()+"', '"+g.getBill().getPaidamount()+"', '"+g.getBill().getTotalamount()+"')";
         dbc.storeData(query);
+    
     }
     
 }
