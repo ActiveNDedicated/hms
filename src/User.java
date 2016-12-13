@@ -127,5 +127,4 @@ public class User extends Human{
         dbc.storeData(query);
     }
     
-    
 }
