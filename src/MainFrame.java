@@ -27,6 +27,7 @@ public class MainFrame extends javax.swing.JFrame {
     Calendar today = Calendar.getInstance();
     Calendar checkInCal = Calendar.getInstance();
     Calendar checkOutCal = Calendar.getInstance();
+    Calendar expiryDate = Calendar.getInstance();
     Bill bill;
     int roomNum;
     int numOccupants;
@@ -1091,15 +1092,24 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_bookItButtonMouseClicked
 
     private void makeBookingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_makeBookingButtonMouseClicked
-                
-        if (expiryMonthRoomBookingCalendar.getMonth() < Calendar.getInstance().get(Calendar.MONTH) || Calendar.getInstance().get(Calendar.YEAR) > expiryYearRoomBookingCalendar.getYear())
+        
+        expiryDate.set(Calendar.HOUR_OF_DAY, 0);
+        expiryDate.set(Calendar.MINUTE, 0);
+        expiryDate.set(Calendar.SECOND, 0);
+        expiryDate.set(Calendar.MILLISECOND, 0); 
+        expiryDate.set(Calendar.MONTH, expiryMonthRoomBookingCalendar.getMonth());
+        expiryDate.set(Calendar.YEAR, expiryYearRoomBookingCalendar.getYear());
+        expiryDate.set(Calendar.DATE, expiryDate.getActualMaximum(Calendar.DATE));
+        
+        if (expiryDate.before(today))
         {
             JOptionPane.showMessageDialog(null, "Your credit card is already expired or you entered wrong expiry date!", "Alert", JOptionPane.ERROR_MESSAGE);
             expiryMonthRoomBookingCalendar.setMonth(Calendar.getInstance().get(Calendar.MONTH));
             expiryYearRoomBookingCalendar.setYear(Calendar.getInstance().get(Calendar.YEAR));
         }
        
-        if (firstNameRoomBookingField.getText().equals("")||
+        else {
+            if (firstNameRoomBookingField.getText().equals("")||
         lastNameRoomBookingField.getText().equals("")||
         countryRoomBookingField.getText().equals("")||
         cityRoomBookingField.getText().equals("")||
@@ -1112,46 +1122,47 @@ public class MainFrame extends javax.swing.JFrame {
         }
         
         else {
-            CreditCard creditCard = new CreditCard(cardNumberRoomBookingField.getText(), 
-                                                   cardHolderNameRoomBookingField.getText(),
-                                                   expiryMonthRoomBookingCalendar.getMonth(),
-                                                   expiryYearRoomBookingCalendar.getYear());
-            
-            if(creditCard.getCardNumber()!=null) {
-                user.BookRoom(roomNum, firstNameRoomBookingField.getText(),lastNameRoomBookingField.getText(), phoneNumberRoomBookingField.getText(),emailRoomBookingField.getText(),
-                        countryRoomBookingField.getText(),cityRoomBookingField.getText(),streetRoomBookingField.getText(),
-                        zipCodeRoomBookingField.getText(),creditCard, checkInCalendar.getDate(), checkOutCalendar.getDate(), 
-                        numOccupants, bill);
-                JOptionPane.showMessageDialog(null, "Successfully booked!", "Success!", JOptionPane.INFORMATION_MESSAGE);
-                roomBookingPanel1.setVisible(true);
-                roomBookingPanel2.setVisible(false);
-                roomBookingPanel3.setVisible(false);
-                staffManagementPanel1.setVisible(false);
-                staffManagementPanel2.setVisible(false);
-                roomsManagementPanel.setVisible(false);
-                guestsManagementPanel.setVisible(false);
-                bookingManagementPanel.setVisible(false);
-                aboutPanel.setVisible(false);
-                checkInCalendar.setDate(null);
-                checkOutCalendar.setDate(null);
-                firstNameRoomBookingField.setText("");
-                lastNameRoomBookingField.setText("");
-                countryRoomBookingField.setText("");
-                cityRoomBookingField.setText("");
-                streetRoomBookingField.setText("");
-                zipCodeRoomBookingField.setText("");
-                emailRoomBookingField.setText("");
-                phoneNumberRoomBookingField.setText("");
-                cardNumberRoomBookingField.setText("");
-                cardHolderNameRoomBookingField.setText("");
-                expiryMonthRoomBookingCalendar.setMonth(Calendar.getInstance().get(Calendar.MONTH));
-                expiryYearRoomBookingCalendar.setYear(Calendar.getInstance().get(Calendar.YEAR));
-                checkInCalendar.setDate(date);
-                checkOutCalendar.setDate(dateAfterTwo);
-                adultsNumberBox.setSelectedIndex(0);
-                childrenNumberBox.setSelectedIndex(0);
-            }
-            
+                    CreditCard creditCard = new CreditCard(cardNumberRoomBookingField.getText(), 
+                                                           cardHolderNameRoomBookingField.getText(),
+                                                           expiryMonthRoomBookingCalendar.getMonth(),
+                                                           expiryYearRoomBookingCalendar.getYear());
+
+                    if(creditCard.getCardNumber()!=null) {
+                        user.BookRoom(roomNum, firstNameRoomBookingField.getText(),lastNameRoomBookingField.getText(), phoneNumberRoomBookingField.getText(),emailRoomBookingField.getText(),
+                                countryRoomBookingField.getText(),cityRoomBookingField.getText(),streetRoomBookingField.getText(),
+                                zipCodeRoomBookingField.getText(),creditCard, checkInCalendar.getDate(), checkOutCalendar.getDate(), 
+                                numOccupants, bill);
+                        JOptionPane.showMessageDialog(null, "Successfully booked!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+                        roomBookingPanel1.setVisible(true);
+                        roomBookingPanel2.setVisible(false);
+                        roomBookingPanel3.setVisible(false);
+                        staffManagementPanel1.setVisible(false);
+                        staffManagementPanel2.setVisible(false);
+                        roomsManagementPanel.setVisible(false);
+                        guestsManagementPanel.setVisible(false);
+                        bookingManagementPanel.setVisible(false);
+                        aboutPanel.setVisible(false);
+                        checkInCalendar.setDate(null);
+                        checkOutCalendar.setDate(null);
+                        firstNameRoomBookingField.setText("");
+                        lastNameRoomBookingField.setText("");
+                        countryRoomBookingField.setText("");
+                        cityRoomBookingField.setText("");
+                        streetRoomBookingField.setText("");
+                        zipCodeRoomBookingField.setText("");
+                        emailRoomBookingField.setText("");
+                        phoneNumberRoomBookingField.setText("");
+                        cardNumberRoomBookingField.setText("");
+                        cardHolderNameRoomBookingField.setText("");
+                        expiryMonthRoomBookingCalendar.setMonth(Calendar.getInstance().get(Calendar.MONTH));
+                        expiryYearRoomBookingCalendar.setYear(Calendar.getInstance().get(Calendar.YEAR));
+                        checkInCalendar.setDate(date);
+                        checkOutCalendar.setDate(dateAfterTwo);
+                        adultsNumberBox.setSelectedIndex(0);
+                        childrenNumberBox.setSelectedIndex(0);
+                    }
+
+                }
         }
     }//GEN-LAST:event_makeBookingButtonMouseClicked
 

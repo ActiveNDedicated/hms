@@ -18,11 +18,7 @@ public class Human {
     private Address address;
 
     public Human (){
-        setFirstName("unknown");
-        setLastName("unknown");
-        setPhoneNumber("100000000000");
-        setEmail("unknown");
-        setAddress(new Address());
+        
     }
     
     public Human (String firstName, String lastName,String phoneNumber, String email, Address address){
@@ -85,10 +81,6 @@ public class Human {
      */
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    private Exception Exception() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

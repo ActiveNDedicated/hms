@@ -93,9 +93,13 @@ public class CreditCard {
      * @param year
      */
     public void setExpiryDate(int month, int year) {
-        calendar.clear();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0); 
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.DATE, calendar.getActualMaximum(Calendar.DATE));
         this.expiryDate = calendar.getTime();
     }
 
