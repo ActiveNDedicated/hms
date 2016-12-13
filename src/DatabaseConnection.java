@@ -46,7 +46,7 @@ public class DatabaseConnection
     public void connectToDB()
     {
         try{
-            System.out.println("\nConnecting to Database : "+databaseName+"\n");
+            System.out.println("\nConnecting  : "+databaseName+"\n");
             connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+databaseName,"root","admin");
             statement = connection.createStatement();
         }
@@ -93,7 +93,7 @@ public class DatabaseConnection
 //    			se.printStackTrace();
 //    		}
 //    	}	
-		System.out.println("Retrieving data .........\n");
+		System.out.println("Getting data .........\n");
 
     	return this.resultSet;
      }
@@ -108,7 +108,7 @@ public class DatabaseConnection
     		//connectToDB();
 			//statement = connection.createStatement();
 			statement.executeUpdate(query);
-			System.out.println("Data stored successfully .........\n");
+			System.out.println("Data sent to Database......\n");
 		}
 		catch(SQLException e)
 		{
@@ -125,7 +125,7 @@ public class DatabaseConnection
 //                        connectToDB();
 //			statement = connection.createStatement();
 			statement.executeUpdate(query);
-			System.out.println("Data updated successfully .........\n");
+			System.out.println("Database updated .........\n");
 		}
 		catch(SQLException e)
 		{
@@ -144,7 +144,7 @@ public class DatabaseConnection
 //                        connectToDB();
 //			statement = connection.createStatement();
 			statement.executeUpdate(query);
-			System.out.println("Data deleted successfully .........\n");
+			System.out.println("Data deleted  .........\n");
 		}
 		catch(SQLException e)
 		{

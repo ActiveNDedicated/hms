@@ -120,9 +120,9 @@ public class User extends Human{
     {
         Address ad=new Address(country,city,street,zipCode);
         Guest g=new Guest(firstname,lastName,phonenumber,email,ad,creditcard,checkIn,checkOut,occupantsNumber,r,bill);
-        query = "INSERT INTO guests ( firstname, lastname, phonenum, mail, address,cardnumber ,cardholdername, cardexpiry, checkin, checkout,occupants_number, room_number, paidamount,totalamount  ) VALUES ( '"
+        query = "INSERT INTO guests ( firstname, lastname, phonenum, mail,country,city,street,zipcode,cardnumber ,cardholdername, cardexpiry, checkin, checkout,occupants_number, room_number, paidamount,totalamount  ) VALUES ( '"
                 +g.getFirstName()+"', '"+g.getLastName()+"', '"+g.getPhoneNumber()+"', '"+g.getEmail()+"', '"+g.getAddress().getCountry()+"', '"+g.getAddress().getCity()+"', '"+g.getAddress().getStreet()+"', '"
-                +g.getAddress().getZipCode()+"', '"+g.getCreditCard().getCardNumber()+"', '"+g.getCreditCard().getCardHolder()+"', '"+g.getCreditCard().getExpiryDate()+"', '"+g.getCheckIn()+"', '"+g.getCheckOut()+"', '"
+                +g.getAddress().getZipCode()+"', '"+g.getCreditCard().getCardNumber()+"', '"+g.getCreditCard().getCardHolder()+"','"+new java.sql.Date(g.getCreditCard().getExpiryDate().getTime())+"', '"+new java.sql.Date(g.getCheckIn().getTime())+"', '"+new java.sql.Date(g.getCheckOut().getTime())+"', '"
                 +g.getOccupantsNumber()+"', '"+g.getGuestRoom()+"', '"+g.getBill().getPaidamount()+"', '"+g.getBill().getTotalamount()+"')";
         dbc.storeData(query);
     }
