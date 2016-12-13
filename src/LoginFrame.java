@@ -84,9 +84,9 @@ public class LoginFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+           
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
-         query = " SELECT * FROM users ";
+        query = " SELECT * FROM users ";
 	ResultSet rs=dbc.getData(query);
         String login=loginField.getText();
         String password=new String(passwordField.getPassword());//String(char[] value)
@@ -195,7 +195,7 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_loginButtonMouseEntered
 
     private void loginFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_loginFieldKeyPressed
-
+                    
     }//GEN-LAST:event_loginFieldKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
