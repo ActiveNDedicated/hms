@@ -116,11 +116,11 @@ public class User extends Human{
     
     public void BookRoom(Room r,String firstname,String lastName,String phonenumber,String email, 
             String country,String city,String street,String zipCode , String cardnumber,String cardholder,
-            Date expiry,Date checkIn, Date checkOut, 
+            int month,int year,Date checkIn, Date checkOut, 
             int occupantsNumber,double totalamount,double paidamount)
     {
         Address ad=new Address(country,city,street,zipCode);
-        CreditCard cc=new CreditCard(cardnumber,cardholder,expiry);
+        CreditCard cc=new CreditCard(cardnumber,cardholder,month,year);
         Bill bill=new Bill(totalamount,paidamount);
         Guest g=new Guest(firstname,lastName,phonenumber,email,ad,cc,checkIn,checkOut,occupantsNumber,r,bill);
         query = "INSERT INTO guests ( firstname, lastname, phonenum, mail, address,cardnumber ,cardholdername, cardexpiry, checkin, checkout,occupants_number, room_number, paidamount,totalamount  ) VALUES ( '"
