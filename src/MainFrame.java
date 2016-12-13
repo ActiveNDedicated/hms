@@ -27,6 +27,7 @@ public class MainFrame extends javax.swing.JFrame {
     Calendar today = Calendar.getInstance();
     Calendar checkInCal = Calendar.getInstance();
     Calendar checkOutCal = Calendar.getInstance();
+    Calendar expiryDate = Calendar.getInstance();
     Bill bill;
     int roomNum;
     int numOccupants;
@@ -1091,8 +1092,16 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_bookItButtonMouseClicked
 
     private void makeBookingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_makeBookingButtonMouseClicked
-                
-        if (expiryMonthRoomBookingCalendar.getMonth() < Calendar.getInstance().get(Calendar.MONTH) || Calendar.getInstance().get(Calendar.YEAR) > expiryYearRoomBookingCalendar.getYear())
+        
+        expiryDate.set(Calendar.HOUR_OF_DAY, 0);
+        expiryDate.set(Calendar.MINUTE, 0);
+        expiryDate.set(Calendar.SECOND, 0);
+        expiryDate.set(Calendar.MILLISECOND, 0); 
+        expiryDate.set(Calendar.MONTH, expiryMonthRoomBookingCalendar.getMonth());
+        expiryDate.set(Calendar.YEAR, expiryYearRoomBookingCalendar.getYear());
+        expiryDate.set(Calendar.DATE, expiryDate.getActualMaximum(Calendar.DATE));
+        
+        if (expiryDate.before(today))
         {
             JOptionPane.showMessageDialog(null, "Your credit card is already expired or you entered wrong expiry date!", "Alert", JOptionPane.ERROR_MESSAGE);
             expiryMonthRoomBookingCalendar.setMonth(Calendar.getInstance().get(Calendar.MONTH));
