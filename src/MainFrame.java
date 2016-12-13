@@ -1128,7 +1128,8 @@ public class MainFrame extends javax.swing.JFrame {
                                                            expiryYearRoomBookingCalendar.getYear());
 
                     if(creditCard.getCardNumber()!=null) {
-                        user.BookRoom(roomNum, firstNameRoomBookingField.getText(),lastNameRoomBookingField.getText(), phoneNumberRoomBookingField.getText(),emailRoomBookingField.getText(),
+                        user.BookRoom(roomNum, firstNameRoomBookingField.getText(),lastNameRoomBookingField.getText(), 
+                                phoneNumberRoomBookingField.getText(),emailRoomBookingField.getText(),
                                 countryRoomBookingField.getText(),cityRoomBookingField.getText(),streetRoomBookingField.getText(),
                                 zipCodeRoomBookingField.getText(),creditCard, checkInCalendar.getDate(), checkOutCalendar.getDate(), 
                                 numOccupants, bill);
