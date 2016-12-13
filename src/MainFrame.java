@@ -21,10 +21,12 @@ import org.joda.time.DateTime;
 public class MainFrame extends javax.swing.JFrame {
 
     User user;
-    Date yesterday = new DateTime().minusDays(1).toDate();
     Date date = new DateTime().toDate(); // todaysdate
     Date dateAfterTwo = new DateTime().plusDays(2).toDate();
     SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+    Calendar today = Calendar.getInstance();
+    Calendar checkInCal = Calendar.getInstance();
+    Calendar checkOutCal = Calendar.getInstance();
     
    
   /**
@@ -32,6 +34,11 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame(User user) {
         initComponents();
+        today.setTime(date);
+        today.set(Calendar.HOUR_OF_DAY, 0);
+        today.set(Calendar.MINUTE, 0);
+        today.set(Calendar.SECOND, 0);
+        today.set(Calendar.MILLISECOND, 0);
         roomBookingPanel1.setVisible(true);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
@@ -996,11 +1003,20 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchRoomBookingButtonMouseEntered
 
     private void searchRoomBookingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchRoomBookingButtonMouseClicked
-
+        checkInCal.setTime(checkInCalendar.getDate());
+        checkInCal.set(Calendar.HOUR_OF_DAY, 0);
+        checkInCal.set(Calendar.MINUTE, 0);
+        checkInCal.set(Calendar.SECOND, 0);
+        checkInCal.set(Calendar.MILLISECOND, 0);
+        checkOutCal.setTime(checkOutCalendar.getDate());
+        checkOutCal.set(Calendar.HOUR_OF_DAY, 0);
+        checkOutCal.set(Calendar.MINUTE, 0);
+        checkOutCal.set(Calendar.SECOND, 0);
+        checkOutCal.set(Calendar.MILLISECOND, 0);
         if (    checkInCalendar.getDate()==null ||
                 checkOutCalendar.getDate()==null ||
-                checkInCalendar.getDate().before(yesterday) ||
-                checkOutCalendar.getDate().before(checkInCalendar.getDate())||
+                checkInCal.before(today) ||
+                checkOutCal.before(checkInCal)||
                 sdf.format(checkInCalendar.getDate()).equals(sdf.format(checkOutCalendar.getDate())))
         {
             JOptionPane.showMessageDialog(null, "Wrong check-in or check-out date! Please enter again ", "Alert", JOptionPane.ERROR_MESSAGE);
