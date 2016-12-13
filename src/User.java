@@ -1,4 +1,3 @@
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -114,19 +113,17 @@ public class User extends Human{
         return bill;
     }
     
-    public void BookRoom(Room r,String firstname,String lastName,String phonenumber,String email, 
-            String country,String city,String street,String zipCode , String cardnumber,String cardholder,
-            int month,int year,Date checkIn, Date checkOut, 
-            int occupantsNumber,double totalamount,double paidamount)
+    public void BookRoom(int r,String firstname,String lastName,String phonenumber,String email, 
+            String country,String city,String street,String zipCode , 
+            CreditCard creditcard,Date checkIn, Date checkOut, 
+            int occupantsNumber,Bill bill)
     {
         Address ad=new Address(country,city,street,zipCode);
-        CreditCard cc=new CreditCard(cardnumber,cardholder,month,year);
-        Bill bill=new Bill(totalamount,paidamount);
-        Guest g=new Guest(firstname,lastName,phonenumber,email,ad,cc,checkIn,checkOut,occupantsNumber,r,bill);
+        Guest g=new Guest(firstname,lastName,phonenumber,email,ad,creditcard,checkIn,checkOut,occupantsNumber,r,bill);
         query = "INSERT INTO guests ( firstname, lastname, phonenum, mail, address,cardnumber ,cardholdername, cardexpiry, checkin, checkout,occupants_number, room_number, paidamount,totalamount  ) VALUES ( '"
                 +g.getFirstName()+"', '"+g.getLastName()+"', '"+g.getPhoneNumber()+"', '"+g.getEmail()+"', '"+g.getAddress().getCountry()+"', '"+g.getAddress().getCity()+"', '"+g.getAddress().getStreet()+"', '"
                 +g.getAddress().getZipCode()+"', '"+g.getCreditCard().getCardNumber()+"', '"+g.getCreditCard().getCardHolder()+"', '"+g.getCreditCard().getExpiryDate()+"', '"+g.getCheckIn()+"', '"+g.getCheckOut()+"', '"
-                +g.getOccupantsNumber()+"', '"+g.getGuestRoom().getRoomNo()+"', '"+g.getBill().getPaidamount()+"', '"+g.getBill().getTotalamount()+"')";
+                +g.getOccupantsNumber()+"', '"+g.getGuestRoom()+"', '"+g.getBill().getPaidamount()+"', '"+g.getBill().getTotalamount()+"')";
         dbc.storeData(query);
     }
     

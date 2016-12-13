@@ -17,12 +17,12 @@ public class Guest extends Human {
     private Date checkIn;
     private Date checkOut;
     private int occupantsNumber;
-    private Room guestRoom;
+    private int guestRoom;
     private Bill bill;
 
     public Guest (int guestID, String firstName, String lastName,  String phoneNumber, String email, 
             Address address,  CreditCard creditCard, Date checkIn, Date checkOut, 
-            int occupantsNumber, Room guestRoom,Bill bill) {
+            int occupantsNumber, int guestRoom,Bill bill) {
         
         super(firstName, lastName, phoneNumber, email, address);
         setGuestID(guestID);
@@ -36,7 +36,7 @@ public class Guest extends Human {
     
     public Guest ( String firstName, String lastName,  String phoneNumber, String email, 
             Address address, CreditCard creditCard, Date checkIn, Date checkOut, 
-            int occupantsNumber, Room guestRoom,Bill bill) {
+            int occupantsNumber, int guestRoom,Bill bill) {
         
         super(firstName, lastName,  phoneNumber, email, address);
         setCreditCard(creditCard);
@@ -117,11 +117,11 @@ public class Guest extends Human {
     /**
      * @return the guestRoom
      */
-    public Room getGuestRoom() {
+    public int getGuestRoom() {
         return guestRoom;
     }
 
-    public void setGuestRoom(Room guestRoom) {
+    public void setGuestRoom(int guestRoom) {
         this.guestRoom = guestRoom;
     }
 

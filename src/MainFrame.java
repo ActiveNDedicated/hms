@@ -27,7 +27,9 @@ public class MainFrame extends javax.swing.JFrame {
     Calendar today = Calendar.getInstance();
     Calendar checkInCal = Calendar.getInstance();
     Calendar checkOutCal = Calendar.getInstance();
-    
+    Bill bill;
+    int roomNum;
+    int numOccupants;
    
   /**
      * Creates new form MainFrame
@@ -983,7 +985,7 @@ public class MainFrame extends javax.swing.JFrame {
         bookingManagementPanel.setVisible(false);
         aboutPanel.setVisible(false);}
         else 
-            JOptionPane.showMessageDialog(null, "Login as a Manager!");
+            JOptionPane.showMessageDialog(null, "To have an access to this option\nlogin as a Manager!");
     }//GEN-LAST:event_staffManagementButtonMouseClicked
 
     private void roomBookingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomBookingButtonMouseClicked
@@ -1025,7 +1027,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         else {
             
-            int numOccupants = Integer.parseInt((String)adultsNumberBox.getSelectedItem())+Integer.parseInt((String)childrenNumberBox.getSelectedItem());
+            numOccupants = Integer.parseInt((String)adultsNumberBox.getSelectedItem())+Integer.parseInt((String)childrenNumberBox.getSelectedItem());
             
             Vector <Room> availableRooms=user.CheckRoomAvailability(checkInCalendar.getDate(), checkOutCalendar.getDate(), numOccupants);
 
@@ -1065,14 +1067,13 @@ public class MainFrame extends javax.swing.JFrame {
         }
         else
         {
-            int roomNum = Integer.parseInt(roomsTable.getModel().getValueAt(row, 0).toString());
+            roomNum = Integer.parseInt(roomsTable.getModel().getValueAt(row, 0).toString());
             
             int reply = JOptionPane.showConfirmDialog(null, "Client should pay: " 
                     + user.showRoomPrice(checkInCalendar.getDate(), checkOutCalendar.getDate(), (double) roomsTable.getModel().getValueAt(row, 3)) +
                     "$\n Are you sure you want to book the room?", "Room booking", JOptionPane.YES_NO_OPTION);
             
             if (reply == JOptionPane.YES_OPTION) {
-                Bill bill;
                 bill = user.generateBill(checkInCalendar.getDate(), checkOutCalendar.getDate() , (double) roomsTable.getModel().getValueAt(row, 3));
                 roomBookingPanel1.setVisible(false);
                 roomBookingPanel2.setVisible(false);
@@ -1091,7 +1092,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void makeBookingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_makeBookingButtonMouseClicked
                 
-        if (expiryMonthRoomBookingCalendar.getMonth() < Calendar.getInstance().get(Calendar.MONTH) || Calendar.getInstance().get(Calendar.YEAR) > expiryYearRoomBookingCalendar.getYear()){
+        if (expiryMonthRoomBookingCalendar.getMonth() < Calendar.getInstance().get(Calendar.MONTH) || Calendar.getInstance().get(Calendar.YEAR) > expiryYearRoomBookingCalendar.getYear())
+        {
             JOptionPane.showMessageDialog(null, "Your credit card is already expired or you entered wrong expiry date!", "Alert", JOptionPane.ERROR_MESSAGE);
             expiryMonthRoomBookingCalendar.setMonth(Calendar.getInstance().get(Calendar.MONTH));
             expiryYearRoomBookingCalendar.setYear(Calendar.getInstance().get(Calendar.YEAR));
@@ -1114,7 +1116,12 @@ public class MainFrame extends javax.swing.JFrame {
                                                    cardHolderNameRoomBookingField.getText(),
                                                    expiryMonthRoomBookingCalendar.getMonth(),
                                                    expiryYearRoomBookingCalendar.getYear());
+            
             if(creditCard.getCardNumber()!=null) {
+                user.BookRoom(roomNum, firstNameRoomBookingField.getText(),lastNameRoomBookingField.getText(), phoneNumberRoomBookingField.getText(),emailRoomBookingField.getText(),
+                        countryRoomBookingField.getText(),cityRoomBookingField.getText(),streetRoomBookingField.getText(),
+                        zipCodeRoomBookingField.getText(),creditCard, checkInCalendar.getDate(), checkOutCalendar.getDate(), 
+                        numOccupants, bill);
                 JOptionPane.showMessageDialog(null, "Successfully booked!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                 roomBookingPanel1.setVisible(true);
                 roomBookingPanel2.setVisible(false);
