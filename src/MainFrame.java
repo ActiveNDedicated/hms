@@ -1306,7 +1306,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void showAllStaffManagementButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllStaffManagementButtonMouseClicked
 
         Vector<User> found=user.searchUser(null, null);
-        
+        staffManagementTableModel.setRowCount(0);
         for (int i=0;i<found.size();i++)
                 {
                     Object[] row = { null, null, null, null, null, null, null, null, null, null, null};
