@@ -1273,6 +1273,7 @@ public class MainFrame extends javax.swing.JFrame {
         if ("admin".equals(user.getUserName())){
             row = staffManagementTable.getSelectedRow();
     
+            
         if (row == -1)
         {
             JOptionPane.showMessageDialog(null, "Please select an employee before performing an operation ", "Alert", JOptionPane.ERROR_MESSAGE);
