@@ -1266,7 +1266,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void deleteUserStaffManagementButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteUserStaffManagementButtonMouseClicked
         if ("admin".equals(user.getUserName())){
             row = staffManagementTable.getSelectedRow();
-
+    
+            
         if (row == -1)
         {
             JOptionPane.showMessageDialog(null, "Please select an employee before performing an operation ", "Alert", JOptionPane.ERROR_MESSAGE);
@@ -1279,11 +1280,13 @@ public class MainFrame extends javax.swing.JFrame {
             
             if (reply == JOptionPane.YES_OPTION) {
                 user.deleteUser(userName);
+                showAllStaffManagementButtonMouseClicked(evt);
                 JOptionPane.showMessageDialog(null, "The user was successfully deleted!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                 row = -1;
             }
             
         }
+        
         }
         
         else {
