@@ -55,7 +55,7 @@ public class CreditCard {
     public String getCardNumber() {
         return cardNumber;
     }
-
+   
     /**
      * @param cardNumber the cardNumber to set
      */

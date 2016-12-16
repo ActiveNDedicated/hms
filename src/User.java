@@ -65,7 +65,7 @@ public class User extends Human{
      public static boolean isManager() {
         return ismanager;
     }
-    
+        
         public Vector<Room> CheckRoomAvailability (Date checkin,Date checkout,int numOccupants)
     {
      Vector  <Room> available=new Vector<Room>();
@@ -133,5 +133,9 @@ public class User extends Human{
     }
     
     public Vector<User> searchUser(String fname, String lname){return null;}
+    
+    public void registerUser(String fname,String lname,String phone,String mail, String country,String city,String street,String zipCode , String usern,String passw,boolean isManager){}
+    
+    public void deleteUser(String username) {}
     
 }

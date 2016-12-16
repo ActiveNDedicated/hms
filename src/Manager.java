@@ -87,19 +87,20 @@ public class Manager extends User {
           
     }
     
-    public void registerUser(String fname,String lname,String phone,String mail, Address addr,String gender, String usern,String passw,boolean isManager)
+    public void registerUser(String fname,String lname,String phone,String mail, String country,String city,String street,String zipCode , String usern,String passw,boolean isManager)
    {
-   if (isManager)
+   Address addr=new Address(country,city,street,zipCode);
+       if (isManager)
    {
        Manager m= new Manager(fname,lname,phone,mail,addr,usern,passw);
-       query = "INSERT INTO users ( username, password, isManager, firstname, lastname, phonenumber, email, gender,country, city, street, zipcode ) VALUES ( '"+m.getUserName()+"', '"+m.getPassword()+"', '"+1+"', '"+m.getFirstName()+"', '"
+       query = "INSERT INTO users ( username, password, isManager, firstname, lastname, phonenumber, email, country, city, street, zipcode ) VALUES ( '"+m.getUserName()+"', '"+m.getPassword()+"', '"+1+"', '"+m.getFirstName()+"', '"
                +m.getLastName()+"', '"+m.getPhoneNumber()+"', '"+m.getEmail()+"','"+m.getAddress().getCountry()+"', '"+m.getAddress().getCity()+"', '"+m.getAddress().getStreet()+"', '"+m.getAddress().getZipCode()+"')";
        dbc.storeData(query);
    }
    else 
    {
        Receptionist m=new Receptionist(fname,lname,phone,mail,addr,usern,passw);
-       query = "INSERT INTO users ( username, password, isManager, firstname, lastname, phonenumber, email, gender,country, city, street, zipcode ) VALUES ( '"+m.getUserName()+"', '"+m.getPassword()+"', '"+0+"', '"+m.getFirstName()+"', '"
+       query = "INSERT INTO users ( username, password, isManager, firstname, lastname, phonenumber, email, country, city, street, zipcode ) VALUES ( '"+m.getUserName()+"', '"+m.getPassword()+"', '"+0+"', '"+m.getFirstName()+"', '"
                +m.getLastName()+"', '"+m.getPhoneNumber()+"', '"+m.getEmail()+"', '"+m.getAddress().getCountry()+"', '"+m.getAddress().getCity()+"', '"+m.getAddress().getStreet()+"', '"+m.getAddress().getZipCode()+"')";
        dbc.storeData(query);
    }
