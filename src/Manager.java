@@ -108,7 +108,7 @@ public class Manager extends User {
     
    public void deleteUser(String username)
    {
-         query="Delete * from users WHERE username='"+username+"'";
+         query="Delete from users WHERE username='"+username+"';";
          dbc.deleteData(query);
    }
    public void modifyUser(String fname,String lname,String phone,String mail, Address addr, String usern,String passw){
