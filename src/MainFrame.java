@@ -101,6 +101,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         userBoxGroup = new javax.swing.ButtonGroup();
         tabsPane = new javax.swing.JLayeredPane();
+        roomsManagementPane = new javax.swing.JLayeredPane();
         roomsManagementPanel = new javax.swing.JPanel();
         roomsManagementScrollPane = new javax.swing.JScrollPane();
         roomsManagementTable = new javax.swing.JTable();
@@ -188,6 +189,7 @@ public class MainFrame extends javax.swing.JFrame {
         emailStaffManagementField2 = new javax.swing.JTextField();
         userNameStaffManagementLabel2 = new javax.swing.JLabel();
         userNameStaffManagementField2 = new javax.swing.JTextField();
+        guestsManagementPane = new javax.swing.JLayeredPane();
         guestsManagementPanel = new javax.swing.JPanel();
         guestsScrollPane = new javax.swing.JScrollPane();
         guestsTable = new javax.swing.JTable();
@@ -198,6 +200,7 @@ public class MainFrame extends javax.swing.JFrame {
         firstNameGuestsManagementField = new javax.swing.JTextField();
         lastNameGuestsManagementLabel = new javax.swing.JLabel();
         lastNameGuestsManagementField = new javax.swing.JTextField();
+        bookingManagementPane = new javax.swing.JLayeredPane();
         bookingManagementPanel = new javax.swing.JPanel();
         aboutPanel = new javax.swing.JPanel();
         aboutPanelBackground = new javax.swing.JLabel();
@@ -253,8 +256,11 @@ public class MainFrame extends javax.swing.JFrame {
         roomsManagementPanel.add(roomNumberRoomsManagementField);
         roomNumberRoomsManagementField.setBounds(710, 130, 310, 30);
 
-        tabsPane.add(roomsManagementPanel);
+        roomsManagementPane.add(roomsManagementPanel);
         roomsManagementPanel.setBounds(0, 0, 1030, 640);
+
+        tabsPane.add(roomsManagementPane);
+        roomsManagementPane.setBounds(0, 0, 1030, 640);
 
         roomBookingPane.setBackground(new java.awt.Color(0, 87, 167));
 
@@ -775,12 +781,18 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel.add(lastNameGuestsManagementField);
         lastNameGuestsManagementField.setBounds(710, 200, 310, 30);
 
-        tabsPane.add(guestsManagementPanel);
+        guestsManagementPane.add(guestsManagementPanel);
         guestsManagementPanel.setBounds(0, 0, 1030, 640);
 
+        tabsPane.add(guestsManagementPane);
+        guestsManagementPane.setBounds(-1, -1, 1030, 640);
+
         bookingManagementPanel.setBackground(new java.awt.Color(0, 87, 167));
-        tabsPane.add(bookingManagementPanel);
+        bookingManagementPane.add(bookingManagementPanel);
         bookingManagementPanel.setBounds(0, 0, 1030, 640);
+
+        tabsPane.add(bookingManagementPane);
+        bookingManagementPane.setBounds(0, 0, 1030, 640);
 
         aboutPanel.setBackground(new java.awt.Color(0, 87, 167));
 
@@ -1354,6 +1366,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel blueBackground;
     private javax.swing.JLabel bookItButton;
     private javax.swing.JLabel bookingManagementButton;
+    private javax.swing.JLayeredPane bookingManagementPane;
     private javax.swing.JPanel bookingManagementPanel;
     private javax.swing.JTextField cardHolderNameRoomBookingField;
     private javax.swing.JLabel cardHolderNameRoomBookingLabel;
@@ -1393,6 +1406,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel firstNameStaffManagementLabel1;
     private javax.swing.JLabel firstNameStaffManagementLabel2;
     private javax.swing.JLabel guestsManagementButton;
+    private javax.swing.JLayeredPane guestsManagementPane;
     private javax.swing.JPanel guestsManagementPanel;
     private javax.swing.JScrollPane guestsScrollPane;
     private javax.swing.JTable guestsTable;
@@ -1428,6 +1442,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField roomNumberRoomsManagementField;
     private javax.swing.JScrollPane roomsBookingScrollPane;
     private javax.swing.JLabel roomsManagementButton;
+    private javax.swing.JLayeredPane roomsManagementPane;
     private javax.swing.JPanel roomsManagementPanel;
     private javax.swing.JScrollPane roomsManagementScrollPane;
     private javax.swing.JTable roomsManagementTable;
