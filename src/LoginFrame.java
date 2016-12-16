@@ -101,9 +101,9 @@ public class LoginFrame extends javax.swing.JFrame {
                    dispose();
                    found=true;
                    if (rs.getInt("isManager")==1)
-                       user=new Manager(rs.getString("firstname"),rs.getString("lastname"),rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),rs.getString("password"));
+                       user = new Manager(rs.getString("firstname"),rs.getString("lastname"),rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),rs.getString("password"));
                    else
-                       user=new Receptionist(rs.getString("firstname"),rs.getString("lastname"),rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),rs.getString("password"));
+                       user = new Receptionist(rs.getString("firstname"),rs.getString("lastname"),rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),rs.getString("password"));
                    
                     /* Set the Windows look and feel */
                 //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

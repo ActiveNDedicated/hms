@@ -62,7 +62,9 @@ public class User extends Human{
     public void setPassword(String password) {
         this.password = password;
     }
-    
+     public static boolean isManager() {
+        return ismanager;
+    }
     
         public Vector<Room> CheckRoomAvailability (Date checkin,Date checkout,int numOccupants)
     {
@@ -129,5 +131,7 @@ public class User extends Human{
         dbc.storeData(query);
     
     }
+    
+    public Vector<User> searchUser(String fname, String lname){return null;}
     
 }

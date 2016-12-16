@@ -117,7 +117,10 @@ public class Manager extends User {
    }
    
    public Vector<User> searchUser(String fname, String lname){
-       query="SELECT * FROM users WHERE firstname='"+fname+"' OR lastname='"+lname+"';";
+       if (fname==null&&lname==null)
+           query="SELECT * FROM users;";
+       else
+           query="SELECT * FROM users WHERE firstname='"+fname+"' OR lastname='"+lname+"';";
        Vector  <User> found=new Vector<User>();
        ResultSet rs = dbc.getData(query);
        User user;
@@ -126,9 +129,14 @@ public class Manager extends User {
                 while (rs.next()) 
                 {
                    if (rs.getInt("isManager")==1)
-                      user=new Manager(rs.getString("firstname"),rs.getString("lastname"),rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),rs.getString("password"));
+                      user=new Manager(rs.getString("firstname"),rs.getString("lastname"),
+                                       rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),
+                                       rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),
+                                       rs.getString("password"));
                    else
-                       user=new Receptionist(rs.getString("firstname"),rs.getString("lastname"),rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),rs.getString("password"));
+                       user=new Receptionist(rs.getString("firstname"),rs.getString("lastname"),rs.getString("phonenumber"),
+                                             rs.getString("email"),new Address(rs.getString("country"),rs.getString("city"),rs.getString("street"),
+                                             rs.getString("zipcode")),rs.getString("username"),rs.getString("password"));
                 found.add(user);
                 }
             }
@@ -138,5 +146,6 @@ public class Manager extends User {
             }
        return found;
    }
+   
    
 }

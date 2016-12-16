@@ -21,6 +21,7 @@ import org.joda.time.DateTime;
 public class MainFrame extends javax.swing.JFrame {
 
     User user;
+    Manager manager;
     Date date = new DateTime().toDate(); // todaysdate
     Date dateAfterTwo = new DateTime().plusDays(2).toDate();
     SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
@@ -31,6 +32,7 @@ public class MainFrame extends javax.swing.JFrame {
     Bill bill;
     int roomNum;
     int numOccupants;
+    int row;
    
   /**
      * Creates new form MainFrame
@@ -69,6 +71,20 @@ public class MainFrame extends javax.swing.JFrame {
                         }
             
         };
+    
+    javax.swing.table.DefaultTableModel staffManagementTableModel = new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "Username", "Password", "Manager", "First Name", "Last Name", "Phone Number", "E-mail", "Country", "City", "Street", "ZIP-Code"
+            }
+        )   {
+                            public boolean isCellEditable(int row, int column)
+                        {
+                          return false;
+                        }
+            
+        };
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,6 +96,42 @@ public class MainFrame extends javax.swing.JFrame {
 
         userBoxGroup = new javax.swing.ButtonGroup();
         tabsPane = new javax.swing.JLayeredPane();
+        staffManagementPane = new javax.swing.JLayeredPane();
+        staffManagementPanel1 = new javax.swing.JPanel();
+        staffManagementScrollPane = new javax.swing.JScrollPane();
+        staffManagementTable = new javax.swing.JTable();
+        searchStaffManagementButton = new javax.swing.JLabel();
+        showAllStaffManagementButton = new javax.swing.JLabel();
+        modifyStaffManagementButton = new javax.swing.JLabel();
+        registerUserStaffManagementButton = new javax.swing.JLabel();
+        firstNameStaffManagementLabel1 = new javax.swing.JLabel();
+        firstNameStaffManagementField1 = new javax.swing.JTextField();
+        lastNameStaffManagementLabel1 = new javax.swing.JLabel();
+        lastNameStaffManagementField1 = new javax.swing.JTextField();
+        staffManagementPanel2 = new javax.swing.JPanel();
+        firstNameStaffManagementField = new javax.swing.JTextField();
+        lastNameStaffManagementField2 = new javax.swing.JTextField();
+        countryStaffManagementField2 = new javax.swing.JTextField();
+        cityStaffManagementField2 = new javax.swing.JTextField();
+        streetStaffManagementField2 = new javax.swing.JTextField();
+        zipStaffManagementField2 = new javax.swing.JTextField();
+        passwordStaffManagementField2 = new javax.swing.JTextField();
+        phoneNumberStaffManagementField2 = new javax.swing.JTextField();
+        registerButton = new javax.swing.JLabel();
+        firstNameStaffManagementLabel2 = new javax.swing.JLabel();
+        lastNameStaffManagementLabel2 = new javax.swing.JLabel();
+        countryStaffManagementLabel2 = new javax.swing.JLabel();
+        cityStaffManagementLabel2 = new javax.swing.JLabel();
+        streetStaffManagementLabel2 = new javax.swing.JLabel();
+        zipCodeStaffManagementLabel2 = new javax.swing.JLabel();
+        passwordStaffManagementLabel2 = new javax.swing.JLabel();
+        phoneNumberStaffManagementLabel2 = new javax.swing.JLabel();
+        emailStaffManagementLabel2 = new javax.swing.JLabel();
+        receptionistCheckBox = new javax.swing.JCheckBox();
+        managerCheckBox = new javax.swing.JCheckBox();
+        emailStaffManagementField2 = new javax.swing.JTextField();
+        userNameStaffManagementLabel2 = new javax.swing.JLabel();
+        userNameStaffManagementField2 = new javax.swing.JTextField();
         roomBookingPane = new javax.swing.JLayeredPane();
         roomBookingPanel1 = new javax.swing.JPanel();
         adultsNumberBox = new javax.swing.JComboBox<>();
@@ -122,42 +174,6 @@ public class MainFrame extends javax.swing.JFrame {
         cardHolderNameRoomBookingLabel = new javax.swing.JLabel();
         cardHolderNameRoomBookingField = new javax.swing.JTextField();
         firstNameRoomBookingLabel1 = new javax.swing.JLabel();
-        staffManagementPane = new javax.swing.JLayeredPane();
-        staffManagementPanel1 = new javax.swing.JPanel();
-        staffManagementScrollPane = new javax.swing.JScrollPane();
-        stafManagementTable = new javax.swing.JTable();
-        searchStaffManagementButton = new javax.swing.JLabel();
-        showStaffManagementButton = new javax.swing.JLabel();
-        modifyStaffManagementButton = new javax.swing.JLabel();
-        registerUserStaffManagementButton = new javax.swing.JLabel();
-        firstNameStaffManagementLabel1 = new javax.swing.JLabel();
-        firstNameStaffManagementField1 = new javax.swing.JTextField();
-        lastNameStaffManagementLabel1 = new javax.swing.JLabel();
-        lastNameStaffManagementField1 = new javax.swing.JTextField();
-        staffManagementPanel2 = new javax.swing.JPanel();
-        firstNameStaffManagementField = new javax.swing.JTextField();
-        lastNameStaffManagementField2 = new javax.swing.JTextField();
-        countryStaffManagementField2 = new javax.swing.JTextField();
-        cityStaffManagementField2 = new javax.swing.JTextField();
-        streetStaffManagementField2 = new javax.swing.JTextField();
-        zipStaffManagementField2 = new javax.swing.JTextField();
-        passwordStaffManagementField2 = new javax.swing.JTextField();
-        phoneNumberStaffManagementField2 = new javax.swing.JTextField();
-        registerButton = new javax.swing.JLabel();
-        firstNameStaffManagementLabel2 = new javax.swing.JLabel();
-        lastNameStaffManagementLabel2 = new javax.swing.JLabel();
-        countryStaffManagementLabel2 = new javax.swing.JLabel();
-        cityStaffManagementLabel2 = new javax.swing.JLabel();
-        streetStaffManagementLabel2 = new javax.swing.JLabel();
-        zipCodeStaffManagementLabel2 = new javax.swing.JLabel();
-        passwordStaffManagementLabel2 = new javax.swing.JLabel();
-        phoneNumberStaffManagementLabel2 = new javax.swing.JLabel();
-        emailStaffManagementLabel2 = new javax.swing.JLabel();
-        receptionistCheckBox = new javax.swing.JCheckBox();
-        managerCheckBox = new javax.swing.JCheckBox();
-        emailStaffManagementField2 = new javax.swing.JTextField();
-        userNameStaffManagementLabel2 = new javax.swing.JLabel();
-        userNameStaffManagementField2 = new javax.swing.JTextField();
         roomsManagementPanel = new javax.swing.JPanel();
         roomsManagementScrollPane = new javax.swing.JScrollPane();
         roomsManagementTable = new javax.swing.JTable();
@@ -198,6 +214,227 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         tabsPane.setBackground(new java.awt.Color(0, 87, 167));
+
+        staffManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
+        staffManagementPanel1.setLayout(null);
+
+        staffManagementTable.setModel(staffManagementTableModel);
+        staffManagementScrollPane.setViewportView(staffManagementTable);
+
+        staffManagementPanel1.add(staffManagementScrollPane);
+        staffManagementScrollPane.setBounds(10, 100, 690, 460);
+
+        searchStaffManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchButton.png"))); // NOI18N
+        searchStaffManagementButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchStaffManagementButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                searchStaffManagementButtonMouseEntered(evt);
+            }
+        });
+        staffManagementPanel1.add(searchStaffManagementButton);
+        searchStaffManagementButton.setBounds(710, 250, 320, 60);
+
+        showAllStaffManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/showAllButton.png"))); // NOI18N
+        showAllStaffManagementButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showAllStaffManagementButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                showAllStaffManagementButtonMouseEntered(evt);
+            }
+        });
+        staffManagementPanel1.add(showAllStaffManagementButton);
+        showAllStaffManagementButton.setBounds(710, 330, 320, 60);
+
+        modifyStaffManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
+        staffManagementPanel1.add(modifyStaffManagementButton);
+        modifyStaffManagementButton.setBounds(710, 410, 320, 57);
+
+        registerUserStaffManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registerUserButton.png"))); // NOI18N
+        registerUserStaffManagementButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerUserStaffManagementButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registerUserStaffManagementButtonMouseEntered(evt);
+            }
+        });
+        staffManagementPanel1.add(registerUserStaffManagementButton);
+        registerUserStaffManagementButton.setBounds(710, 490, 320, 57);
+
+        firstNameStaffManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameStaffManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        firstNameStaffManagementLabel1.setText("First Name");
+        staffManagementPanel1.add(firstNameStaffManagementLabel1);
+        firstNameStaffManagementLabel1.setBounds(710, 90, 220, 40);
+
+        firstNameStaffManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameStaffManagementField1.setBorder(null);
+        staffManagementPanel1.add(firstNameStaffManagementField1);
+        firstNameStaffManagementField1.setBounds(710, 130, 310, 30);
+
+        lastNameStaffManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameStaffManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        lastNameStaffManagementLabel1.setText("Last Name");
+        staffManagementPanel1.add(lastNameStaffManagementLabel1);
+        lastNameStaffManagementLabel1.setBounds(710, 160, 220, 40);
+
+        lastNameStaffManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameStaffManagementField1.setBorder(null);
+        staffManagementPanel1.add(lastNameStaffManagementField1);
+        lastNameStaffManagementField1.setBounds(710, 200, 310, 30);
+
+        staffManagementPane.add(staffManagementPanel1);
+        staffManagementPanel1.setBounds(0, 0, 1030, 640);
+
+        staffManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
+        staffManagementPanel2.setLayout(null);
+
+        firstNameStaffManagementField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameStaffManagementField.setBorder(null);
+        staffManagementPanel2.add(firstNameStaffManagementField);
+        firstNameStaffManagementField.setBounds(50, 100, 280, 30);
+
+        lastNameStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameStaffManagementField2.setBorder(null);
+        staffManagementPanel2.add(lastNameStaffManagementField2);
+        lastNameStaffManagementField2.setBounds(370, 100, 280, 30);
+
+        countryStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        countryStaffManagementField2.setBorder(null);
+        staffManagementPanel2.add(countryStaffManagementField2);
+        countryStaffManagementField2.setBounds(50, 190, 140, 30);
+
+        cityStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cityStaffManagementField2.setBorder(null);
+        staffManagementPanel2.add(cityStaffManagementField2);
+        cityStaffManagementField2.setBounds(230, 190, 140, 30);
+
+        streetStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        streetStaffManagementField2.setBorder(null);
+        staffManagementPanel2.add(streetStaffManagementField2);
+        streetStaffManagementField2.setBounds(410, 190, 210, 30);
+
+        zipStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        zipStaffManagementField2.setBorder(null);
+        staffManagementPanel2.add(zipStaffManagementField2);
+        zipStaffManagementField2.setBounds(650, 190, 140, 30);
+
+        passwordStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        passwordStaffManagementField2.setBorder(null);
+        staffManagementPanel2.add(passwordStaffManagementField2);
+        passwordStaffManagementField2.setBounds(230, 370, 140, 30);
+
+        phoneNumberStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        phoneNumberStaffManagementField2.setBorder(null);
+        staffManagementPanel2.add(phoneNumberStaffManagementField2);
+        phoneNumberStaffManagementField2.setBounds(230, 280, 140, 30);
+
+        registerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registerButton.png"))); // NOI18N
+        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                registerButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registerButtonMouseEntered(evt);
+            }
+        });
+        staffManagementPanel2.add(registerButton);
+        registerButton.setBounds(350, 490, 320, 60);
+
+        firstNameStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        firstNameStaffManagementLabel2.setText("First Name");
+        staffManagementPanel2.add(firstNameStaffManagementLabel2);
+        firstNameStaffManagementLabel2.setBounds(50, 60, 180, 40);
+
+        lastNameStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        lastNameStaffManagementLabel2.setText("Last Name");
+        staffManagementPanel2.add(lastNameStaffManagementLabel2);
+        lastNameStaffManagementLabel2.setBounds(370, 60, 180, 40);
+
+        countryStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        countryStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        countryStaffManagementLabel2.setText("Country");
+        staffManagementPanel2.add(countryStaffManagementLabel2);
+        countryStaffManagementLabel2.setBounds(50, 150, 70, 40);
+
+        cityStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cityStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        cityStaffManagementLabel2.setText("City");
+        staffManagementPanel2.add(cityStaffManagementLabel2);
+        cityStaffManagementLabel2.setBounds(230, 150, 40, 40);
+
+        streetStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        streetStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        streetStaffManagementLabel2.setText("Street");
+        staffManagementPanel2.add(streetStaffManagementLabel2);
+        streetStaffManagementLabel2.setBounds(410, 150, 60, 40);
+
+        zipCodeStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        zipCodeStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        zipCodeStaffManagementLabel2.setText("ZIP Code");
+        staffManagementPanel2.add(zipCodeStaffManagementLabel2);
+        zipCodeStaffManagementLabel2.setBounds(650, 150, 80, 40);
+
+        passwordStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        passwordStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        passwordStaffManagementLabel2.setText("Password");
+        staffManagementPanel2.add(passwordStaffManagementLabel2);
+        passwordStaffManagementLabel2.setBounds(230, 330, 90, 40);
+
+        phoneNumberStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        phoneNumberStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        phoneNumberStaffManagementLabel2.setText("Phone Number");
+        staffManagementPanel2.add(phoneNumberStaffManagementLabel2);
+        phoneNumberStaffManagementLabel2.setBounds(230, 240, 130, 40);
+
+        emailStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        emailStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        emailStaffManagementLabel2.setText("Email");
+        staffManagementPanel2.add(emailStaffManagementLabel2);
+        emailStaffManagementLabel2.setBounds(50, 240, 50, 40);
+
+        receptionistCheckBox.setBackground(new java.awt.Color(0, 87, 160));
+        userBoxGroup.add(receptionistCheckBox);
+        receptionistCheckBox.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        receptionistCheckBox.setForeground(new java.awt.Color(255, 255, 255));
+        receptionistCheckBox.setText("Receptionist");
+        staffManagementPanel2.add(receptionistCheckBox);
+        receptionistCheckBox.setBounds(540, 440, 123, 30);
+
+        managerCheckBox.setBackground(new java.awt.Color(0, 87, 160));
+        userBoxGroup.add(managerCheckBox);
+        managerCheckBox.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        managerCheckBox.setForeground(new java.awt.Color(255, 255, 255));
+        managerCheckBox.setText("Manager");
+        staffManagementPanel2.add(managerCheckBox);
+        managerCheckBox.setBounds(350, 440, 100, 30);
+
+        emailStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        emailStaffManagementField2.setBorder(null);
+        staffManagementPanel2.add(emailStaffManagementField2);
+        emailStaffManagementField2.setBounds(50, 280, 140, 30);
+
+        userNameStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        userNameStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        userNameStaffManagementLabel2.setText("User Name");
+        staffManagementPanel2.add(userNameStaffManagementLabel2);
+        userNameStaffManagementLabel2.setBounds(50, 330, 100, 40);
+
+        userNameStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        userNameStaffManagementField2.setBorder(null);
+        staffManagementPanel2.add(userNameStaffManagementField2);
+        userNameStaffManagementField2.setBounds(50, 370, 140, 30);
+
+        staffManagementPane.add(staffManagementPanel2);
+        staffManagementPanel2.setBounds(0, 0, 1030, 640);
+
+        tabsPane.add(staffManagementPane);
+        staffManagementPane.setBounds(0, 0, 1030, 640);
 
         roomBookingPane.setBackground(new java.awt.Color(0, 87, 167));
 
@@ -431,221 +668,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         tabsPane.add(roomBookingPane);
         roomBookingPane.setBounds(0, 0, 1030, 640);
-
-        staffManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
-        staffManagementPanel1.setLayout(null);
-
-        stafManagementTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        staffManagementScrollPane.setViewportView(stafManagementTable);
-
-        staffManagementPanel1.add(staffManagementScrollPane);
-        staffManagementScrollPane.setBounds(10, 100, 690, 460);
-
-        searchStaffManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchButton.png"))); // NOI18N
-        staffManagementPanel1.add(searchStaffManagementButton);
-        searchStaffManagementButton.setBounds(710, 250, 320, 60);
-
-        showStaffManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/showAllButton.png"))); // NOI18N
-        staffManagementPanel1.add(showStaffManagementButton);
-        showStaffManagementButton.setBounds(710, 330, 320, 60);
-
-        modifyStaffManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
-        staffManagementPanel1.add(modifyStaffManagementButton);
-        modifyStaffManagementButton.setBounds(710, 410, 320, 57);
-
-        registerUserStaffManagementButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registerUserButton.png"))); // NOI18N
-        registerUserStaffManagementButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registerUserStaffManagementButtonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registerUserStaffManagementButtonMouseEntered(evt);
-            }
-        });
-        staffManagementPanel1.add(registerUserStaffManagementButton);
-        registerUserStaffManagementButton.setBounds(710, 490, 320, 57);
-
-        firstNameStaffManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameStaffManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        firstNameStaffManagementLabel1.setText("First Name");
-        staffManagementPanel1.add(firstNameStaffManagementLabel1);
-        firstNameStaffManagementLabel1.setBounds(710, 90, 220, 40);
-
-        firstNameStaffManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameStaffManagementField1.setBorder(null);
-        staffManagementPanel1.add(firstNameStaffManagementField1);
-        firstNameStaffManagementField1.setBounds(710, 130, 310, 30);
-
-        lastNameStaffManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameStaffManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        lastNameStaffManagementLabel1.setText("Last Name");
-        staffManagementPanel1.add(lastNameStaffManagementLabel1);
-        lastNameStaffManagementLabel1.setBounds(710, 160, 220, 40);
-
-        lastNameStaffManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameStaffManagementField1.setBorder(null);
-        staffManagementPanel1.add(lastNameStaffManagementField1);
-        lastNameStaffManagementField1.setBounds(710, 200, 310, 30);
-
-        staffManagementPane.add(staffManagementPanel1);
-        staffManagementPanel1.setBounds(0, 0, 1030, 640);
-
-        staffManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
-        staffManagementPanel2.setLayout(null);
-
-        firstNameStaffManagementField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameStaffManagementField.setBorder(null);
-        staffManagementPanel2.add(firstNameStaffManagementField);
-        firstNameStaffManagementField.setBounds(50, 100, 280, 30);
-
-        lastNameStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameStaffManagementField2.setBorder(null);
-        staffManagementPanel2.add(lastNameStaffManagementField2);
-        lastNameStaffManagementField2.setBounds(370, 100, 280, 30);
-
-        countryStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        countryStaffManagementField2.setBorder(null);
-        staffManagementPanel2.add(countryStaffManagementField2);
-        countryStaffManagementField2.setBounds(50, 190, 140, 30);
-
-        cityStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cityStaffManagementField2.setBorder(null);
-        staffManagementPanel2.add(cityStaffManagementField2);
-        cityStaffManagementField2.setBounds(230, 190, 140, 30);
-
-        streetStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        streetStaffManagementField2.setBorder(null);
-        staffManagementPanel2.add(streetStaffManagementField2);
-        streetStaffManagementField2.setBounds(410, 190, 210, 30);
-
-        zipStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        zipStaffManagementField2.setBorder(null);
-        staffManagementPanel2.add(zipStaffManagementField2);
-        zipStaffManagementField2.setBounds(650, 190, 140, 30);
-
-        passwordStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        passwordStaffManagementField2.setBorder(null);
-        staffManagementPanel2.add(passwordStaffManagementField2);
-        passwordStaffManagementField2.setBounds(230, 370, 140, 30);
-
-        phoneNumberStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        phoneNumberStaffManagementField2.setBorder(null);
-        staffManagementPanel2.add(phoneNumberStaffManagementField2);
-        phoneNumberStaffManagementField2.setBounds(230, 280, 140, 30);
-
-        registerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registerButton.png"))); // NOI18N
-        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                registerButtonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registerButtonMouseEntered(evt);
-            }
-        });
-        staffManagementPanel2.add(registerButton);
-        registerButton.setBounds(350, 490, 320, 60);
-
-        firstNameStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        firstNameStaffManagementLabel2.setText("First Name");
-        staffManagementPanel2.add(firstNameStaffManagementLabel2);
-        firstNameStaffManagementLabel2.setBounds(50, 60, 180, 40);
-
-        lastNameStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        lastNameStaffManagementLabel2.setText("Last Name");
-        staffManagementPanel2.add(lastNameStaffManagementLabel2);
-        lastNameStaffManagementLabel2.setBounds(370, 60, 180, 40);
-
-        countryStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        countryStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        countryStaffManagementLabel2.setText("Country");
-        staffManagementPanel2.add(countryStaffManagementLabel2);
-        countryStaffManagementLabel2.setBounds(50, 150, 70, 40);
-
-        cityStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cityStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        cityStaffManagementLabel2.setText("City");
-        staffManagementPanel2.add(cityStaffManagementLabel2);
-        cityStaffManagementLabel2.setBounds(230, 150, 40, 40);
-
-        streetStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        streetStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        streetStaffManagementLabel2.setText("Street");
-        staffManagementPanel2.add(streetStaffManagementLabel2);
-        streetStaffManagementLabel2.setBounds(410, 150, 60, 40);
-
-        zipCodeStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        zipCodeStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        zipCodeStaffManagementLabel2.setText("ZIP Code");
-        staffManagementPanel2.add(zipCodeStaffManagementLabel2);
-        zipCodeStaffManagementLabel2.setBounds(650, 150, 80, 40);
-
-        passwordStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        passwordStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        passwordStaffManagementLabel2.setText("Password");
-        staffManagementPanel2.add(passwordStaffManagementLabel2);
-        passwordStaffManagementLabel2.setBounds(230, 330, 90, 40);
-
-        phoneNumberStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        phoneNumberStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        phoneNumberStaffManagementLabel2.setText("Phone Number");
-        staffManagementPanel2.add(phoneNumberStaffManagementLabel2);
-        phoneNumberStaffManagementLabel2.setBounds(230, 240, 130, 40);
-
-        emailStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        emailStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        emailStaffManagementLabel2.setText("Email");
-        staffManagementPanel2.add(emailStaffManagementLabel2);
-        emailStaffManagementLabel2.setBounds(50, 240, 50, 40);
-
-        receptionistCheckBox.setBackground(new java.awt.Color(0, 87, 160));
-        userBoxGroup.add(receptionistCheckBox);
-        receptionistCheckBox.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        receptionistCheckBox.setForeground(new java.awt.Color(255, 255, 255));
-        receptionistCheckBox.setText("Receptionist");
-        staffManagementPanel2.add(receptionistCheckBox);
-        receptionistCheckBox.setBounds(540, 440, 123, 30);
-
-        managerCheckBox.setBackground(new java.awt.Color(0, 87, 160));
-        userBoxGroup.add(managerCheckBox);
-        managerCheckBox.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        managerCheckBox.setForeground(new java.awt.Color(255, 255, 255));
-        managerCheckBox.setText("Manager");
-        staffManagementPanel2.add(managerCheckBox);
-        managerCheckBox.setBounds(350, 440, 100, 30);
-
-        emailStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        emailStaffManagementField2.setBorder(null);
-        staffManagementPanel2.add(emailStaffManagementField2);
-        emailStaffManagementField2.setBounds(50, 280, 140, 30);
-
-        userNameStaffManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        userNameStaffManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        userNameStaffManagementLabel2.setText("User Name");
-        staffManagementPanel2.add(userNameStaffManagementLabel2);
-        userNameStaffManagementLabel2.setBounds(50, 330, 100, 40);
-
-        userNameStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        userNameStaffManagementField2.setBorder(null);
-        staffManagementPanel2.add(userNameStaffManagementField2);
-        userNameStaffManagementField2.setBounds(50, 370, 140, 30);
-
-        staffManagementPane.add(staffManagementPanel2);
-        staffManagementPanel2.setBounds(0, 0, 1030, 640);
-
-        tabsPane.add(staffManagementPane);
-        staffManagementPane.setBounds(0, 0, 1030, 640);
 
         roomsManagementPanel.setBackground(new java.awt.Color(0, 87, 167));
         roomsManagementPanel.setLayout(null);
@@ -975,7 +997,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_roomsManagementButtonMouseClicked
 
     private void staffManagementButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_staffManagementButtonMouseClicked
-        if (user instanceof Manager){
+        if (user instanceof Manager)
+        {
         roomBookingPanel1.setVisible(false);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
@@ -984,7 +1007,9 @@ public class MainFrame extends javax.swing.JFrame {
         roomsManagementPanel.setVisible(false);
         guestsManagementPanel.setVisible(false);
         bookingManagementPanel.setVisible(false);
-        aboutPanel.setVisible(false);}
+        aboutPanel.setVisible(false);
+        
+        }
         else 
             JOptionPane.showMessageDialog(null, "To have an access to this option\nlogin as a Manager!");
     }//GEN-LAST:event_staffManagementButtonMouseClicked
@@ -1060,7 +1085,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_makeBookingButtonMouseEntered
 
     private void bookItButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookItButtonMouseClicked
-        int row = roomsTable.getSelectedRow();
+        row = roomsTable.getSelectedRow();
 
         if(row == -1)
         {
@@ -1161,6 +1186,7 @@ public class MainFrame extends javax.swing.JFrame {
                         checkOutCalendar.setDate(dateAfterTwo);
                         adultsNumberBox.setSelectedIndex(0);
                         childrenNumberBox.setSelectedIndex(0);
+                        row = -1;
                     }
 
                 }
@@ -1194,6 +1220,40 @@ public class MainFrame extends javax.swing.JFrame {
         bookingManagementPanel.setVisible(false);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_registerUserStaffManagementButtonMouseClicked
+
+    private void searchStaffManagementButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchStaffManagementButtonMouseEntered
+        searchStaffManagementButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_searchStaffManagementButtonMouseEntered
+
+    private void searchStaffManagementButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchStaffManagementButtonMouseClicked
+        
+    }//GEN-LAST:event_searchStaffManagementButtonMouseClicked
+
+    private void showAllStaffManagementButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllStaffManagementButtonMouseEntered
+        showAllStaffManagementButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_showAllStaffManagementButtonMouseEntered
+
+    private void showAllStaffManagementButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllStaffManagementButtonMouseClicked
+//        try{
+//            
+//        }
+//        catch(Exception e){
+//            System.out.println(e);
+//            e.printStackTrace();
+//        }
+        Vector<User> found=user.searchUser(null, null);
+        
+        for (int i=0;i<found.size();i++)
+                {
+                    Object[] row = { null, null, null,null};
+                    staffManagementTableModel.addRow(row); 
+                    staffManagementTable.setValueAt(found.get(i).getUserName(), i, 0);
+                    staffManagementTable.setValueAt(found.get(i).getPassword(), i, 1);
+                    staffManagementTable.setValueAt(found.get(i).isManager(), i, 2);
+                    staffManagementTable.setValueAt(found.get(i).getFirstName(), i, 3);
+                    staffManagementTable.setValueAt(found.get(i).getLastName(), i, 4);
+                }
+    }//GEN-LAST:event_showAllStaffManagementButtonMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aboutButton;
@@ -1285,15 +1345,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel searchRoomBookingButton;
     private javax.swing.JLabel searchRoomsManagementButton;
     private javax.swing.JLabel searchStaffManagementButton;
+    private javax.swing.JLabel showAllStaffManagementButton;
     private javax.swing.JLabel showGuestsButton;
     private javax.swing.JLabel showRoomsManagementButton;
-    private javax.swing.JLabel showStaffManagementButton;
-    private javax.swing.JTable stafManagementTable;
     private javax.swing.JLabel staffManagementButton;
     private javax.swing.JLayeredPane staffManagementPane;
     private javax.swing.JPanel staffManagementPanel1;
     private javax.swing.JPanel staffManagementPanel2;
     private javax.swing.JScrollPane staffManagementScrollPane;
+    private javax.swing.JTable staffManagementTable;
     private javax.swing.JTextField streetRoomBookingField;
     private javax.swing.JLabel streetRoomBookingLabel;
     private javax.swing.JTextField streetStaffManagementField2;
