@@ -12,7 +12,7 @@ public class Manager extends User {
         super(firstName, lastName,phoneNumber, email, address, userName, password);
     }
     
-    public static boolean isManager() {
+    public boolean isManager() {
       ismanager=true;
         return ismanager;
     }

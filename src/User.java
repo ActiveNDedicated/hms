@@ -62,7 +62,7 @@ public class User extends Human{
     public void setPassword(String password) {
         this.password = password;
     }
-     public static boolean isManager() {
+     public boolean isManager() {
         return ismanager;
     }
         

@@ -58,6 +58,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(true);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
         checkInCalendar.setDate(date);
         checkOutCalendar.setDate(dateAfterTwo);
@@ -106,37 +111,48 @@ public class MainFrame extends javax.swing.JFrame {
 
         userBoxGroup = new javax.swing.ButtonGroup();
         tabsPane = new javax.swing.JLayeredPane();
-        roomsManagementPane = new javax.swing.JLayeredPane();
-        roomsManagementPanel1 = new javax.swing.JPanel();
-        roomsManagementScrollPane = new javax.swing.JScrollPane();
-        roomsManagementTable = new javax.swing.JTable();
-        searchRoomsManagementButton1 = new javax.swing.JLabel();
-        showRoomsManagementButton1 = new javax.swing.JLabel();
-        modifyRoomsManagementButton1 = new javax.swing.JLabel();
-        addRoomsManagementButton1 = new javax.swing.JLabel();
-        roomNumberRoomsManagementLabel1 = new javax.swing.JLabel();
-        roomNumberRoomsManagementField1 = new javax.swing.JTextField();
-        deleteRoomsManagementButton1 = new javax.swing.JLabel();
-        roomsManagementPanel2 = new javax.swing.JPanel();
-        roomNumberRoomsManagementField2 = new javax.swing.JTextField();
-        roomRateRoomsManagementField2 = new javax.swing.JTextField();
-        addRoomsManagementButton2 = new javax.swing.JLabel();
-        roomNumberRoomsManagementLabel2 = new javax.swing.JLabel();
-        bedTypeRoomsManagementLabel2 = new javax.swing.JLabel();
-        roomRateRoomsManagementLabel2 = new javax.swing.JLabel();
-        roomTypeRoomsManagementLabel2 = new javax.swing.JLabel();
-        bedTypeBox2 = new javax.swing.JComboBox<>();
-        roomTypeBox2 = new javax.swing.JComboBox<>();
-        roomsManagementPanel3 = new javax.swing.JPanel();
-        roomNumberRoomsManagementField3 = new javax.swing.JTextField();
-        roomRateRoomsManagementField3 = new javax.swing.JTextField();
-        modifyRoomsManagementButton3 = new javax.swing.JLabel();
-        roomNumberRoomsManagementLabel3 = new javax.swing.JLabel();
-        bedTypeRoomsManagementLabel3 = new javax.swing.JLabel();
-        roomRateRoomsManagementLabel3 = new javax.swing.JLabel();
-        roomTypeRoomsManagementLabel3 = new javax.swing.JLabel();
-        bedTypeBox3 = new javax.swing.JComboBox<>();
-        roomTypeBox3 = new javax.swing.JComboBox<>();
+        roomBookingPane = new javax.swing.JLayeredPane();
+        roomBookingPanel1 = new javax.swing.JPanel();
+        adultsNumberBox = new javax.swing.JComboBox<>();
+        childrenNumberBox = new javax.swing.JComboBox<>();
+        checkOutLabel = new javax.swing.JLabel();
+        checkInLabel = new javax.swing.JLabel();
+        childrenLabel = new javax.swing.JLabel();
+        adultsLabel = new javax.swing.JLabel();
+        searchRoomBookingButton = new javax.swing.JLabel();
+        checkInCalendar = new com.toedter.calendar.JDateChooser();
+        checkOutCalendar = new com.toedter.calendar.JDateChooser();
+        roomBookingPanel2 = new javax.swing.JPanel();
+        roomsBookingScrollPane = new javax.swing.JScrollPane();
+        roomsTable = new javax.swing.JTable();
+        bookItButton = new javax.swing.JLabel();
+        roomBookingPanel3 = new javax.swing.JPanel();
+        firstNameRoomBookingField = new javax.swing.JTextField();
+        lastNameRoomBookingField = new javax.swing.JTextField();
+        countryRoomBookingField = new javax.swing.JTextField();
+        cityRoomBookingField = new javax.swing.JTextField();
+        streetRoomBookingField = new javax.swing.JTextField();
+        zipCodeRoomBookingField = new javax.swing.JTextField();
+        cardNumberRoomBookingField = new javax.swing.JTextField();
+        emailRoomBookingField = new javax.swing.JTextField();
+        phoneNumberRoomBookingField = new javax.swing.JTextField();
+        makeBookingButton = new javax.swing.JLabel();
+        expiryMonthRoomBookingCalendar = new com.toedter.calendar.JMonthChooser();
+        expiryYearRoomBookingCalendar = new com.toedter.calendar.JYearChooser();
+        firstNameRoomBookingLabel = new javax.swing.JLabel();
+        lastNameRoomBookingLabel = new javax.swing.JLabel();
+        countryRoomBookingLabel = new javax.swing.JLabel();
+        cityRoomBookingLabel = new javax.swing.JLabel();
+        streetRoomBookingLabel = new javax.swing.JLabel();
+        zipCodeRoomBookingLabel = new javax.swing.JLabel();
+        cardNumberRoomBookingLabel = new javax.swing.JLabel();
+        expiryDateRoomBookingLabel = new javax.swing.JLabel();
+        emailRoomBookingLabel = new javax.swing.JLabel();
+        creditCardRoomBookingLabel = new javax.swing.JLabel();
+        phoneNumberRoomBookingLabel = new javax.swing.JLabel();
+        cardHolderNameRoomBookingLabel = new javax.swing.JLabel();
+        cardHolderNameRoomBookingField = new javax.swing.JTextField();
+        firstNameRoomBookingLabel1 = new javax.swing.JLabel();
         staffManagementPane = new javax.swing.JLayeredPane();
         staffManagementPanel1 = new javax.swing.JPanel();
         staffManagementScrollPane = new javax.swing.JScrollPane();
@@ -198,44 +214,37 @@ public class MainFrame extends javax.swing.JFrame {
         emailStaffManagementField3 = new javax.swing.JTextField();
         userNameStaffManagementLabel3 = new javax.swing.JLabel();
         userNameStaffManagementField3 = new javax.swing.JTextField();
-        bookingManagementPane = new javax.swing.JLayeredPane();
-        bookingManagementPanel1 = new javax.swing.JPanel();
-        bookingManagementScrollPane = new javax.swing.JScrollPane();
-        bookingManagementTable = new javax.swing.JTable();
-        searchBookingManagementButton1 = new javax.swing.JLabel();
-        showAllBookingManagementButton1 = new javax.swing.JLabel();
-        modifyBookingManagementButton1 = new javax.swing.JLabel();
-        cancelBookingManagementButton1 = new javax.swing.JLabel();
-        firstNameBookingManagementLabel1 = new javax.swing.JLabel();
-        firstNameBookingManagementField1 = new javax.swing.JTextField();
-        lastNameBookingManagementLabel1 = new javax.swing.JLabel();
-        lastNameBookingManagementField1 = new javax.swing.JTextField();
-        bookingManagementPanel2 = new javax.swing.JPanel();
-        firstNameBookingManagementField2 = new javax.swing.JTextField();
-        lastNameBookingManagementField2 = new javax.swing.JTextField();
-        countryBookingManagementField2 = new javax.swing.JTextField();
-        cityBookingManagementField2 = new javax.swing.JTextField();
-        streetBookingManagementField2 = new javax.swing.JTextField();
-        zipCodeBookingManagementField2 = new javax.swing.JTextField();
-        cardNumberBookingManagementField2 = new javax.swing.JTextField();
-        emailBookingManagementField2 = new javax.swing.JTextField();
-        phoneNumberBookingManagementField2 = new javax.swing.JTextField();
-        modifyBookingManagementButton2 = new javax.swing.JLabel();
-        expiryMonthBookingManagementCalendar2 = new com.toedter.calendar.JMonthChooser();
-        expiryYearBookingManagementCalendar2 = new com.toedter.calendar.JYearChooser();
-        lastNameBookingManagementLabel2 = new javax.swing.JLabel();
-        countryBookingManagementLabel2 = new javax.swing.JLabel();
-        cityBookingManagementLabel2 = new javax.swing.JLabel();
-        streetBookingManagementLabel2 = new javax.swing.JLabel();
-        zipCodeBookingManagementLabel2 = new javax.swing.JLabel();
-        cardNumberBookingManagementLabel2 = new javax.swing.JLabel();
-        expiryDateBookingManagementLabel2 = new javax.swing.JLabel();
-        emailBookingManagementLabel2 = new javax.swing.JLabel();
-        creditCardBookingManagementLabel2 = new javax.swing.JLabel();
-        phoneNumberBookingManagementLabel2 = new javax.swing.JLabel();
-        cardHolderNameBookingManagementLabel2 = new javax.swing.JLabel();
-        cardHolderBookingManagementField2 = new javax.swing.JTextField();
-        firstNameBookingManagementLabel2 = new javax.swing.JLabel();
+        roomsManagementPane = new javax.swing.JLayeredPane();
+        roomsManagementPanel1 = new javax.swing.JPanel();
+        roomsManagementScrollPane = new javax.swing.JScrollPane();
+        roomsManagementTable = new javax.swing.JTable();
+        searchRoomsManagementButton1 = new javax.swing.JLabel();
+        showRoomsManagementButton1 = new javax.swing.JLabel();
+        modifyRoomsManagementButton1 = new javax.swing.JLabel();
+        addRoomsManagementButton1 = new javax.swing.JLabel();
+        roomNumberRoomsManagementLabel1 = new javax.swing.JLabel();
+        roomNumberRoomsManagementField1 = new javax.swing.JTextField();
+        deleteRoomsManagementButton1 = new javax.swing.JLabel();
+        roomsManagementPanel2 = new javax.swing.JPanel();
+        roomNumberRoomsManagementField2 = new javax.swing.JTextField();
+        roomRateRoomsManagementField2 = new javax.swing.JTextField();
+        addRoomsManagementButton2 = new javax.swing.JLabel();
+        roomNumberRoomsManagementLabel2 = new javax.swing.JLabel();
+        bedTypeRoomsManagementLabel2 = new javax.swing.JLabel();
+        roomRateRoomsManagementLabel2 = new javax.swing.JLabel();
+        roomTypeRoomsManagementLabel2 = new javax.swing.JLabel();
+        bedTypeBox2 = new javax.swing.JComboBox<>();
+        roomTypeBox2 = new javax.swing.JComboBox<>();
+        roomsManagementPanel3 = new javax.swing.JPanel();
+        roomNumberRoomsManagementField3 = new javax.swing.JTextField();
+        roomRateRoomsManagementField3 = new javax.swing.JTextField();
+        modifyRoomsManagementButton3 = new javax.swing.JLabel();
+        roomNumberRoomsManagementLabel3 = new javax.swing.JLabel();
+        bedTypeRoomsManagementLabel3 = new javax.swing.JLabel();
+        roomRateRoomsManagementLabel3 = new javax.swing.JLabel();
+        roomTypeRoomsManagementLabel3 = new javax.swing.JLabel();
+        bedTypeBox3 = new javax.swing.JComboBox<>();
+        roomTypeBox3 = new javax.swing.JComboBox<>();
         guestsManagementPane = new javax.swing.JLayeredPane();
         guestsManagementPanel1 = new javax.swing.JPanel();
         guestsManagementScrollPane = new javax.swing.JScrollPane();
@@ -278,48 +287,44 @@ public class MainFrame extends javax.swing.JFrame {
         payedAmountGuestsManagementField2 = new javax.swing.JTextField();
         totalAmountGuestsManagementLabel2 = new javax.swing.JLabel();
         totalAmountGuestsManagementField2 = new javax.swing.JTextField();
-        roomBookingPane = new javax.swing.JLayeredPane();
-        roomBookingPanel1 = new javax.swing.JPanel();
-        adultsNumberBox = new javax.swing.JComboBox<>();
-        childrenNumberBox = new javax.swing.JComboBox<>();
-        checkOutLabel = new javax.swing.JLabel();
-        checkInLabel = new javax.swing.JLabel();
-        childrenLabel = new javax.swing.JLabel();
-        adultsLabel = new javax.swing.JLabel();
-        searchRoomBookingButton = new javax.swing.JLabel();
-        checkInCalendar = new com.toedter.calendar.JDateChooser();
-        checkOutCalendar = new com.toedter.calendar.JDateChooser();
-        roomBookingPanel2 = new javax.swing.JPanel();
-        roomsBookingScrollPane = new javax.swing.JScrollPane();
-        roomsTable = new javax.swing.JTable();
-        bookItButton = new javax.swing.JLabel();
-        roomBookingPanel3 = new javax.swing.JPanel();
-        firstNameRoomBookingField = new javax.swing.JTextField();
-        lastNameRoomBookingField = new javax.swing.JTextField();
-        countryRoomBookingField = new javax.swing.JTextField();
-        cityRoomBookingField = new javax.swing.JTextField();
-        streetRoomBookingField = new javax.swing.JTextField();
-        zipCodeRoomBookingField = new javax.swing.JTextField();
-        cardNumberRoomBookingField = new javax.swing.JTextField();
-        emailRoomBookingField = new javax.swing.JTextField();
-        phoneNumberRoomBookingField = new javax.swing.JTextField();
-        makeBookingButton = new javax.swing.JLabel();
-        expiryMonthRoomBookingCalendar = new com.toedter.calendar.JMonthChooser();
-        expiryYearRoomBookingCalendar = new com.toedter.calendar.JYearChooser();
-        firstNameRoomBookingLabel = new javax.swing.JLabel();
-        lastNameRoomBookingLabel = new javax.swing.JLabel();
-        countryRoomBookingLabel = new javax.swing.JLabel();
-        cityRoomBookingLabel = new javax.swing.JLabel();
-        streetRoomBookingLabel = new javax.swing.JLabel();
-        zipCodeRoomBookingLabel = new javax.swing.JLabel();
-        cardNumberRoomBookingLabel = new javax.swing.JLabel();
-        expiryDateRoomBookingLabel = new javax.swing.JLabel();
-        emailRoomBookingLabel = new javax.swing.JLabel();
-        creditCardRoomBookingLabel = new javax.swing.JLabel();
-        phoneNumberRoomBookingLabel = new javax.swing.JLabel();
-        cardHolderNameRoomBookingLabel = new javax.swing.JLabel();
-        cardHolderNameRoomBookingField = new javax.swing.JTextField();
-        firstNameRoomBookingLabel1 = new javax.swing.JLabel();
+        bookingManagementPane = new javax.swing.JLayeredPane();
+        bookingManagementPanel1 = new javax.swing.JPanel();
+        bookingManagementScrollPane = new javax.swing.JScrollPane();
+        bookingManagementTable = new javax.swing.JTable();
+        searchBookingManagementButton1 = new javax.swing.JLabel();
+        showAllBookingManagementButton1 = new javax.swing.JLabel();
+        modifyBookingManagementButton1 = new javax.swing.JLabel();
+        cancelBookingManagementButton1 = new javax.swing.JLabel();
+        firstNameBookingManagementLabel1 = new javax.swing.JLabel();
+        firstNameBookingManagementField1 = new javax.swing.JTextField();
+        lastNameBookingManagementLabel1 = new javax.swing.JLabel();
+        lastNameBookingManagementField1 = new javax.swing.JTextField();
+        bookingManagementPanel2 = new javax.swing.JPanel();
+        firstNameBookingManagementField2 = new javax.swing.JTextField();
+        lastNameBookingManagementField2 = new javax.swing.JTextField();
+        countryBookingManagementField2 = new javax.swing.JTextField();
+        cityBookingManagementField2 = new javax.swing.JTextField();
+        streetBookingManagementField2 = new javax.swing.JTextField();
+        zipCodeBookingManagementField2 = new javax.swing.JTextField();
+        cardNumberBookingManagementField2 = new javax.swing.JTextField();
+        emailBookingManagementField2 = new javax.swing.JTextField();
+        phoneNumberBookingManagementField2 = new javax.swing.JTextField();
+        modifyBookingManagementButton2 = new javax.swing.JLabel();
+        expiryMonthBookingManagementCalendar2 = new com.toedter.calendar.JMonthChooser();
+        expiryYearBookingManagementCalendar2 = new com.toedter.calendar.JYearChooser();
+        lastNameBookingManagementLabel2 = new javax.swing.JLabel();
+        countryBookingManagementLabel2 = new javax.swing.JLabel();
+        cityBookingManagementLabel2 = new javax.swing.JLabel();
+        streetBookingManagementLabel2 = new javax.swing.JLabel();
+        zipCodeBookingManagementLabel2 = new javax.swing.JLabel();
+        cardNumberBookingManagementLabel2 = new javax.swing.JLabel();
+        expiryDateBookingManagementLabel2 = new javax.swing.JLabel();
+        emailBookingManagementLabel2 = new javax.swing.JLabel();
+        creditCardBookingManagementLabel2 = new javax.swing.JLabel();
+        phoneNumberBookingManagementLabel2 = new javax.swing.JLabel();
+        cardHolderNameBookingManagementLabel2 = new javax.swing.JLabel();
+        cardHolderBookingManagementField2 = new javax.swing.JTextField();
+        firstNameBookingManagementLabel2 = new javax.swing.JLabel();
         aboutPanel = new javax.swing.JPanel();
         aboutPanelBackground = new javax.swing.JLabel();
         roomBookingButton = new javax.swing.JLabel();
@@ -342,212 +347,238 @@ public class MainFrame extends javax.swing.JFrame {
 
         tabsPane.setBackground(new java.awt.Color(0, 87, 167));
 
-        roomsManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
-        roomsManagementPanel1.setLayout(null);
+        roomBookingPane.setBackground(new java.awt.Color(0, 87, 167));
 
-        roomsManagementTable.setModel(roomTableModel);
-        roomsManagementScrollPane.setViewportView(roomsManagementTable);
+        roomBookingPanel1.setBackground(new java.awt.Color(0, 87, 167));
+        roomBookingPanel1.setLayout(null);
 
-        roomsManagementPanel1.add(roomsManagementScrollPane);
-        roomsManagementScrollPane.setBounds(10, 100, 1010, 440);
+        adultsNumberBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        roomBookingPanel1.add(adultsNumberBox);
+        adultsNumberBox.setBounds(330, 240, 120, 30);
 
-        searchRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchButton.png"))); // NOI18N
-        searchRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        childrenNumberBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3" }));
+        roomBookingPanel1.add(childrenNumberBox);
+        childrenNumberBox.setBounds(630, 240, 120, 30);
+
+        checkOutLabel.setFont(new java.awt.Font("Roboto Lt", 0, 24)); // NOI18N
+        checkOutLabel.setForeground(new java.awt.Color(255, 255, 255));
+        checkOutLabel.setText("Check-Out :");
+        roomBookingPanel1.add(checkOutLabel);
+        checkOutLabel.setBounds(490, 180, 150, 50);
+
+        checkInLabel.setFont(new java.awt.Font("Roboto Lt", 0, 24)); // NOI18N
+        checkInLabel.setForeground(new java.awt.Color(255, 255, 255));
+        checkInLabel.setText("Check-In :");
+        roomBookingPanel1.add(checkInLabel);
+        checkInLabel.setBounds(210, 180, 130, 50);
+
+        childrenLabel.setFont(new java.awt.Font("Roboto Lt", 0, 24)); // NOI18N
+        childrenLabel.setForeground(new java.awt.Color(255, 255, 255));
+        childrenLabel.setText("Children :");
+        roomBookingPanel1.add(childrenLabel);
+        childrenLabel.setBounds(510, 230, 130, 50);
+
+        adultsLabel.setFont(new java.awt.Font("Roboto Lt", 0, 24)); // NOI18N
+        adultsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        adultsLabel.setText("Adults :");
+        roomBookingPanel1.add(adultsLabel);
+        adultsLabel.setBounds(240, 220, 90, 70);
+
+        searchRoomBookingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchButton.png"))); // NOI18N
+        searchRoomBookingButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchRoomsManagementButton1MouseClicked(evt);
+                searchRoomBookingButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                searchRoomsManagementButton1MouseEntered(evt);
+                searchRoomBookingButtonMouseEntered(evt);
             }
         });
-        roomsManagementPanel1.add(searchRoomsManagementButton1);
-        searchRoomsManagementButton1.setBounds(350, 20, 320, 60);
+        roomBookingPanel1.add(searchRoomBookingButton);
+        searchRoomBookingButton.setBounds(350, 400, 320, 60);
+        roomBookingPanel1.add(checkInCalendar);
+        checkInCalendar.setBounds(330, 190, 120, 30);
+        roomBookingPanel1.add(checkOutCalendar);
+        checkOutCalendar.setBounds(630, 190, 120, 30);
 
-        showRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/showAllButton.png"))); // NOI18N
-        showRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        roomBookingPane.add(roomBookingPanel1);
+        roomBookingPanel1.setBounds(0, 0, 1030, 640);
+
+        roomBookingPanel2.setBackground(new java.awt.Color(0, 87, 167));
+        roomBookingPanel2.setLayout(null);
+
+        roomsTable.setModel(roomTableModel);
+        roomsBookingScrollPane.setViewportView(roomsTable);
+
+        roomBookingPanel2.add(roomsBookingScrollPane);
+        roomsBookingScrollPane.setBounds(20, 30, 1000, 450);
+
+        bookItButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookItButton.png"))); // NOI18N
+        bookItButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                showRoomsManagementButton1MouseClicked(evt);
+                bookItButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                showRoomsManagementButton1MouseEntered(evt);
+                bookItButtonMouseEntered(evt);
             }
         });
-        roomsManagementPanel1.add(showRoomsManagementButton1);
-        showRoomsManagementButton1.setBounds(690, 20, 320, 60);
+        roomBookingPanel2.add(bookItButton);
+        bookItButton.setBounds(370, 520, 316, 60);
 
-        modifyRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
-        modifyRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        roomBookingPane.add(roomBookingPanel2);
+        roomBookingPanel2.setBounds(0, 0, 1030, 640);
+
+        roomBookingPanel3.setBackground(new java.awt.Color(0, 87, 167));
+        roomBookingPanel3.setLayout(null);
+
+        firstNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(firstNameRoomBookingField);
+        firstNameRoomBookingField.setBounds(50, 90, 280, 30);
+
+        lastNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(lastNameRoomBookingField);
+        lastNameRoomBookingField.setBounds(370, 90, 280, 30);
+
+        countryRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        countryRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(countryRoomBookingField);
+        countryRoomBookingField.setBounds(50, 180, 140, 30);
+
+        cityRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cityRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(cityRoomBookingField);
+        cityRoomBookingField.setBounds(230, 180, 140, 30);
+
+        streetRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        streetRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(streetRoomBookingField);
+        streetRoomBookingField.setBounds(410, 180, 210, 30);
+
+        zipCodeRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        zipCodeRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(zipCodeRoomBookingField);
+        zipCodeRoomBookingField.setBounds(660, 180, 140, 30);
+
+        cardNumberRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardNumberRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(cardNumberRoomBookingField);
+        cardNumberRoomBookingField.setBounds(50, 410, 260, 30);
+
+        emailRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        emailRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(emailRoomBookingField);
+        emailRoomBookingField.setBounds(50, 270, 280, 30);
+
+        phoneNumberRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        phoneNumberRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(phoneNumberRoomBookingField);
+        phoneNumberRoomBookingField.setBounds(370, 270, 230, 30);
+
+        makeBookingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/makeBookingButton.png"))); // NOI18N
+        makeBookingButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modifyRoomsManagementButton1MouseClicked(evt);
+                makeBookingButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                modifyRoomsManagementButton1MouseEntered(evt);
+                makeBookingButtonMouseEntered(evt);
             }
         });
-        roomsManagementPanel1.add(modifyRoomsManagementButton1);
-        modifyRoomsManagementButton1.setBounds(360, 560, 320, 60);
+        roomBookingPanel3.add(makeBookingButton);
+        makeBookingButton.setBounds(360, 520, 320, 60);
+        roomBookingPanel3.add(expiryMonthRoomBookingCalendar);
+        expiryMonthRoomBookingCalendar.setBounds(650, 410, 100, 30);
+        roomBookingPanel3.add(expiryYearRoomBookingCalendar);
+        expiryYearRoomBookingCalendar.setBounds(750, 410, 50, 30);
 
-        addRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/addRoomButton.png"))); // NOI18N
-        addRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addRoomsManagementButton1MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addRoomsManagementButton1MouseEntered(evt);
-            }
-        });
-        roomsManagementPanel1.add(addRoomsManagementButton1);
-        addRoomsManagementButton1.setBounds(20, 560, 320, 60);
+        firstNameRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
+        firstNameRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        firstNameRoomBookingLabel.setText("* must be filled in gaps");
+        roomBookingPanel3.add(firstNameRoomBookingLabel);
+        firstNameRoomBookingLabel.setBounds(50, 460, 140, 40);
 
-        roomNumberRoomsManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomNumberRoomsManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        roomNumberRoomsManagementLabel1.setText("Room Number");
-        roomsManagementPanel1.add(roomNumberRoomsManagementLabel1);
-        roomNumberRoomsManagementLabel1.setBounds(40, 40, 120, 30);
+        lastNameRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        lastNameRoomBookingLabel.setText("Last Name *");
+        roomBookingPanel3.add(lastNameRoomBookingLabel);
+        lastNameRoomBookingLabel.setBounds(370, 50, 130, 40);
 
-        roomNumberRoomsManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomNumberRoomsManagementField1.setBorder(null);
-        roomsManagementPanel1.add(roomNumberRoomsManagementField1);
-        roomNumberRoomsManagementField1.setBounds(170, 40, 150, 30);
+        countryRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        countryRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        countryRoomBookingLabel.setText("Country *");
+        roomBookingPanel3.add(countryRoomBookingLabel);
+        countryRoomBookingLabel.setBounds(50, 140, 90, 40);
 
-        deleteRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deleteRoomButton.png"))); // NOI18N
-        deleteRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                deleteRoomsManagementButton1MouseEntered(evt);
-            }
-        });
-        roomsManagementPanel1.add(deleteRoomsManagementButton1);
-        deleteRoomsManagementButton1.setBounds(700, 560, 320, 60);
+        cityRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cityRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        cityRoomBookingLabel.setText("City ");
+        roomBookingPanel3.add(cityRoomBookingLabel);
+        cityRoomBookingLabel.setBounds(230, 140, 60, 40);
 
-        roomsManagementPane.add(roomsManagementPanel1);
-        roomsManagementPanel1.setBounds(0, 0, 1030, 640);
+        streetRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        streetRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        streetRoomBookingLabel.setText("Street");
+        roomBookingPanel3.add(streetRoomBookingLabel);
+        streetRoomBookingLabel.setBounds(410, 140, 60, 40);
 
-        roomsManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
-        roomsManagementPanel2.setLayout(null);
+        zipCodeRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        zipCodeRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        zipCodeRoomBookingLabel.setText("ZIP Code");
+        roomBookingPanel3.add(zipCodeRoomBookingLabel);
+        zipCodeRoomBookingLabel.setBounds(660, 140, 80, 40);
 
-        roomNumberRoomsManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomNumberRoomsManagementField2.setBorder(null);
-        roomsManagementPanel2.add(roomNumberRoomsManagementField2);
-        roomNumberRoomsManagementField2.setBounds(310, 190, 130, 30);
+        cardNumberRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardNumberRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        cardNumberRoomBookingLabel.setText("Card Number *");
+        roomBookingPanel3.add(cardNumberRoomBookingLabel);
+        cardNumberRoomBookingLabel.setBounds(50, 370, 180, 40);
 
-        roomRateRoomsManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomRateRoomsManagementField2.setBorder(null);
-        roomsManagementPanel2.add(roomRateRoomsManagementField2);
-        roomRateRoomsManagementField2.setBounds(310, 260, 130, 30);
+        expiryDateRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        expiryDateRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        expiryDateRoomBookingLabel.setText("Expiry Date *");
+        roomBookingPanel3.add(expiryDateRoomBookingLabel);
+        expiryDateRoomBookingLabel.setBounds(650, 370, 180, 40);
 
-        addRoomsManagementButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/addRoomButton.png"))); // NOI18N
-        addRoomsManagementButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                addRoomsManagementButton2MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                addRoomsManagementButton2MouseEntered(evt);
-            }
-        });
-        roomsManagementPanel2.add(addRoomsManagementButton2);
-        addRoomsManagementButton2.setBounds(380, 380, 320, 60);
+        emailRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        emailRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        emailRoomBookingLabel.setText("Email *");
+        roomBookingPanel3.add(emailRoomBookingLabel);
+        emailRoomBookingLabel.setBounds(50, 230, 80, 40);
 
-        roomNumberRoomsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomNumberRoomsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        roomNumberRoomsManagementLabel2.setText("Room Number:");
-        roomsManagementPanel2.add(roomNumberRoomsManagementLabel2);
-        roomNumberRoomsManagementLabel2.setBounds(170, 190, 120, 30);
+        creditCardRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        creditCardRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        creditCardRoomBookingLabel.setText("Credit Card:");
+        roomBookingPanel3.add(creditCardRoomBookingLabel);
+        creditCardRoomBookingLabel.setBounds(50, 330, 180, 40);
 
-        bedTypeRoomsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        bedTypeRoomsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        bedTypeRoomsManagementLabel2.setText("Type of Bed:");
-        roomsManagementPanel2.add(bedTypeRoomsManagementLabel2);
-        bedTypeRoomsManagementLabel2.setBounds(550, 190, 100, 30);
+        phoneNumberRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        phoneNumberRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        phoneNumberRoomBookingLabel.setText("Phone Number");
+        roomBookingPanel3.add(phoneNumberRoomBookingLabel);
+        phoneNumberRoomBookingLabel.setBounds(370, 230, 120, 40);
 
-        roomRateRoomsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomRateRoomsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        roomRateRoomsManagementLabel2.setText("Room Rate:");
-        roomsManagementPanel2.add(roomRateRoomsManagementLabel2);
-        roomRateRoomsManagementLabel2.setBounds(200, 260, 93, 30);
+        cardHolderNameRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardHolderNameRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        cardHolderNameRoomBookingLabel.setText("Card Holder Name *");
+        roomBookingPanel3.add(cardHolderNameRoomBookingLabel);
+        cardHolderNameRoomBookingLabel.setBounds(350, 370, 180, 40);
 
-        roomTypeRoomsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomTypeRoomsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        roomTypeRoomsManagementLabel2.setText("Type of Room:");
-        roomsManagementPanel2.add(roomTypeRoomsManagementLabel2);
-        roomTypeRoomsManagementLabel2.setBounds(540, 260, 120, 30);
+        cardHolderNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardHolderNameRoomBookingField.setBorder(null);
+        roomBookingPanel3.add(cardHolderNameRoomBookingField);
+        cardHolderNameRoomBookingField.setBounds(350, 410, 260, 30);
 
-        bedTypeBox2.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        bedTypeBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple", "Quad" }));
-        roomsManagementPanel2.add(bedTypeBox2);
-        bedTypeBox2.setBounds(680, 190, 130, 30);
+        firstNameRoomBookingLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameRoomBookingLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        firstNameRoomBookingLabel1.setText("First Name *");
+        roomBookingPanel3.add(firstNameRoomBookingLabel1);
+        firstNameRoomBookingLabel1.setBounds(50, 50, 110, 40);
 
-        roomTypeBox2.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        roomTypeBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard", "Superior", "Deluxe" }));
-        roomsManagementPanel2.add(roomTypeBox2);
-        roomTypeBox2.setBounds(680, 260, 130, 30);
+        roomBookingPane.add(roomBookingPanel3);
+        roomBookingPanel3.setBounds(0, 0, 1030, 640);
 
-        roomsManagementPane.add(roomsManagementPanel2);
-        roomsManagementPanel2.setBounds(0, 0, 1030, 640);
-
-        roomsManagementPanel3.setBackground(new java.awt.Color(0, 87, 167));
-        roomsManagementPanel3.setLayout(null);
-
-        roomNumberRoomsManagementField3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomNumberRoomsManagementField3.setBorder(null);
-        roomsManagementPanel3.add(roomNumberRoomsManagementField3);
-        roomNumberRoomsManagementField3.setBounds(310, 190, 130, 30);
-
-        roomRateRoomsManagementField3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomRateRoomsManagementField3.setBorder(null);
-        roomsManagementPanel3.add(roomRateRoomsManagementField3);
-        roomRateRoomsManagementField3.setBounds(310, 260, 130, 30);
-
-        modifyRoomsManagementButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
-        modifyRoomsManagementButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modifyRoomsManagementButton3MouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                modifyRoomsManagementButton3MouseEntered(evt);
-            }
-        });
-        roomsManagementPanel3.add(modifyRoomsManagementButton3);
-        modifyRoomsManagementButton3.setBounds(380, 380, 320, 60);
-
-        roomNumberRoomsManagementLabel3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomNumberRoomsManagementLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        roomNumberRoomsManagementLabel3.setText("Room Number:");
-        roomsManagementPanel3.add(roomNumberRoomsManagementLabel3);
-        roomNumberRoomsManagementLabel3.setBounds(170, 190, 120, 30);
-
-        bedTypeRoomsManagementLabel3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        bedTypeRoomsManagementLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        bedTypeRoomsManagementLabel3.setText("Type of Bed:");
-        roomsManagementPanel3.add(bedTypeRoomsManagementLabel3);
-        bedTypeRoomsManagementLabel3.setBounds(550, 190, 100, 30);
-
-        roomRateRoomsManagementLabel3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomRateRoomsManagementLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        roomRateRoomsManagementLabel3.setText("Room Rate:");
-        roomsManagementPanel3.add(roomRateRoomsManagementLabel3);
-        roomRateRoomsManagementLabel3.setBounds(200, 260, 93, 30);
-
-        roomTypeRoomsManagementLabel3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        roomTypeRoomsManagementLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        roomTypeRoomsManagementLabel3.setText("Type of Room:");
-        roomsManagementPanel3.add(roomTypeRoomsManagementLabel3);
-        roomTypeRoomsManagementLabel3.setBounds(540, 260, 120, 30);
-
-        bedTypeBox3.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        bedTypeBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple", "Quad" }));
-        roomsManagementPanel3.add(bedTypeBox3);
-        bedTypeBox3.setBounds(680, 190, 130, 30);
-
-        roomTypeBox3.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        roomTypeBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard", "Superior", "Deluxe" }));
-        roomsManagementPanel3.add(roomTypeBox3);
-        roomTypeBox3.setBounds(680, 260, 130, 30);
-
-        roomsManagementPane.add(roomsManagementPanel3);
-        roomsManagementPanel3.setBounds(0, 0, 1030, 640);
-
-        tabsPane.add(roomsManagementPane);
-        roomsManagementPane.setBounds(0, 0, 1030, 640);
+        tabsPane.add(roomBookingPane);
+        roomBookingPane.setBounds(0, 0, 1030, 640);
 
         staffManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
         staffManagementPanel1.setLayout(null);
@@ -934,234 +965,212 @@ public class MainFrame extends javax.swing.JFrame {
         tabsPane.add(staffManagementPane);
         staffManagementPane.setBounds(0, 0, 1030, 640);
 
-        bookingManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
-        bookingManagementPanel1.setLayout(null);
+        roomsManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
+        roomsManagementPanel1.setLayout(null);
 
-        bookingManagementTable.setModel(staffManagementTableModel);
-        bookingManagementScrollPane.setViewportView(bookingManagementTable);
+        roomsManagementTable.setModel(roomTableModel);
+        roomsManagementScrollPane.setViewportView(roomsManagementTable);
 
-        bookingManagementPanel1.add(bookingManagementScrollPane);
-        bookingManagementScrollPane.setBounds(10, 158, 1010, 470);
+        roomsManagementPanel1.add(roomsManagementScrollPane);
+        roomsManagementScrollPane.setBounds(10, 100, 1010, 440);
 
-        searchBookingManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchButton.png"))); // NOI18N
-        searchBookingManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        searchRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchButton.png"))); // NOI18N
+        searchRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchBookingManagementButton1MouseClicked(evt);
+                searchRoomsManagementButton1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                searchBookingManagementButton1MouseEntered(evt);
+                searchRoomsManagementButton1MouseEntered(evt);
             }
         });
-        bookingManagementPanel1.add(searchBookingManagementButton1);
-        searchBookingManagementButton1.setBounds(350, 10, 320, 60);
+        roomsManagementPanel1.add(searchRoomsManagementButton1);
+        searchRoomsManagementButton1.setBounds(350, 20, 320, 60);
 
-        showAllBookingManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/showAllButton.png"))); // NOI18N
-        showAllBookingManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        showRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/showAllButton.png"))); // NOI18N
+        showRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                showAllBookingManagementButton1MouseClicked(evt);
+                showRoomsManagementButton1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                showAllBookingManagementButton1MouseEntered(evt);
+                showRoomsManagementButton1MouseEntered(evt);
             }
         });
-        bookingManagementPanel1.add(showAllBookingManagementButton1);
-        showAllBookingManagementButton1.setBounds(690, 10, 320, 60);
+        roomsManagementPanel1.add(showRoomsManagementButton1);
+        showRoomsManagementButton1.setBounds(690, 20, 320, 60);
 
-        modifyBookingManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
-        modifyBookingManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        modifyRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
+        modifyRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modifyBookingManagementButton1MouseClicked(evt);
+                modifyRoomsManagementButton1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                modifyBookingManagementButton1MouseEntered(evt);
+                modifyRoomsManagementButton1MouseEntered(evt);
             }
         });
-        bookingManagementPanel1.add(modifyBookingManagementButton1);
-        modifyBookingManagementButton1.setBounds(350, 80, 320, 57);
+        roomsManagementPanel1.add(modifyRoomsManagementButton1);
+        modifyRoomsManagementButton1.setBounds(360, 560, 320, 60);
 
-        cancelBookingManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cancelBookingButton.png"))); // NOI18N
-        cancelBookingManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        addRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/addRoomButton.png"))); // NOI18N
+        addRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cancelBookingManagementButton1MouseClicked(evt);
+                addRoomsManagementButton1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cancelBookingManagementButton1MouseEntered(evt);
+                addRoomsManagementButton1MouseEntered(evt);
             }
         });
-        bookingManagementPanel1.add(cancelBookingManagementButton1);
-        cancelBookingManagementButton1.setBounds(690, 80, 320, 57);
+        roomsManagementPanel1.add(addRoomsManagementButton1);
+        addRoomsManagementButton1.setBounds(20, 560, 320, 60);
 
-        firstNameBookingManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameBookingManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        firstNameBookingManagementLabel1.setText("First Name");
-        bookingManagementPanel1.add(firstNameBookingManagementLabel1);
-        firstNameBookingManagementLabel1.setBounds(30, 10, 90, 20);
+        roomNumberRoomsManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomNumberRoomsManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        roomNumberRoomsManagementLabel1.setText("Room Number");
+        roomsManagementPanel1.add(roomNumberRoomsManagementLabel1);
+        roomNumberRoomsManagementLabel1.setBounds(40, 40, 120, 30);
 
-        firstNameBookingManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameBookingManagementField1.setBorder(null);
-        bookingManagementPanel1.add(firstNameBookingManagementField1);
-        firstNameBookingManagementField1.setBounds(30, 30, 290, 30);
+        roomNumberRoomsManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomNumberRoomsManagementField1.setBorder(null);
+        roomsManagementPanel1.add(roomNumberRoomsManagementField1);
+        roomNumberRoomsManagementField1.setBounds(170, 40, 150, 30);
 
-        lastNameBookingManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameBookingManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        lastNameBookingManagementLabel1.setText("Last Name");
-        bookingManagementPanel1.add(lastNameBookingManagementLabel1);
-        lastNameBookingManagementLabel1.setBounds(30, 70, 90, 20);
+        deleteRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deleteRoomButton.png"))); // NOI18N
+        deleteRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deleteRoomsManagementButton1MouseEntered(evt);
+            }
+        });
+        roomsManagementPanel1.add(deleteRoomsManagementButton1);
+        deleteRoomsManagementButton1.setBounds(700, 560, 320, 60);
 
-        lastNameBookingManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameBookingManagementField1.setBorder(null);
-        bookingManagementPanel1.add(lastNameBookingManagementField1);
-        lastNameBookingManagementField1.setBounds(30, 90, 290, 30);
+        roomsManagementPane.add(roomsManagementPanel1);
+        roomsManagementPanel1.setBounds(0, 0, 1030, 640);
 
-        bookingManagementPane.add(bookingManagementPanel1);
-        bookingManagementPanel1.setBounds(0, 0, 1030, 640);
+        roomsManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
+        roomsManagementPanel2.setLayout(null);
 
-        bookingManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
-        bookingManagementPanel2.setLayout(null);
+        roomNumberRoomsManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomNumberRoomsManagementField2.setBorder(null);
+        roomsManagementPanel2.add(roomNumberRoomsManagementField2);
+        roomNumberRoomsManagementField2.setBounds(310, 190, 130, 30);
 
-        firstNameBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(firstNameBookingManagementField2);
-        firstNameBookingManagementField2.setBounds(50, 90, 280, 30);
+        roomRateRoomsManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomRateRoomsManagementField2.setBorder(null);
+        roomsManagementPanel2.add(roomRateRoomsManagementField2);
+        roomRateRoomsManagementField2.setBounds(310, 260, 130, 30);
 
-        lastNameBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(lastNameBookingManagementField2);
-        lastNameBookingManagementField2.setBounds(370, 90, 280, 30);
-
-        countryBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        countryBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(countryBookingManagementField2);
-        countryBookingManagementField2.setBounds(50, 180, 140, 30);
-
-        cityBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cityBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(cityBookingManagementField2);
-        cityBookingManagementField2.setBounds(230, 180, 140, 30);
-
-        streetBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        streetBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(streetBookingManagementField2);
-        streetBookingManagementField2.setBounds(410, 180, 210, 30);
-
-        zipCodeBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        zipCodeBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(zipCodeBookingManagementField2);
-        zipCodeBookingManagementField2.setBounds(660, 180, 140, 30);
-
-        cardNumberBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardNumberBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(cardNumberBookingManagementField2);
-        cardNumberBookingManagementField2.setBounds(50, 400, 260, 30);
-
-        emailBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        emailBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(emailBookingManagementField2);
-        emailBookingManagementField2.setBounds(50, 270, 280, 30);
-
-        phoneNumberBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        phoneNumberBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(phoneNumberBookingManagementField2);
-        phoneNumberBookingManagementField2.setBounds(370, 270, 230, 30);
-
-        modifyBookingManagementButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
-        modifyBookingManagementButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        addRoomsManagementButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/addRoomButton.png"))); // NOI18N
+        addRoomsManagementButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                modifyBookingManagementButton2MouseClicked(evt);
+                addRoomsManagementButton2MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                modifyBookingManagementButton2MouseEntered(evt);
+                addRoomsManagementButton2MouseEntered(evt);
             }
         });
-        bookingManagementPanel2.add(modifyBookingManagementButton2);
-        modifyBookingManagementButton2.setBounds(350, 500, 320, 60);
-        bookingManagementPanel2.add(expiryMonthBookingManagementCalendar2);
-        expiryMonthBookingManagementCalendar2.setBounds(650, 400, 100, 30);
-        bookingManagementPanel2.add(expiryYearBookingManagementCalendar2);
-        expiryYearBookingManagementCalendar2.setBounds(750, 400, 50, 30);
+        roomsManagementPanel2.add(addRoomsManagementButton2);
+        addRoomsManagementButton2.setBounds(380, 380, 320, 60);
 
-        lastNameBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        lastNameBookingManagementLabel2.setText("Last Name ");
-        bookingManagementPanel2.add(lastNameBookingManagementLabel2);
-        lastNameBookingManagementLabel2.setBounds(370, 50, 91, 40);
+        roomNumberRoomsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomNumberRoomsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        roomNumberRoomsManagementLabel2.setText("Room Number:");
+        roomsManagementPanel2.add(roomNumberRoomsManagementLabel2);
+        roomNumberRoomsManagementLabel2.setBounds(170, 190, 120, 30);
 
-        countryBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        countryBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        countryBookingManagementLabel2.setText("Country ");
-        bookingManagementPanel2.add(countryBookingManagementLabel2);
-        countryBookingManagementLabel2.setBounds(50, 140, 70, 40);
+        bedTypeRoomsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        bedTypeRoomsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        bedTypeRoomsManagementLabel2.setText("Type of Bed:");
+        roomsManagementPanel2.add(bedTypeRoomsManagementLabel2);
+        bedTypeRoomsManagementLabel2.setBounds(550, 190, 100, 30);
 
-        cityBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cityBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        cityBookingManagementLabel2.setText("City ");
-        bookingManagementPanel2.add(cityBookingManagementLabel2);
-        cityBookingManagementLabel2.setBounds(230, 140, 40, 40);
+        roomRateRoomsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomRateRoomsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        roomRateRoomsManagementLabel2.setText("Room Rate:");
+        roomsManagementPanel2.add(roomRateRoomsManagementLabel2);
+        roomRateRoomsManagementLabel2.setBounds(200, 260, 93, 30);
 
-        streetBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        streetBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        streetBookingManagementLabel2.setText("Street");
-        bookingManagementPanel2.add(streetBookingManagementLabel2);
-        streetBookingManagementLabel2.setBounds(410, 140, 60, 40);
+        roomTypeRoomsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomTypeRoomsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        roomTypeRoomsManagementLabel2.setText("Type of Room:");
+        roomsManagementPanel2.add(roomTypeRoomsManagementLabel2);
+        roomTypeRoomsManagementLabel2.setBounds(540, 260, 120, 30);
 
-        zipCodeBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        zipCodeBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        zipCodeBookingManagementLabel2.setText("ZIP Code");
-        bookingManagementPanel2.add(zipCodeBookingManagementLabel2);
-        zipCodeBookingManagementLabel2.setBounds(660, 140, 80, 40);
+        bedTypeBox2.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
+        bedTypeBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple", "Quad" }));
+        roomsManagementPanel2.add(bedTypeBox2);
+        bedTypeBox2.setBounds(680, 190, 130, 30);
 
-        cardNumberBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardNumberBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        cardNumberBookingManagementLabel2.setText("Card Number ");
-        bookingManagementPanel2.add(cardNumberBookingManagementLabel2);
-        cardNumberBookingManagementLabel2.setBounds(50, 360, 110, 40);
+        roomTypeBox2.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
+        roomTypeBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard", "Superior", "Deluxe" }));
+        roomsManagementPanel2.add(roomTypeBox2);
+        roomTypeBox2.setBounds(680, 260, 130, 30);
 
-        expiryDateBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        expiryDateBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        expiryDateBookingManagementLabel2.setText("Expiry Date ");
-        bookingManagementPanel2.add(expiryDateBookingManagementLabel2);
-        expiryDateBookingManagementLabel2.setBounds(650, 360, 100, 40);
+        roomsManagementPane.add(roomsManagementPanel2);
+        roomsManagementPanel2.setBounds(0, 0, 1030, 640);
 
-        emailBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        emailBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        emailBookingManagementLabel2.setText("E-mail ");
-        bookingManagementPanel2.add(emailBookingManagementLabel2);
-        emailBookingManagementLabel2.setBounds(50, 230, 60, 40);
+        roomsManagementPanel3.setBackground(new java.awt.Color(0, 87, 167));
+        roomsManagementPanel3.setLayout(null);
 
-        creditCardBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        creditCardBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        creditCardBookingManagementLabel2.setText("Credit Card:");
-        bookingManagementPanel2.add(creditCardBookingManagementLabel2);
-        creditCardBookingManagementLabel2.setBounds(50, 320, 100, 40);
+        roomNumberRoomsManagementField3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomNumberRoomsManagementField3.setBorder(null);
+        roomsManagementPanel3.add(roomNumberRoomsManagementField3);
+        roomNumberRoomsManagementField3.setBounds(310, 190, 130, 30);
 
-        phoneNumberBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        phoneNumberBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        phoneNumberBookingManagementLabel2.setText("Phone Number");
-        bookingManagementPanel2.add(phoneNumberBookingManagementLabel2);
-        phoneNumberBookingManagementLabel2.setBounds(370, 230, 120, 40);
+        roomRateRoomsManagementField3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomRateRoomsManagementField3.setBorder(null);
+        roomsManagementPanel3.add(roomRateRoomsManagementField3);
+        roomRateRoomsManagementField3.setBounds(310, 260, 130, 30);
 
-        cardHolderNameBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardHolderNameBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        cardHolderNameBookingManagementLabel2.setText("Card Holder Name ");
-        bookingManagementPanel2.add(cardHolderNameBookingManagementLabel2);
-        cardHolderNameBookingManagementLabel2.setBounds(350, 360, 150, 40);
+        modifyRoomsManagementButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
+        modifyRoomsManagementButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyRoomsManagementButton3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                modifyRoomsManagementButton3MouseEntered(evt);
+            }
+        });
+        roomsManagementPanel3.add(modifyRoomsManagementButton3);
+        modifyRoomsManagementButton3.setBounds(380, 380, 320, 60);
 
-        cardHolderBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardHolderBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(cardHolderBookingManagementField2);
-        cardHolderBookingManagementField2.setBounds(350, 400, 260, 30);
+        roomNumberRoomsManagementLabel3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomNumberRoomsManagementLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        roomNumberRoomsManagementLabel3.setText("Room Number:");
+        roomsManagementPanel3.add(roomNumberRoomsManagementLabel3);
+        roomNumberRoomsManagementLabel3.setBounds(170, 190, 120, 30);
 
-        firstNameBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        firstNameBookingManagementLabel2.setText("First Name ");
-        bookingManagementPanel2.add(firstNameBookingManagementLabel2);
-        firstNameBookingManagementLabel2.setBounds(50, 50, 91, 40);
+        bedTypeRoomsManagementLabel3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        bedTypeRoomsManagementLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        bedTypeRoomsManagementLabel3.setText("Type of Bed:");
+        roomsManagementPanel3.add(bedTypeRoomsManagementLabel3);
+        bedTypeRoomsManagementLabel3.setBounds(550, 190, 100, 30);
 
-        bookingManagementPane.add(bookingManagementPanel2);
-        bookingManagementPanel2.setBounds(0, 0, 1030, 640);
+        roomRateRoomsManagementLabel3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomRateRoomsManagementLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        roomRateRoomsManagementLabel3.setText("Room Rate:");
+        roomsManagementPanel3.add(roomRateRoomsManagementLabel3);
+        roomRateRoomsManagementLabel3.setBounds(200, 260, 93, 30);
 
-        tabsPane.add(bookingManagementPane);
-        bookingManagementPane.setBounds(0, 0, 1030, 640);
+        roomTypeRoomsManagementLabel3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        roomTypeRoomsManagementLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        roomTypeRoomsManagementLabel3.setText("Type of Room:");
+        roomsManagementPanel3.add(roomTypeRoomsManagementLabel3);
+        roomTypeRoomsManagementLabel3.setBounds(540, 260, 120, 30);
+
+        bedTypeBox3.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
+        bedTypeBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple", "Quad" }));
+        roomsManagementPanel3.add(bedTypeBox3);
+        bedTypeBox3.setBounds(680, 190, 130, 30);
+
+        roomTypeBox3.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
+        roomTypeBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Standard", "Superior", "Deluxe" }));
+        roomsManagementPanel3.add(roomTypeBox3);
+        roomTypeBox3.setBounds(680, 260, 130, 30);
+
+        roomsManagementPane.add(roomsManagementPanel3);
+        roomsManagementPanel3.setBounds(0, 0, 1030, 640);
+
+        tabsPane.add(roomsManagementPane);
+        roomsManagementPane.setBounds(0, 0, 1030, 640);
 
         guestsManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
         guestsManagementPanel1.setLayout(null);
@@ -1414,238 +1423,234 @@ public class MainFrame extends javax.swing.JFrame {
         tabsPane.add(guestsManagementPane);
         guestsManagementPane.setBounds(-1, -1, 1030, 640);
 
-        roomBookingPane.setBackground(new java.awt.Color(0, 87, 167));
+        bookingManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
+        bookingManagementPanel1.setLayout(null);
 
-        roomBookingPanel1.setBackground(new java.awt.Color(0, 87, 167));
-        roomBookingPanel1.setLayout(null);
+        bookingManagementTable.setModel(staffManagementTableModel);
+        bookingManagementScrollPane.setViewportView(bookingManagementTable);
 
-        adultsNumberBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
-        roomBookingPanel1.add(adultsNumberBox);
-        adultsNumberBox.setBounds(330, 240, 120, 30);
+        bookingManagementPanel1.add(bookingManagementScrollPane);
+        bookingManagementScrollPane.setBounds(10, 158, 1010, 470);
 
-        childrenNumberBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3" }));
-        roomBookingPanel1.add(childrenNumberBox);
-        childrenNumberBox.setBounds(630, 240, 120, 30);
-
-        checkOutLabel.setFont(new java.awt.Font("Roboto Lt", 0, 24)); // NOI18N
-        checkOutLabel.setForeground(new java.awt.Color(255, 255, 255));
-        checkOutLabel.setText("Check-Out :");
-        roomBookingPanel1.add(checkOutLabel);
-        checkOutLabel.setBounds(490, 180, 150, 50);
-
-        checkInLabel.setFont(new java.awt.Font("Roboto Lt", 0, 24)); // NOI18N
-        checkInLabel.setForeground(new java.awt.Color(255, 255, 255));
-        checkInLabel.setText("Check-In :");
-        roomBookingPanel1.add(checkInLabel);
-        checkInLabel.setBounds(210, 180, 130, 50);
-
-        childrenLabel.setFont(new java.awt.Font("Roboto Lt", 0, 24)); // NOI18N
-        childrenLabel.setForeground(new java.awt.Color(255, 255, 255));
-        childrenLabel.setText("Children :");
-        roomBookingPanel1.add(childrenLabel);
-        childrenLabel.setBounds(510, 230, 130, 50);
-
-        adultsLabel.setFont(new java.awt.Font("Roboto Lt", 0, 24)); // NOI18N
-        adultsLabel.setForeground(new java.awt.Color(255, 255, 255));
-        adultsLabel.setText("Adults :");
-        roomBookingPanel1.add(adultsLabel);
-        adultsLabel.setBounds(240, 220, 90, 70);
-
-        searchRoomBookingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchButton.png"))); // NOI18N
-        searchRoomBookingButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        searchBookingManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchButton.png"))); // NOI18N
+        searchBookingManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                searchRoomBookingButtonMouseClicked(evt);
+                searchBookingManagementButton1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                searchRoomBookingButtonMouseEntered(evt);
+                searchBookingManagementButton1MouseEntered(evt);
             }
         });
-        roomBookingPanel1.add(searchRoomBookingButton);
-        searchRoomBookingButton.setBounds(350, 400, 320, 60);
-        roomBookingPanel1.add(checkInCalendar);
-        checkInCalendar.setBounds(330, 190, 120, 30);
-        roomBookingPanel1.add(checkOutCalendar);
-        checkOutCalendar.setBounds(630, 190, 120, 30);
+        bookingManagementPanel1.add(searchBookingManagementButton1);
+        searchBookingManagementButton1.setBounds(350, 10, 320, 60);
 
-        roomBookingPane.add(roomBookingPanel1);
-        roomBookingPanel1.setBounds(0, 0, 1030, 640);
-
-        roomBookingPanel2.setBackground(new java.awt.Color(0, 87, 167));
-        roomBookingPanel2.setLayout(null);
-
-        roomsTable.setModel(roomTableModel);
-        roomsBookingScrollPane.setViewportView(roomsTable);
-
-        roomBookingPanel2.add(roomsBookingScrollPane);
-        roomsBookingScrollPane.setBounds(20, 30, 1000, 450);
-
-        bookItButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookItButton.png"))); // NOI18N
-        bookItButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        showAllBookingManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/showAllButton.png"))); // NOI18N
+        showAllBookingManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bookItButtonMouseClicked(evt);
+                showAllBookingManagementButton1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bookItButtonMouseEntered(evt);
+                showAllBookingManagementButton1MouseEntered(evt);
             }
         });
-        roomBookingPanel2.add(bookItButton);
-        bookItButton.setBounds(370, 520, 316, 60);
+        bookingManagementPanel1.add(showAllBookingManagementButton1);
+        showAllBookingManagementButton1.setBounds(690, 10, 320, 60);
 
-        roomBookingPane.add(roomBookingPanel2);
-        roomBookingPanel2.setBounds(0, 0, 1030, 640);
-
-        roomBookingPanel3.setBackground(new java.awt.Color(0, 87, 167));
-        roomBookingPanel3.setLayout(null);
-
-        firstNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(firstNameRoomBookingField);
-        firstNameRoomBookingField.setBounds(50, 90, 280, 30);
-
-        lastNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(lastNameRoomBookingField);
-        lastNameRoomBookingField.setBounds(370, 90, 280, 30);
-
-        countryRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        countryRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(countryRoomBookingField);
-        countryRoomBookingField.setBounds(50, 180, 140, 30);
-
-        cityRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cityRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(cityRoomBookingField);
-        cityRoomBookingField.setBounds(230, 180, 140, 30);
-
-        streetRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        streetRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(streetRoomBookingField);
-        streetRoomBookingField.setBounds(410, 180, 210, 30);
-
-        zipCodeRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        zipCodeRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(zipCodeRoomBookingField);
-        zipCodeRoomBookingField.setBounds(660, 180, 140, 30);
-
-        cardNumberRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardNumberRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(cardNumberRoomBookingField);
-        cardNumberRoomBookingField.setBounds(50, 410, 260, 30);
-
-        emailRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        emailRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(emailRoomBookingField);
-        emailRoomBookingField.setBounds(50, 270, 280, 30);
-
-        phoneNumberRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        phoneNumberRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(phoneNumberRoomBookingField);
-        phoneNumberRoomBookingField.setBounds(370, 270, 230, 30);
-
-        makeBookingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/makeBookingButton.png"))); // NOI18N
-        makeBookingButton.addMouseListener(new java.awt.event.MouseAdapter() {
+        modifyBookingManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
+        modifyBookingManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                makeBookingButtonMouseClicked(evt);
+                modifyBookingManagementButton1MouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                makeBookingButtonMouseEntered(evt);
+                modifyBookingManagementButton1MouseEntered(evt);
             }
         });
-        roomBookingPanel3.add(makeBookingButton);
-        makeBookingButton.setBounds(360, 520, 320, 60);
-        roomBookingPanel3.add(expiryMonthRoomBookingCalendar);
-        expiryMonthRoomBookingCalendar.setBounds(650, 410, 100, 30);
-        roomBookingPanel3.add(expiryYearRoomBookingCalendar);
-        expiryYearRoomBookingCalendar.setBounds(750, 410, 50, 30);
+        bookingManagementPanel1.add(modifyBookingManagementButton1);
+        modifyBookingManagementButton1.setBounds(350, 80, 320, 57);
 
-        firstNameRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        firstNameRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        firstNameRoomBookingLabel.setText("* must be filled in gaps");
-        roomBookingPanel3.add(firstNameRoomBookingLabel);
-        firstNameRoomBookingLabel.setBounds(50, 460, 140, 40);
+        cancelBookingManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cancelBookingButton.png"))); // NOI18N
+        cancelBookingManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cancelBookingManagementButton1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cancelBookingManagementButton1MouseEntered(evt);
+            }
+        });
+        bookingManagementPanel1.add(cancelBookingManagementButton1);
+        cancelBookingManagementButton1.setBounds(690, 80, 320, 57);
 
-        lastNameRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        lastNameRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        lastNameRoomBookingLabel.setText("Last Name *");
-        roomBookingPanel3.add(lastNameRoomBookingLabel);
-        lastNameRoomBookingLabel.setBounds(370, 50, 130, 40);
+        firstNameBookingManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameBookingManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        firstNameBookingManagementLabel1.setText("First Name");
+        bookingManagementPanel1.add(firstNameBookingManagementLabel1);
+        firstNameBookingManagementLabel1.setBounds(30, 10, 90, 20);
 
-        countryRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        countryRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        countryRoomBookingLabel.setText("Country *");
-        roomBookingPanel3.add(countryRoomBookingLabel);
-        countryRoomBookingLabel.setBounds(50, 140, 90, 40);
+        firstNameBookingManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameBookingManagementField1.setBorder(null);
+        bookingManagementPanel1.add(firstNameBookingManagementField1);
+        firstNameBookingManagementField1.setBounds(30, 30, 290, 30);
 
-        cityRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cityRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        cityRoomBookingLabel.setText("City ");
-        roomBookingPanel3.add(cityRoomBookingLabel);
-        cityRoomBookingLabel.setBounds(230, 140, 60, 40);
+        lastNameBookingManagementLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameBookingManagementLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        lastNameBookingManagementLabel1.setText("Last Name");
+        bookingManagementPanel1.add(lastNameBookingManagementLabel1);
+        lastNameBookingManagementLabel1.setBounds(30, 70, 90, 20);
 
-        streetRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        streetRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        streetRoomBookingLabel.setText("Street");
-        roomBookingPanel3.add(streetRoomBookingLabel);
-        streetRoomBookingLabel.setBounds(410, 140, 60, 40);
+        lastNameBookingManagementField1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameBookingManagementField1.setBorder(null);
+        bookingManagementPanel1.add(lastNameBookingManagementField1);
+        lastNameBookingManagementField1.setBounds(30, 90, 290, 30);
 
-        zipCodeRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        zipCodeRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        zipCodeRoomBookingLabel.setText("ZIP Code");
-        roomBookingPanel3.add(zipCodeRoomBookingLabel);
-        zipCodeRoomBookingLabel.setBounds(660, 140, 80, 40);
+        bookingManagementPane.add(bookingManagementPanel1);
+        bookingManagementPanel1.setBounds(0, 0, 1030, 640);
 
-        cardNumberRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardNumberRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        cardNumberRoomBookingLabel.setText("Card Number *");
-        roomBookingPanel3.add(cardNumberRoomBookingLabel);
-        cardNumberRoomBookingLabel.setBounds(50, 370, 180, 40);
+        bookingManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
+        bookingManagementPanel2.setLayout(null);
 
-        expiryDateRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        expiryDateRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        expiryDateRoomBookingLabel.setText("Expiry Date *");
-        roomBookingPanel3.add(expiryDateRoomBookingLabel);
-        expiryDateRoomBookingLabel.setBounds(650, 370, 180, 40);
+        firstNameBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(firstNameBookingManagementField2);
+        firstNameBookingManagementField2.setBounds(50, 90, 280, 30);
 
-        emailRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        emailRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        emailRoomBookingLabel.setText("Email *");
-        roomBookingPanel3.add(emailRoomBookingLabel);
-        emailRoomBookingLabel.setBounds(50, 230, 80, 40);
+        lastNameBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(lastNameBookingManagementField2);
+        lastNameBookingManagementField2.setBounds(370, 90, 280, 30);
 
-        creditCardRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        creditCardRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        creditCardRoomBookingLabel.setText("Credit Card:");
-        roomBookingPanel3.add(creditCardRoomBookingLabel);
-        creditCardRoomBookingLabel.setBounds(50, 330, 180, 40);
+        countryBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        countryBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(countryBookingManagementField2);
+        countryBookingManagementField2.setBounds(50, 180, 140, 30);
 
-        phoneNumberRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        phoneNumberRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        phoneNumberRoomBookingLabel.setText("Phone Number");
-        roomBookingPanel3.add(phoneNumberRoomBookingLabel);
-        phoneNumberRoomBookingLabel.setBounds(370, 230, 120, 40);
+        cityBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cityBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(cityBookingManagementField2);
+        cityBookingManagementField2.setBounds(230, 180, 140, 30);
 
-        cardHolderNameRoomBookingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardHolderNameRoomBookingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        cardHolderNameRoomBookingLabel.setText("Card Holder Name *");
-        roomBookingPanel3.add(cardHolderNameRoomBookingLabel);
-        cardHolderNameRoomBookingLabel.setBounds(350, 370, 180, 40);
+        streetBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        streetBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(streetBookingManagementField2);
+        streetBookingManagementField2.setBounds(410, 180, 210, 30);
 
-        cardHolderNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardHolderNameRoomBookingField.setBorder(null);
-        roomBookingPanel3.add(cardHolderNameRoomBookingField);
-        cardHolderNameRoomBookingField.setBounds(350, 410, 260, 30);
+        zipCodeBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        zipCodeBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(zipCodeBookingManagementField2);
+        zipCodeBookingManagementField2.setBounds(660, 180, 140, 30);
 
-        firstNameRoomBookingLabel1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        firstNameRoomBookingLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        firstNameRoomBookingLabel1.setText("First Name *");
-        roomBookingPanel3.add(firstNameRoomBookingLabel1);
-        firstNameRoomBookingLabel1.setBounds(50, 50, 110, 40);
+        cardNumberBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardNumberBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(cardNumberBookingManagementField2);
+        cardNumberBookingManagementField2.setBounds(50, 400, 260, 30);
 
-        roomBookingPane.add(roomBookingPanel3);
-        roomBookingPanel3.setBounds(0, 0, 1030, 640);
+        emailBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        emailBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(emailBookingManagementField2);
+        emailBookingManagementField2.setBounds(50, 270, 280, 30);
 
-        tabsPane.add(roomBookingPane);
-        roomBookingPane.setBounds(0, 0, 1030, 640);
+        phoneNumberBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        phoneNumberBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(phoneNumberBookingManagementField2);
+        phoneNumberBookingManagementField2.setBounds(370, 270, 230, 30);
+
+        modifyBookingManagementButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/modifyButton.png"))); // NOI18N
+        modifyBookingManagementButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifyBookingManagementButton2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                modifyBookingManagementButton2MouseEntered(evt);
+            }
+        });
+        bookingManagementPanel2.add(modifyBookingManagementButton2);
+        modifyBookingManagementButton2.setBounds(350, 500, 320, 60);
+        bookingManagementPanel2.add(expiryMonthBookingManagementCalendar2);
+        expiryMonthBookingManagementCalendar2.setBounds(650, 400, 100, 30);
+        bookingManagementPanel2.add(expiryYearBookingManagementCalendar2);
+        expiryYearBookingManagementCalendar2.setBounds(750, 400, 50, 30);
+
+        lastNameBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        lastNameBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        lastNameBookingManagementLabel2.setText("Last Name ");
+        bookingManagementPanel2.add(lastNameBookingManagementLabel2);
+        lastNameBookingManagementLabel2.setBounds(370, 50, 91, 40);
+
+        countryBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        countryBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        countryBookingManagementLabel2.setText("Country ");
+        bookingManagementPanel2.add(countryBookingManagementLabel2);
+        countryBookingManagementLabel2.setBounds(50, 140, 70, 40);
+
+        cityBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cityBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        cityBookingManagementLabel2.setText("City ");
+        bookingManagementPanel2.add(cityBookingManagementLabel2);
+        cityBookingManagementLabel2.setBounds(230, 140, 40, 40);
+
+        streetBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        streetBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        streetBookingManagementLabel2.setText("Street");
+        bookingManagementPanel2.add(streetBookingManagementLabel2);
+        streetBookingManagementLabel2.setBounds(410, 140, 60, 40);
+
+        zipCodeBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        zipCodeBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        zipCodeBookingManagementLabel2.setText("ZIP Code");
+        bookingManagementPanel2.add(zipCodeBookingManagementLabel2);
+        zipCodeBookingManagementLabel2.setBounds(660, 140, 80, 40);
+
+        cardNumberBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardNumberBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        cardNumberBookingManagementLabel2.setText("Card Number ");
+        bookingManagementPanel2.add(cardNumberBookingManagementLabel2);
+        cardNumberBookingManagementLabel2.setBounds(50, 360, 110, 40);
+
+        expiryDateBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        expiryDateBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        expiryDateBookingManagementLabel2.setText("Expiry Date ");
+        bookingManagementPanel2.add(expiryDateBookingManagementLabel2);
+        expiryDateBookingManagementLabel2.setBounds(650, 360, 100, 40);
+
+        emailBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        emailBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        emailBookingManagementLabel2.setText("E-mail ");
+        bookingManagementPanel2.add(emailBookingManagementLabel2);
+        emailBookingManagementLabel2.setBounds(50, 230, 60, 40);
+
+        creditCardBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        creditCardBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        creditCardBookingManagementLabel2.setText("Credit Card:");
+        bookingManagementPanel2.add(creditCardBookingManagementLabel2);
+        creditCardBookingManagementLabel2.setBounds(50, 320, 100, 40);
+
+        phoneNumberBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        phoneNumberBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        phoneNumberBookingManagementLabel2.setText("Phone Number");
+        bookingManagementPanel2.add(phoneNumberBookingManagementLabel2);
+        phoneNumberBookingManagementLabel2.setBounds(370, 230, 120, 40);
+
+        cardHolderNameBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardHolderNameBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        cardHolderNameBookingManagementLabel2.setText("Card Holder Name ");
+        bookingManagementPanel2.add(cardHolderNameBookingManagementLabel2);
+        cardHolderNameBookingManagementLabel2.setBounds(350, 360, 150, 40);
+
+        cardHolderBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardHolderBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(cardHolderBookingManagementField2);
+        cardHolderBookingManagementField2.setBounds(350, 400, 260, 30);
+
+        firstNameBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        firstNameBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        firstNameBookingManagementLabel2.setText("First Name ");
+        bookingManagementPanel2.add(firstNameBookingManagementLabel2);
+        firstNameBookingManagementLabel2.setBounds(50, 50, 91, 40);
+
+        bookingManagementPane.add(bookingManagementPanel2);
+        bookingManagementPanel2.setBounds(0, 0, 1030, 640);
+
+        tabsPane.add(bookingManagementPane);
+        bookingManagementPane.setBounds(0, 0, 1030, 640);
 
         aboutPanel.setBackground(new java.awt.Color(0, 87, 167));
 
@@ -1835,6 +1840,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(true);
     }//GEN-LAST:event_aboutButtonMouseClicked
 
@@ -1852,6 +1862,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(true);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(true);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_bookingManagementButtonMouseClicked
 
@@ -1869,6 +1884,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(true);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_guestsManagementButtonMouseClicked
 
@@ -1888,6 +1908,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(true);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
         
         }
@@ -1911,6 +1936,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(true);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
         
         }
@@ -1932,6 +1962,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(true);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_roomBookingButtonMouseClicked
 
@@ -1979,6 +2014,11 @@ public class MainFrame extends javax.swing.JFrame {
             guestsManagementPanel2.setVisible(false);
             bookingManagementPanel1.setVisible(false);
             bookingManagementPanel2.setVisible(false);
+            roomBookingPane.setVisible(true);
+            staffManagementPane.setVisible(false);
+            roomsManagementPane.setVisible(false);
+            guestsManagementPane.setVisible(false);
+            bookingManagementPane.setVisible(false);
             aboutPanel.setVisible(false);
             
             for (int i=0;i<availableRooms.size();i++)
@@ -2028,6 +2068,11 @@ public class MainFrame extends javax.swing.JFrame {
                 guestsManagementPanel2.setVisible(false);
                 bookingManagementPanel1.setVisible(false);
                 bookingManagementPanel2.setVisible(false);
+                roomBookingPane.setVisible(true);
+                staffManagementPane.setVisible(false);
+                roomsManagementPane.setVisible(false);
+                guestsManagementPane.setVisible(false);
+                bookingManagementPane.setVisible(false);
                 aboutPanel.setVisible(false);
             }
             
@@ -2109,6 +2154,11 @@ public class MainFrame extends javax.swing.JFrame {
                         guestsManagementPanel2.setVisible(false);
                         bookingManagementPanel1.setVisible(false);
                         bookingManagementPanel2.setVisible(false);
+                        roomBookingPane.setVisible(true);
+                        staffManagementPane.setVisible(false);
+                        roomsManagementPane.setVisible(false);
+                        guestsManagementPane.setVisible(false);
+                        bookingManagementPane.setVisible(false);
                         aboutPanel.setVisible(false);
                     }
 
@@ -2168,6 +2218,11 @@ public class MainFrame extends javax.swing.JFrame {
                         guestsManagementPanel2.setVisible(false);
                         bookingManagementPanel1.setVisible(false);
                         bookingManagementPanel2.setVisible(false);
+                        roomBookingPane.setVisible(false);
+                        staffManagementPane.setVisible(true);
+                        roomsManagementPane.setVisible(false);
+                        guestsManagementPane.setVisible(false);
+                        bookingManagementPane.setVisible(false);
                         aboutPanel.setVisible(false);
         }
     }//GEN-LAST:event_registerUserStaffManagementButton2MouseClicked
@@ -2278,6 +2333,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(true);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_registerUserStaffManagementButton1MouseClicked
 
@@ -2310,6 +2370,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(true);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_modifyStaffManagementButton3MouseClicked
 
@@ -2319,7 +2384,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void modifyStaffManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyStaffManagementButton1MouseClicked
         if(staffManagementTable.getSelectedRow()>=1){
-            int row =staffManagementTable.getSelectedRow();
+            row =staffManagementTable.getSelectedRow();
             firstNameStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 3));
             lastNameStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 4));
             countryStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 7));
@@ -2349,6 +2414,11 @@ public class MainFrame extends javax.swing.JFrame {
             guestsManagementPanel2.setVisible(false);
             bookingManagementPanel1.setVisible(false);
             bookingManagementPanel2.setVisible(false);
+            roomBookingPane.setVisible(false);
+            staffManagementPane.setVisible(true);
+            roomsManagementPane.setVisible(false);
+            guestsManagementPane.setVisible(false);
+            bookingManagementPane.setVisible(false);
             aboutPanel.setVisible(false);
         }
         else 
@@ -2390,6 +2460,11 @@ public class MainFrame extends javax.swing.JFrame {
             guestsManagementPanel2.setVisible(false);
             bookingManagementPanel1.setVisible(false);
             bookingManagementPanel2.setVisible(false);
+            roomBookingPane.setVisible(false);
+            staffManagementPane.setVisible(false);
+            roomsManagementPane.setVisible(true);
+            guestsManagementPane.setVisible(false);
+            bookingManagementPane.setVisible(false);
             aboutPanel.setVisible(false);
        } 
         
@@ -2437,6 +2512,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(true);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(true);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_modifyGuestsManagementButton1MouseClicked
 
@@ -2490,6 +2570,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(true);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(true);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_modifyBookingManagementButton1MouseClicked
 
@@ -2547,6 +2632,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(true);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_addRoomsManagementButton1MouseClicked
 
@@ -2564,6 +2654,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel2.setVisible(false);
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(true);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_modifyRoomsManagementButton1MouseClicked
 

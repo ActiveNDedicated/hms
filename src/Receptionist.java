@@ -13,7 +13,7 @@ public class Receptionist extends User {
         super(username,password);
     }
     
-    public static boolean isManager() {
+    public boolean isManager() {
       ismanager=false;
         return ismanager;
     }
