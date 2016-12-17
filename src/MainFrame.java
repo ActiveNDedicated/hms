@@ -2202,6 +2202,7 @@ public class MainFrame extends javax.swing.JFrame {
         else {
             JOptionPane.showMessageDialog(null, "Only admin can delete user!", "Insufficient permission!", JOptionPane.ERROR_MESSAGE);
         }
+        showAllStaffManagementButton1MouseClicked(evt);
     }//GEN-LAST:event_deleteUserStaffManagementButton1MouseClicked
 
     private void searchStaffManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchStaffManagementButton1MouseEntered
@@ -2209,7 +2210,25 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchStaffManagementButton1MouseEntered
 
     private void searchStaffManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchStaffManagementButton1MouseClicked
-        
+        Vector<User> found=user.searchUser(firstNameStaffManagementField1.getText(),lastNameStaffManagementField1.getText() );
+        staffManagementTableModel.setRowCount(0);
+        for (int i=0;i<found.size();i++)
+                {
+                    Object[] row = { null, null, null, null, null, null, null, null, null, null, null};
+                    staffManagementTableModel.addRow(row); 
+                    staffManagementTable.setValueAt(found.get(i).getUserName(), i, 0);
+                    staffManagementTable.setValueAt(found.get(i).getPassword(), i, 1);
+                    staffManagementTable.setValueAt(found.get(i).isManager(), i, 2);
+                    staffManagementTable.setValueAt(found.get(i).getFirstName(), i, 3);
+                    staffManagementTable.setValueAt(found.get(i).getLastName(), i, 4);
+                    staffManagementTable.setValueAt(found.get(i).getPhoneNumber(), i, 5);
+                    staffManagementTable.setValueAt(found.get(i).getEmail(), i, 6);
+                    staffManagementTable.setValueAt(found.get(i).getAddress().getCountry(), i, 7);
+                    staffManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 8);
+                    staffManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 9);
+                    staffManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 10);
+                    
+                }
     }//GEN-LAST:event_searchStaffManagementButton1MouseClicked
 
     private void showAllStaffManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllStaffManagementButton1MouseEntered
@@ -2261,20 +2280,23 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_registerUserStaffManagementButton1MouseEntered
 
     private void modifyStaffManagementButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyStaffManagementButton3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modifyStaffManagementButton3MouseClicked
-
-    private void modifyStaffManagementButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyStaffManagementButton3MouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modifyStaffManagementButton3MouseEntered
-
-    private void modifyStaffManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyStaffManagementButton1MouseClicked
+        user.modifyUser(firstNameStaffManagementField3.getText(),
+                lastNameStaffManagementField3.getText(),
+                phoneNumberStaffManagementField3.getText(),
+                emailStaffManagementField3.getText(),
+                userNameStaffManagementField3.getText(),
+                passwordStaffManagementField3.getText(),
+                countryStaffManagementField3.getText(),
+                cityStaffManagementField3.getText(),
+                streetStaffManagementField3.getText(),zipCodeStaffManagementField3.getText());
+        JOptionPane.showMessageDialog(null, "Info of staff is modified","Modification of staff", JOptionPane.INFORMATION_MESSAGE);
+        showAllStaffManagementButton1MouseClicked(evt);
         roomBookingPanel1.setVisible(false);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
-        staffManagementPanel1.setVisible(false);
+        staffManagementPanel1.setVisible(true);
         staffManagementPanel2.setVisible(false);
-        staffManagementPanel3.setVisible(true);
+        staffManagementPanel3.setVisible(false);
         roomsManagementPanel1.setVisible(false);
         roomsManagementPanel2.setVisible(false);
         roomsManagementPanel3.setVisible(false);
@@ -2283,6 +2305,49 @@ public class MainFrame extends javax.swing.JFrame {
         bookingManagementPanel1.setVisible(false);
         bookingManagementPanel2.setVisible(false);
         aboutPanel.setVisible(false);
+    }//GEN-LAST:event_modifyStaffManagementButton3MouseClicked
+
+    private void modifyStaffManagementButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyStaffManagementButton3MouseEntered
+        modifyStaffManagementButton3.setCursor(new Cursor(Cursor.HAND_CURSOR));
+    }//GEN-LAST:event_modifyStaffManagementButton3MouseEntered
+
+    private void modifyStaffManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyStaffManagementButton1MouseClicked
+        if(staffManagementTable.getSelectedRow()>=1){
+            int row =staffManagementTable.getSelectedRow();
+            firstNameStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 3));
+            lastNameStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 4));
+            countryStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 7));
+            cityStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 8));
+            streetStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 9));
+            zipCodeStaffManagementField3.setText((String)staffManagementTable.getValueAt(row,10));
+            passwordStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 1));
+            phoneNumberStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 5));
+            emailStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 6));
+            userNameStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 0));
+            userNameStaffManagementField3.setEditable(false);
+            if((boolean)staffManagementTable.getValueAt(row,2)==false)
+                receptionistCheckBox1.setSelected(true);
+            else 
+                managerCheckBox1.setSelected(true);
+            
+            roomBookingPanel1.setVisible(false);
+            roomBookingPanel2.setVisible(false);
+            roomBookingPanel3.setVisible(false);
+            staffManagementPanel1.setVisible(false);
+            staffManagementPanel2.setVisible(false);
+            staffManagementPanel3.setVisible(true);
+            roomsManagementPanel1.setVisible(false);
+            roomsManagementPanel2.setVisible(false);
+            roomsManagementPanel3.setVisible(false);
+            guestsManagementPanel1.setVisible(false);
+            guestsManagementPanel2.setVisible(false);
+            bookingManagementPanel1.setVisible(false);
+            bookingManagementPanel2.setVisible(false);
+            aboutPanel.setVisible(false);
+        }
+        else 
+            JOptionPane.showMessageDialog(null, "Staff is not selected!", "Modification of staff info!", JOptionPane.ERROR_MESSAGE);
+        
     }//GEN-LAST:event_modifyStaffManagementButton1MouseClicked
 
     private void modifyStaffManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyStaffManagementButton1MouseEntered

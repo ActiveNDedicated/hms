@@ -83,6 +83,7 @@ public class Manager extends User {
           { 
             query = "INSERT INTO roomdetails ( room_no, typeofbed, cost, typeofroom, availability ) VALUES ( '"+r.get(i).getRoomNo()+"', '"+r.get(i).getTypeOfBed()+"', '"+r.get(i).getCost()+"', '"+r.get(i).getTypeOfRoom()+"', '"+1+"')";
             dbc.storeData(query);
+            dbc.closeconnection();
           }
           
     }
@@ -104,17 +105,21 @@ public class Manager extends User {
                +m.getLastName()+"', '"+m.getPhoneNumber()+"', '"+m.getEmail()+"', '"+m.getAddress().getCountry()+"', '"+m.getAddress().getCity()+"', '"+m.getAddress().getStreet()+"', '"+m.getAddress().getZipCode()+"')";
        dbc.storeData(query);
    }
+       dbc.closeconnection();
    }
     
    public void deleteUser(String username)
    {
          query="Delete from users WHERE username='"+username+"';";
          dbc.deleteData(query);
+         dbc.closeconnection();
    }
-   public void modifyUser(String fname,String lname,String phone,String mail, Address addr, String usern,String passw){
+   public void modifyUser(String fname,String lname,String phone,String mail, String usern,String passw,String country,String city,String street,String zipcode){
    
-       query="Update users SET password ='"+passw+"',firstname ='"+fname+"',lastname ='"+lname+"',phonenumber ='"+phone+"',email ='"+mail+"',country ='"+addr.getCountry()+"',city ='"+addr.getCity()+"',street ='"+addr.getStreet()+"',zipcode ='"+addr.getZipCode()+"', WHERE username = '"+usern+"'";
+       query="Update users SET password ='"+passw+"',firstname ='"+fname+"',lastname ='"+lname+"',phonenumber ='"+phone+"',email ='"+mail+"',country ='"
+               +country+"',city ='"+city+"',street ='"+street+"',zipcode ='"+zipcode+"' WHERE username = '"+usern+"'";
        dbc.updateData(query);
+       dbc.closeconnection();
    }
    
    public Vector<User> searchUser(String fname, String lname){
@@ -145,6 +150,7 @@ public class Manager extends User {
             {
                     System.out.println(e);
             }
+       dbc.closeconnection();
        return found;
    }
    

@@ -63,6 +63,9 @@ public class DatabaseConnection
     public ResultSet getData(String query) 
     {
     	try{
+                Statement statement = null;
+                connectToDB();
+                statement = connection.createStatement();
     		resultSet = statement.executeQuery(query);
     	}
     	catch(SQLException e)
@@ -103,10 +106,9 @@ public class DatabaseConnection
     	try
 		{
 			
-			//Statement statement = null;
-
-    		//connectToDB();
-			//statement = connection.createStatement();
+			Statement statement = null;
+                        connectToDB();
+			statement = connection.createStatement();
 			statement.executeUpdate(query);
 			System.out.println("Data sent to Database......\n");
 		}
@@ -121,9 +123,9 @@ public class DatabaseConnection
     {
     	try
 		{			
-//			Statement statement = null;
-//                        connectToDB();
-//			statement = connection.createStatement();
+			Statement statement = null;
+                        connectToDB();
+			statement = connection.createStatement();
 			statement.executeUpdate(query);
 			System.out.println("Database updated .........\n");
 		}
@@ -139,10 +141,10 @@ public class DatabaseConnection
     	try
 		{
 			
-//			Statement statement = null;
-//
-//                        connectToDB();
-//			statement = connection.createStatement();
+			Statement statement = null;
+
+                        connectToDB();
+			statement = connection.createStatement();
 			statement.executeUpdate(query);
 			System.out.println("Data deleted  .........\n");
 		}

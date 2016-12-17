@@ -101,7 +101,7 @@ public class User extends Human{
                     System.out.println(e);
             }
 
-      
+       dbc.closeconnection();
        return available;
     }
     
@@ -129,6 +129,7 @@ public class User extends Human{
                 +g.getAddress().getZipCode()+"', '"+g.getCreditCard().getCardNumber()+"', '"+g.getCreditCard().getCardHolder()+"','"+new java.sql.Date(g.getCreditCard().getExpiryDate().getTime())+"', '"+new java.sql.Date(g.getCheckIn().getTime())+"', '"+new java.sql.Date(g.getCheckOut().getTime())+"', '"
                 +g.getOccupantsNumber()+"', '"+g.getGuestRoom()+"', '"+g.getBill().getPaidamount()+"', '"+g.getBill().getTotalamount()+"')";
         dbc.storeData(query);
+        dbc.closeconnection();
     
     }
     
@@ -137,5 +138,8 @@ public class User extends Human{
     public void registerUser(String fname,String lname,String phone,String mail, String country,String city,String street,String zipCode , String usern,String passw,boolean isManager){}
     
     public void deleteUser(String username) {}
+    public void modifyUser(String fname,String lname,String phone,String mail, String usern,String passw,String country,String city,String street,String zipcode)
+        {}
+   
     
 }
