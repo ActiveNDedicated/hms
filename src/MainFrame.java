@@ -353,6 +353,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         searchRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchButton.png"))); // NOI18N
         searchRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchRoomsManagementButton1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 searchRoomsManagementButton1MouseEntered(evt);
             }
@@ -362,6 +365,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         showRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/showAllButton.png"))); // NOI18N
         showRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showRoomsManagementButton1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 showRoomsManagementButton1MouseEntered(evt);
             }
@@ -2356,6 +2362,37 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void addRoomsManagementButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addRoomsManagementButton2MouseClicked
         
+       if( roomNumberRoomsManagementField2.getText()==null|| roomRateRoomsManagementField2.getText()==null)
+           JOptionPane.showMessageDialog(null, "Fields are not filled!", "Room Info!", JOptionPane.ERROR_MESSAGE);
+      else
+       {int bedtype=0;
+       if(bedTypeBox2.getSelectedItem()=="Single")
+           bedtype=1;
+       if(bedTypeBox2.getSelectedItem()=="Double")
+           bedtype=2;
+       if(bedTypeBox2.getSelectedItem()=="Triple")
+           bedtype=3;
+       if(bedTypeBox2.getSelectedItem()=="Quad")
+           bedtype=4;
+        user.createRoom(Integer.parseInt((String)roomNumberRoomsManagementField2.getText()),
+                bedtype,(String)roomTypeBox2.getSelectedItem());
+        JOptionPane.showMessageDialog(null, "New Room added","Room Management", JOptionPane.INFORMATION_MESSAGE);
+            roomBookingPanel1.setVisible(false);
+            roomBookingPanel2.setVisible(false);
+            roomBookingPanel3.setVisible(false);
+            staffManagementPanel1.setVisible(false);
+            staffManagementPanel2.setVisible(false);
+            staffManagementPanel3.setVisible(false);
+            roomsManagementPanel1.setVisible(true);
+            roomsManagementPanel2.setVisible(false);
+            roomsManagementPanel3.setVisible(false);
+            guestsManagementPanel1.setVisible(false);
+            guestsManagementPanel2.setVisible(false);
+            bookingManagementPanel1.setVisible(false);
+            bookingManagementPanel2.setVisible(false);
+            aboutPanel.setVisible(false);
+       } 
+        
     }//GEN-LAST:event_addRoomsManagementButton2MouseClicked
 
     private void addRoomsManagementButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addRoomsManagementButton2MouseEntered
@@ -2529,6 +2566,44 @@ public class MainFrame extends javax.swing.JFrame {
         bookingManagementPanel2.setVisible(false);
         aboutPanel.setVisible(false);
     }//GEN-LAST:event_modifyRoomsManagementButton1MouseClicked
+
+    private void showRoomsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showRoomsManagementButton1MouseClicked
+       Vector <Room> availableRooms=user.searchRoom(0);
+       roomTableModel.setRowCount(0);
+            for (int i=0;i<availableRooms.size();i++)
+                {
+                    Object[] row = { null, null, null,null};
+                    roomTableModel.addRow(row); 
+                    roomsManagementTable.setValueAt(availableRooms.get(i).getRoomNo(), i, 0);
+                    roomsManagementTable.setValueAt(availableRooms.get(i).getTypeOfBed(), i, 1);
+                    roomsManagementTable.setValueAt(availableRooms.get(i).getTypeOfRoom(), i, 2);
+                    roomsManagementTable.setValueAt(availableRooms.get(i).getCost(), i, 3);
+
+                }
+        
+    }//GEN-LAST:event_showRoomsManagementButton1MouseClicked
+
+    private void searchRoomsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchRoomsManagementButton1MouseClicked
+        int num=Integer.parseInt(roomNumberRoomsManagementField1.getText());
+       if(num>0)
+       {
+           Vector <Room> availableRooms=user.searchRoom(num);
+           roomTableModel.setRowCount(0);
+           for (int i=0;i<availableRooms.size();i++)
+                {
+                    Object[] row = { null, null, null,null};
+                    roomTableModel.addRow(row); 
+                    roomsManagementTable.setValueAt(availableRooms.get(i).getRoomNo(), i, 0);
+                    roomsManagementTable.setValueAt(availableRooms.get(i).getTypeOfBed(), i, 1);
+                    roomsManagementTable.setValueAt(availableRooms.get(i).getTypeOfRoom(), i, 2);
+                    roomsManagementTable.setValueAt(availableRooms.get(i).getCost(), i, 3);
+
+                }
+       }
+       else
+           JOptionPane.showMessageDialog(null, "Inappropriate room number!", "Room number!", JOptionPane.ERROR_MESSAGE);
+        
+    }//GEN-LAST:event_searchRoomsManagementButton1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aboutButton;

@@ -17,75 +17,12 @@ public class Manager extends User {
         return ismanager;
     }
     
-    public void createRoom()
+    public void createRoom(int roomNum,int typeOfBed,int cost, String typeOfRoom)
     {
-        ArrayList<Room> r=new   ArrayList<Room>();
-        for (int i=0;i<10;i++)
-        {
-            Room room =new Room ();
-            room.setAvailability(true);
-            room.setRoomNo(101+i);
-            room.setTypeOfRoom("Standard");
-            if (i<2)
-            {    room.setTypeOfBed(1);
-                 room.setCost(50);
-            }
-            else if (i<5)
-            { room.setTypeOfBed(2);
-              room.setCost(70);
-            }
-            else if(i<10)
-            {   room.setTypeOfBed(3);
-                room.setCost(90);
-            }
-            r.add(room);
-            
-        }
-         for (int i=0;i<10;i++)
-        {
-            Room room =new Room ();
-            room.setAvailability(true);
-            room.setRoomNo(201+i);
-            room.setTypeOfRoom("Superior");
-            if (i<2)
-            {   room.setTypeOfBed(1);
-                room.setCost(200);
-            }
-            else if (i<5)
-            {   room.setTypeOfBed(2);
-                room.setCost(220);
-            }
-            else if(i<10)
-            {  room.setTypeOfBed(3);
-               room.setCost(240);
-            }
-            r.add(room);
-        }
-          for (int i=0;i<10;i++)
-        {
-            Room room =new Room ();
-            room.setAvailability(true);
-            room.setRoomNo(301+i);
-            room.setTypeOfRoom("Deluxe");
-            if (i<2)
-            { room.setTypeOfBed(1);
-              room.setCost(350);
-            }
-            else if (i<5)
-            {   room.setTypeOfBed(2);
-                room.setCost(370);
-            }else if(i<10)
-            {   room.setTypeOfBed(3);
-                room.setCost(390);
-            }r.add(room);
-        }
-          for (int i=0;i<r.size();i++)
-          { 
-            query = "INSERT INTO roomdetails ( room_no, typeofbed, cost, typeofroom, availability ) VALUES ( '"+r.get(i).getRoomNo()+"', '"+r.get(i).getTypeOfBed()+"', '"+r.get(i).getCost()+"', '"+r.get(i).getTypeOfRoom()+"', '"+1+"')";
-            dbc.storeData(query);
-            dbc.closeconnection();
-          }
-          
+        query = "INSERT INTO roomdetails ( room_no, typeofbed, cost, typeofroom, availability ) VALUES ( '"
+                +roomNum+"', '"+typeOfBed+"', '"+cost+"', '"+typeOfRoom+"', '"+1+"');";
+        dbc.storeData(query);
+        dbc.closeconnection();
     }
     
     public void registerUser(String fname,String lname,String phone,String mail, String country,String city,String street,String zipCode , String usern,String passw,boolean isManager)
@@ -152,6 +89,43 @@ public class Manager extends User {
             }
        dbc.closeconnection();
        return found;
+   }
+   
+   public Vector<Room> searchRoom(int roomNum){
+    Vector  <Room> available=new Vector<Room>();
+    if(roomNum==0)
+        query="SELECT * FROM roomdetails;";
+    else   
+        query="SELECT * FROM roomdetails where room_no='"+roomNum+"';";  
+    ResultSet resultSet = dbc.getData(query);
+      try
+             {
+                 while (resultSet.next()) 
+                 {
+                         int roomno = resultSet.getInt("room_no");
+                         int bedtype= resultSet.getInt("typeofbed");
+                         double cost=resultSet.getDouble("cost");
+                         String roomtype=resultSet.getString("typeofroom");
+                         boolean ava = (resultSet.getInt("availability")==1)?true:false;
+                         Room r=new Room();
+                         r.setAvailability(ava);
+                         r.setCost(cost);
+                         r.setRoomNo(roomno);
+                         r.setTypeOfBed(bedtype);
+                         r.setTypeOfRoom(roomtype);
+                         available.add(r);
+
+
+                 }
+             }
+             catch(SQLException e)
+             {
+                     System.out.println(e);
+             }
+
+        dbc.closeconnection();
+        return available;
+
    }
    
    

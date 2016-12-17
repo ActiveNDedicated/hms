@@ -140,6 +140,8 @@ public class User extends Human{
     public void deleteUser(String username) {}
     public void modifyUser(String fname,String lname,String phone,String mail, String usern,String passw,String country,String city,String street,String zipcode)
         {}
-   
+   public Vector<Room> searchRoom(int roomNum){return null;}
+   public void createRoom(int roomNum,int typeOfBed, String typeofRoom)
+    {}
     
 }
