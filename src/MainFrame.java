@@ -341,7 +341,7 @@ public class MainFrame extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 87, 160));
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        setMinimumSize(new java.awt.Dimension(1285, 745));
+        setMinimumSize(new java.awt.Dimension(1300, 760));
         setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
 
