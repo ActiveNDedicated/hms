@@ -204,8 +204,8 @@ public class MainFrame extends javax.swing.JFrame {
         passwordStaffManagementLabel2 = new javax.swing.JLabel();
         phoneNumberStaffManagementLabel2 = new javax.swing.JLabel();
         emailStaffManagementLabel2 = new javax.swing.JLabel();
-        receptionistCheckBox = new javax.swing.JCheckBox();
-        managerCheckBox = new javax.swing.JCheckBox();
+        receptionistStaffManagementCheckBox1 = new javax.swing.JCheckBox();
+        managerStaffManagementCheckBox1 = new javax.swing.JCheckBox();
         emailStaffManagementField2 = new javax.swing.JTextField();
         userNameStaffManagementLabel2 = new javax.swing.JLabel();
         userNameStaffManagementField2 = new javax.swing.JTextField();
@@ -228,8 +228,8 @@ public class MainFrame extends javax.swing.JFrame {
         passwordStaffManagementLabel3 = new javax.swing.JLabel();
         phoneNumberStaffManagementLabel3 = new javax.swing.JLabel();
         emailStaffManagementLabel3 = new javax.swing.JLabel();
-        receptionistCheckBox1 = new javax.swing.JCheckBox();
-        managerCheckBox1 = new javax.swing.JCheckBox();
+        receptionistStaffManagementCheckBox3 = new javax.swing.JCheckBox();
+        managerStaffManagementCheckBox2 = new javax.swing.JCheckBox();
         emailStaffManagementField3 = new javax.swing.JTextField();
         userNameStaffManagementLabel3 = new javax.swing.JLabel();
         userNameStaffManagementField3 = new javax.swing.JTextField();
@@ -802,21 +802,21 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementPanel2.add(emailStaffManagementLabel2);
         emailStaffManagementLabel2.setBounds(50, 240, 50, 40);
 
-        receptionistCheckBox.setBackground(new java.awt.Color(0, 87, 160));
-        userBoxGroup.add(receptionistCheckBox);
-        receptionistCheckBox.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        receptionistCheckBox.setForeground(new java.awt.Color(255, 255, 255));
-        receptionistCheckBox.setText("Receptionist");
-        staffManagementPanel2.add(receptionistCheckBox);
-        receptionistCheckBox.setBounds(540, 440, 123, 30);
+        receptionistStaffManagementCheckBox1.setBackground(new java.awt.Color(0, 87, 160));
+        userBoxGroup.add(receptionistStaffManagementCheckBox1);
+        receptionistStaffManagementCheckBox1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        receptionistStaffManagementCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
+        receptionistStaffManagementCheckBox1.setText("Receptionist");
+        staffManagementPanel2.add(receptionistStaffManagementCheckBox1);
+        receptionistStaffManagementCheckBox1.setBounds(540, 440, 123, 30);
 
-        managerCheckBox.setBackground(new java.awt.Color(0, 87, 160));
-        userBoxGroup.add(managerCheckBox);
-        managerCheckBox.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        managerCheckBox.setForeground(new java.awt.Color(255, 255, 255));
-        managerCheckBox.setText("Manager");
-        staffManagementPanel2.add(managerCheckBox);
-        managerCheckBox.setBounds(350, 440, 100, 30);
+        managerStaffManagementCheckBox1.setBackground(new java.awt.Color(0, 87, 160));
+        userBoxGroup.add(managerStaffManagementCheckBox1);
+        managerStaffManagementCheckBox1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        managerStaffManagementCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
+        managerStaffManagementCheckBox1.setText("Manager");
+        staffManagementPanel2.add(managerStaffManagementCheckBox1);
+        managerStaffManagementCheckBox1.setBounds(350, 440, 100, 30);
 
         emailStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         emailStaffManagementField2.setBorder(null);
@@ -946,21 +946,21 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementPanel3.add(emailStaffManagementLabel3);
         emailStaffManagementLabel3.setBounds(50, 240, 50, 40);
 
-        receptionistCheckBox1.setBackground(new java.awt.Color(0, 87, 160));
-        userBoxGroup.add(receptionistCheckBox1);
-        receptionistCheckBox1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        receptionistCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        receptionistCheckBox1.setText("Receptionist");
-        staffManagementPanel3.add(receptionistCheckBox1);
-        receptionistCheckBox1.setBounds(540, 440, 123, 30);
+        receptionistStaffManagementCheckBox3.setBackground(new java.awt.Color(0, 87, 160));
+        userBoxGroup.add(receptionistStaffManagementCheckBox3);
+        receptionistStaffManagementCheckBox3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        receptionistStaffManagementCheckBox3.setForeground(new java.awt.Color(255, 255, 255));
+        receptionistStaffManagementCheckBox3.setText("Receptionist");
+        staffManagementPanel3.add(receptionistStaffManagementCheckBox3);
+        receptionistStaffManagementCheckBox3.setBounds(540, 440, 123, 30);
 
-        managerCheckBox1.setBackground(new java.awt.Color(0, 87, 160));
-        userBoxGroup.add(managerCheckBox1);
-        managerCheckBox1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        managerCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        managerCheckBox1.setText("Manager");
-        staffManagementPanel3.add(managerCheckBox1);
-        managerCheckBox1.setBounds(350, 440, 100, 30);
+        managerStaffManagementCheckBox2.setBackground(new java.awt.Color(0, 87, 160));
+        userBoxGroup.add(managerStaffManagementCheckBox2);
+        managerStaffManagementCheckBox2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        managerStaffManagementCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
+        managerStaffManagementCheckBox2.setText("Manager");
+        staffManagementPanel3.add(managerStaffManagementCheckBox2);
+        managerStaffManagementCheckBox2.setBounds(350, 440, 100, 30);
 
         emailStaffManagementField3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         emailStaffManagementField3.setBorder(null);
@@ -1117,7 +1117,7 @@ public class MainFrame extends javax.swing.JFrame {
         roomTypeRoomsManagementLabel2.setBounds(540, 260, 120, 30);
 
         bedTypeBox2.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        bedTypeBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple", "Quad" }));
+        bedTypeBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple" }));
         roomsManagementPanel2.add(bedTypeBox2);
         bedTypeBox2.setBounds(680, 190, 130, 30);
 
@@ -1179,7 +1179,7 @@ public class MainFrame extends javax.swing.JFrame {
         roomTypeRoomsManagementLabel3.setBounds(540, 260, 120, 30);
 
         bedTypeBox3.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
-        bedTypeBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple", "Quad" }));
+        bedTypeBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple" }));
         roomsManagementPanel3.add(bedTypeBox3);
         bedTypeBox3.setBounds(680, 190, 130, 30);
 
@@ -2211,7 +2211,7 @@ public class MainFrame extends javax.swing.JFrame {
             user.registerUser(firstNameStaffManagementField2.getText(), lastNameStaffManagementField2.getText(), phoneNumberStaffManagementField2.getText(), 
                     emailStaffManagementField2.getText(), countryStaffManagementField2.getText(), cityStaffManagementField2.getText(),
                     streetStaffManagementField2.getText(), zipCodeStaffManagementField2.getText(), userNameStaffManagementField2.getText(), 
-                    passwordStaffManagementField2.getText(), managerCheckBox.isSelected());
+                    passwordStaffManagementField2.getText(), managerStaffManagementCheckBox1.isSelected());
             JOptionPane.showMessageDialog(null, "Successfully registered!", "Success!", JOptionPane.INFORMATION_MESSAGE);
                         
                         firstNameStaffManagementField2.setText("");
@@ -2224,8 +2224,8 @@ public class MainFrame extends javax.swing.JFrame {
                         phoneNumberStaffManagementField2.setText("");        
                         userNameStaffManagementField2.setText("");
                         passwordStaffManagementField2.setText("");
-                        managerCheckBox.setSelected(false);
-                        receptionistCheckBox.setSelected(false);
+                        managerStaffManagementCheckBox1.setSelected(false);
+                        receptionistStaffManagementCheckBox1.setSelected(false);
                         row = -1;
                         roomBookingPanel1.setVisible(false);
                         roomBookingPanel2.setVisible(false);
@@ -2325,6 +2325,8 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementTableModel.setRowCount(0);
         for (int i=0;i<found.size();i++)
                 {
+                    if (found.get(i).getUserName()!="admin")
+                    {
                     Object[] row = { null, null, null, null, null, null, null, null, null, null, null};
                     staffManagementTableModel.addRow(row); 
                     staffManagementTable.setValueAt(found.get(i).getUserName(), i, 0);
@@ -2338,6 +2340,7 @@ public class MainFrame extends javax.swing.JFrame {
                     staffManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 8);
                     staffManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 9);
                     staffManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 10);
+                    }
                     
                 }
     }//GEN-LAST:event_showAllStaffManagementButton1MouseClicked
@@ -2377,7 +2380,7 @@ public class MainFrame extends javax.swing.JFrame {
                 passwordStaffManagementField3.getText(),
                 countryStaffManagementField3.getText(),
                 cityStaffManagementField3.getText(),
-                streetStaffManagementField3.getText(),zipCodeStaffManagementField3.getText(),(receptionistCheckBox1.isSelected())?0:1);
+                streetStaffManagementField3.getText(),zipCodeStaffManagementField3.getText(),(receptionistStaffManagementCheckBox3.isSelected())?0:1);
         JOptionPane.showMessageDialog(null, "Info of staff is modified","Modification of staff", JOptionPane.INFORMATION_MESSAGE);
         showAllStaffManagementButton1MouseClicked(evt);
         roomBookingPanel1.setVisible(false);
@@ -2420,9 +2423,9 @@ public class MainFrame extends javax.swing.JFrame {
             userNameStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 0));
             userNameStaffManagementField3.setEditable(false);
             if((boolean)staffManagementTable.getValueAt(row,2)==false)
-                receptionistCheckBox1.setSelected(true);
+                receptionistStaffManagementCheckBox3.setSelected(true);
             else 
-                managerCheckBox1.setSelected(true);
+                managerStaffManagementCheckBox2.setSelected(true);
             
             roomBookingPanel1.setVisible(false);
             roomBookingPanel2.setVisible(false);
@@ -2465,8 +2468,6 @@ public class MainFrame extends javax.swing.JFrame {
            bedtype=2;
        if(bedTypeBox2.getSelectedItem()=="Triple")
            bedtype=3;
-       if(bedTypeBox2.getSelectedItem()=="Quad")
-           bedtype=4;
         user.createRoom(Integer.parseInt((String)roomNumberRoomsManagementField2.getText()),
                 bedtype,Integer.parseInt(roomRateRoomsManagementField2.getText()),(String)roomTypeBox2.getSelectedItem());
         JOptionPane.showMessageDialog(null, "New Room added","Room Management", JOptionPane.INFORMATION_MESSAGE);
@@ -2849,11 +2850,15 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     private void cancelBookingManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelBookingManagementButton1MouseClicked
         if(bookingManagementTable.getSelectedRow()>=0)
         { 
-             user.checkOut(Integer.parseInt(String.valueOf(bookingManagementTable.getValueAt(bookingManagementTable.getSelectedRow(),0)))); 
+            int reply = JOptionPane.showConfirmDialog(null, "Booking of chosen person will be cancelled\nAre you sure?", "Cancelling booking", JOptionPane.YES_NO_OPTION);
+            
+            if (reply == JOptionPane.YES_OPTION){ 
+            user.checkOut(Integer.parseInt(String.valueOf(bookingManagementTable.getValueAt(bookingManagementTable.getSelectedRow(),0)))); 
              JOptionPane.showMessageDialog(null, "Booking Cancelled!", "Booking info!", JOptionPane.INFORMATION_MESSAGE);
              showAllBookingManagementButton1MouseClicked(evt);
-           
-        }else
+            }
+        }
+        else
             JOptionPane.showMessageDialog(null, "Booking is not selected!", "Booking info!", JOptionPane.ERROR_MESSAGE);
         
     }//GEN-LAST:event_cancelBookingManagementButton1MouseClicked
@@ -3171,8 +3176,8 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     private javax.swing.JLabel logoutButton;
     private javax.swing.JLabel mainBackground;
     private javax.swing.JLabel makeBookingButton;
-    private javax.swing.JCheckBox managerCheckBox;
-    private javax.swing.JCheckBox managerCheckBox1;
+    private javax.swing.JCheckBox managerStaffManagementCheckBox1;
+    private javax.swing.JCheckBox managerStaffManagementCheckBox2;
     private javax.swing.JLabel modifyBookingManagementButton1;
     private javax.swing.JLabel modifyBookingManagementButton2;
     private javax.swing.JLabel modifyGuestsManagementButton1;
@@ -3197,8 +3202,8 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     private javax.swing.JTextField phoneNumberStaffManagementField3;
     private javax.swing.JLabel phoneNumberStaffManagementLabel2;
     private javax.swing.JLabel phoneNumberStaffManagementLabel3;
-    private javax.swing.JCheckBox receptionistCheckBox;
-    private javax.swing.JCheckBox receptionistCheckBox1;
+    private javax.swing.JCheckBox receptionistStaffManagementCheckBox1;
+    private javax.swing.JCheckBox receptionistStaffManagementCheckBox3;
     private javax.swing.JLabel registerUserStaffManagementButton1;
     private javax.swing.JLabel registerUserStaffManagementButton2;
     private javax.swing.JLabel roomBookingButton;
