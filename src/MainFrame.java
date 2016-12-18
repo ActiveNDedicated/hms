@@ -1035,6 +1035,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         deleteRoomsManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/deleteRoomButton.png"))); // NOI18N
         deleteRoomsManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteRoomsManagementButton1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 deleteRoomsManagementButton1MouseEntered(evt);
             }
@@ -2224,6 +2227,7 @@ public class MainFrame extends javax.swing.JFrame {
                         guestsManagementPane.setVisible(false);
                         bookingManagementPane.setVisible(false);
                         aboutPanel.setVisible(false);
+                        showAllStaffManagementButton1MouseClicked(evt);
         }
     }//GEN-LAST:event_registerUserStaffManagementButton2MouseClicked
 
@@ -2354,7 +2358,7 @@ public class MainFrame extends javax.swing.JFrame {
                 passwordStaffManagementField3.getText(),
                 countryStaffManagementField3.getText(),
                 cityStaffManagementField3.getText(),
-                streetStaffManagementField3.getText(),zipCodeStaffManagementField3.getText());
+                streetStaffManagementField3.getText(),zipCodeStaffManagementField3.getText(),(receptionistCheckBox1.isSelected())?0:1);
         JOptionPane.showMessageDialog(null, "Info of staff is modified","Modification of staff", JOptionPane.INFORMATION_MESSAGE);
         showAllStaffManagementButton1MouseClicked(evt);
         roomBookingPanel1.setVisible(false);
@@ -2445,7 +2449,7 @@ public class MainFrame extends javax.swing.JFrame {
        if(bedTypeBox2.getSelectedItem()=="Quad")
            bedtype=4;
         user.createRoom(Integer.parseInt((String)roomNumberRoomsManagementField2.getText()),
-                bedtype,(String)roomTypeBox2.getSelectedItem());
+                bedtype,Integer.parseInt(roomRateRoomsManagementField2.getText()),(String)roomTypeBox2.getSelectedItem());
         JOptionPane.showMessageDialog(null, "New Room added","Room Management", JOptionPane.INFORMATION_MESSAGE);
             roomBookingPanel1.setVisible(false);
             roomBookingPanel2.setVisible(false);
@@ -2466,6 +2470,7 @@ public class MainFrame extends javax.swing.JFrame {
             guestsManagementPane.setVisible(false);
             bookingManagementPane.setVisible(false);
             aboutPanel.setVisible(false);
+            showRoomsManagementButton1MouseClicked(evt);
        } 
         
     }//GEN-LAST:event_addRoomsManagementButton2MouseClicked
@@ -2475,7 +2480,40 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_addRoomsManagementButton2MouseEntered
 
     private void modifyRoomsManagementButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyRoomsManagementButton3MouseClicked
-        
+        int bedtype=0;
+       if(bedTypeBox3.getSelectedItem()=="Single")
+           bedtype=1;
+       if(bedTypeBox3.getSelectedItem()=="Double")
+           bedtype=2;
+       if(bedTypeBox3.getSelectedItem()=="Triple")
+           bedtype=3;
+       if(bedTypeBox3.getSelectedItem()=="Quad")
+           bedtype=4;
+        user.modifyRoom(Integer.parseInt(roomNumberRoomsManagementField3.getText()),
+                Double.parseDouble(roomRateRoomsManagementField3.getText()),
+               bedtype,String.valueOf(roomTypeBox3.getSelectedItem()) );
+        JOptionPane.showMessageDialog(null, "Room Modified!","Room Management", JOptionPane.INFORMATION_MESSAGE);
+        showRoomsManagementButton1MouseClicked(evt);
+
+            roomBookingPanel1.setVisible(false);
+            roomBookingPanel2.setVisible(false);
+            roomBookingPanel3.setVisible(false);
+            staffManagementPanel1.setVisible(false);
+            staffManagementPanel2.setVisible(false);
+            staffManagementPanel3.setVisible(false);
+            roomsManagementPanel1.setVisible(true);
+            roomsManagementPanel2.setVisible(false);
+            roomsManagementPanel3.setVisible(false);
+            guestsManagementPanel1.setVisible(false);
+            guestsManagementPanel2.setVisible(false);
+            bookingManagementPanel1.setVisible(false);
+            bookingManagementPanel2.setVisible(false);
+            roomBookingPane.setVisible(false);
+            staffManagementPane.setVisible(false);
+            roomsManagementPane.setVisible(true);
+            guestsManagementPane.setVisible(false);
+            bookingManagementPane.setVisible(false);
+            aboutPanel.setVisible(false);
     }//GEN-LAST:event_modifyRoomsManagementButton3MouseClicked
 
     private void modifyRoomsManagementButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyRoomsManagementButton3MouseEntered
@@ -2641,6 +2679,14 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_addRoomsManagementButton1MouseClicked
 
     private void modifyRoomsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyRoomsManagementButton1MouseClicked
+      if(roomsManagementTable.getSelectedRow()>=0){  
+        row =roomsManagementTable.getSelectedRow();
+        roomNumberRoomsManagementField3.setText(String.valueOf(roomsManagementTable.getValueAt(row,0)));
+        roomNumberRoomsManagementField3.setEditable(false);
+        roomRateRoomsManagementField3.setText(String.valueOf(roomsManagementTable.getValueAt(row,3)));
+        bedTypeBox3.setSelectedIndex(Integer.parseInt(String.valueOf(roomsManagementTable.getValueAt(row, 1)))-1);
+        roomTypeBox3.setSelectedItem(String.valueOf(roomsManagementTable.getValueAt(row,2)));
+            
         roomBookingPanel1.setVisible(false);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
@@ -2660,6 +2706,10 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPane.setVisible(false);
         bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
+    }
+        else 
+            JOptionPane.showMessageDialog(null, "Staff is not selected!", "Modification of staff info!", JOptionPane.ERROR_MESSAGE);
+        
     }//GEN-LAST:event_modifyRoomsManagementButton1MouseClicked
 
     private void showRoomsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showRoomsManagementButton1MouseClicked
@@ -2679,7 +2729,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_showRoomsManagementButton1MouseClicked
 
     private void searchRoomsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchRoomsManagementButton1MouseClicked
-        int num=Integer.parseInt(roomNumberRoomsManagementField1.getText());
+        int num=0;
+        if (roomNumberRoomsManagementField1.getText()==null)
+            JOptionPane.showMessageDialog(null, "Inappropriate room number!", "Room number!", JOptionPane.ERROR_MESSAGE);
+        else 
+        { num=Integer.parseInt(roomNumberRoomsManagementField1.getText());
        if(num>0)
        {
            Vector <Room> availableRooms=user.searchRoom(num);
@@ -2697,8 +2751,39 @@ public class MainFrame extends javax.swing.JFrame {
        }
        else
            JOptionPane.showMessageDialog(null, "Inappropriate room number!", "Room number!", JOptionPane.ERROR_MESSAGE);
-        
+    }   
     }//GEN-LAST:event_searchRoomsManagementButton1MouseClicked
+
+    private void deleteRoomsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteRoomsManagementButton1MouseClicked
+       if ("admin".equals(user.getUserName())){
+            row = roomsManagementTable.getSelectedRow();
+    
+            
+        if (row == -1)
+        {
+            JOptionPane.showMessageDialog(null, "Please select a room before performing an operation ", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+        {
+            int roomNum = Integer.parseInt(roomsManagementTable.getModel().getValueAt(row, 0).toString());
+            
+            int reply = JOptionPane.showConfirmDialog(null, "Chosen room will be deleted\n Are you sure you want to perform an operation?", "Deleting user", JOptionPane.YES_NO_OPTION);
+            
+            if (reply == JOptionPane.YES_OPTION) {
+                user.deleteRoom(roomNum);
+                JOptionPane.showMessageDialog(null, "The room was successfully deleted!", "Success!", JOptionPane.INFORMATION_MESSAGE);
+                row = -1;
+            }
+            
+        }
+        
+        }
+        
+        else {
+            JOptionPane.showMessageDialog(null, "Only admin can delete rooms!", "Insufficient permission!", JOptionPane.ERROR_MESSAGE);
+        }
+        showRoomsManagementButton1MouseClicked(evt);
+    }//GEN-LAST:event_deleteRoomsManagementButton1MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel aboutButton;

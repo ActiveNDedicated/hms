@@ -138,10 +138,14 @@ public class User extends Human{
     public void registerUser(String fname,String lname,String phone,String mail, String country,String city,String street,String zipCode , String usern,String passw,boolean isManager){}
     
     public void deleteUser(String username) {}
-    public void modifyUser(String fname,String lname,String phone,String mail, String usern,String passw,String country,String city,String street,String zipcode)
+    public void modifyUser(String fname,String lname,String phone,String mail, String usern,String passw,String country,String city,String street,String zipcode,int ismanager)
         {}
    public Vector<Room> searchRoom(int roomNum){return null;}
-   public void createRoom(int roomNum,int typeOfBed, String typeofRoom)
+   public void createRoom(int roomNum,int typeOfBed,int cost, String typeofRoom)
     {}
     
+   public void modifyRoom(int roomNum,double cost, int typeOfBed,String typeOfRoom)
+   {
+   }
+   public void deleteRoom(int roomNum){}
 }

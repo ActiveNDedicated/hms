@@ -51,10 +51,10 @@ public class Manager extends User {
          dbc.deleteData(query);
          dbc.closeconnection();
    }
-   public void modifyUser(String fname,String lname,String phone,String mail, String usern,String passw,String country,String city,String street,String zipcode){
+   public void modifyUser(String fname,String lname,String phone,String mail, String usern,String passw,String country,String city,String street,String zipcode,int ismanager){
    
        query="Update users SET password ='"+passw+"',firstname ='"+fname+"',lastname ='"+lname+"',phonenumber ='"+phone+"',email ='"+mail+"',country ='"
-               +country+"',city ='"+city+"',street ='"+street+"',zipcode ='"+zipcode+"' WHERE username = '"+usern+"'";
+               +country+"',city ='"+city+"',street ='"+street+"',zipcode ='"+zipcode+"',isManager='"+ismanager+"' WHERE username = '"+usern+"'";
        dbc.updateData(query);
        dbc.closeconnection();
    }
@@ -128,5 +128,18 @@ public class Manager extends User {
 
    }
    
+   public void modifyRoom(int roomNum,double cost, int typeOfBed,String typeOfRoom)
+   {
+       query = "UPDATE roomdetails SET typeofbed='"+typeOfBed+"', cost='"+cost+"', typeofroom='"+typeOfRoom
+               +"' WHERE room_no='"+roomNum+"';";
+        dbc.storeData(query);
+        dbc.closeconnection();
+   }
+   
+   public void deleteRoom(int roomNum){
+    query="Delete from roomdetails WHERE room_no='"+roomNum+"';";
+         dbc.deleteData(query);
+         dbc.closeconnection();   
+   }
    
 }
