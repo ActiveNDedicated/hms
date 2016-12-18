@@ -2583,6 +2583,7 @@ public class MainFrame extends javax.swing.JFrame {
         guestManagementTableModel.setRowCount(0);
         for (int i=0;i<found.size();i++)
                 {
+                    expiryDate.setTime(found.get(i).getCreditCard().getExpiryDate());
                     Object[] row = { null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null, null, null,null,null,null};
                     guestManagementTableModel.addRow(row); 
@@ -2603,8 +2604,8 @@ public class MainFrame extends javax.swing.JFrame {
                     guestsManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
                     guestsManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
                     guestsManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
-                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getMonth(), i, 17);
-                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getYear(), i, 18);
+                    guestsManagementTable.setValueAt(expiryDate.get(Calendar.MONTH), i, 17);
+                    guestsManagementTable.setValueAt(expiryDate.get(Calendar.YEAR), i, 18);
                     
                 }
         
@@ -2736,6 +2737,7 @@ Vector <Guest> found=user.searchGuest(firstNameBookingManagementField1.getText()
         guestManagementTableModel.setRowCount(0);
         for (int i=0;i<found.size();i++)
                 {
+                    expiryDate.setTime(found.get(i).getCreditCard().getExpiryDate());
                     Object[] row = { null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null, null, null,null,null,null};
                     guestManagementTableModel.addRow(row); 
@@ -2756,8 +2758,8 @@ Vector <Guest> found=user.searchGuest(firstNameBookingManagementField1.getText()
                     bookingManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
                     bookingManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
                     bookingManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
-                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getMonth()+1, i, 17);
-                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getYear()+3799, i, 18);
+                    bookingManagementTable.setValueAt(expiryDate.get(Calendar.MONTH), i, 17);
+                    bookingManagementTable.setValueAt(expiryDate.get(Calendar.YEAR), i, 18);
                     
                 }
     }//GEN-LAST:event_searchBookingManagementButton1MouseClicked
@@ -2771,6 +2773,7 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
         guestManagementTableModel.setRowCount(0);
         for (int i=0;i<found.size();i++)
                 {
+                    expiryDate.setTime(found.get(i).getCreditCard().getExpiryDate());
                     Object[] row = { null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null, null, null,null,null,null};
                     guestManagementTableModel.addRow(row); 
@@ -2791,8 +2794,8 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
                     bookingManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
                     bookingManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
                     bookingManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
-                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getMonth(), i, 17);
-                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getYear(), i, 18);
+                    bookingManagementTable.setValueAt(expiryDate.get(Calendar.MONTH), i, 17);
+                    bookingManagementTable.setValueAt(expiryDate.get(Calendar.YEAR), i, 18);
                     
                 }     
     }//GEN-LAST:event_showAllBookingManagementButton1MouseClicked
