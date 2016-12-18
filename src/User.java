@@ -148,4 +148,68 @@ public class User extends Human{
    {
    }
    public void deleteRoom(int roomNum){}
+   
+   public Vector<Guest> searchGuest(String fname,String lname,Date today,boolean checkedIn)
+   {
+       if (checkedIn){
+                if (fname==null&&lname==null)
+                    query="SELECT * FROM guests WHERE (DATE(checkin)<='"+new java.sql.Date(today.getTime())
+                            +"' AND DATE(checkout)>='"+new java.sql.Date(today.getTime())+"' )";
+            else
+                    query="SELECT * FROM guests WHERE (DATE(checkin)<='"+new java.sql.Date(today.getTime())
+                            +"' AND DATE(checkout)>='"+new java.sql.Date(today.getTime())+"' )AND (firstname='"+fname
+                            +"' OR lastname='"+lname+"');";
+       }
+       else{    
+                if (fname==null&&lname==null)
+                query="SELECT * FROM guests WHERE (DATE(checkin)>'"+new java.sql.Date(today.getTime())
+                        +"' )";
+            else
+                query="SELECT * FROM guests WHERE (DATE(checkin)>'"+new java.sql.Date(today.getTime())
+                        +"' )AND (firstname='"+fname+"' OR lastname='"+lname+"');";
+            } 
+           Vector  <Guest> found=new Vector<Guest>();
+       ResultSet rs = dbc.getData(query);
+       Guest guest;
+     try
+            {
+                while (rs.next()) 
+                {guest=new Guest(rs.getInt("id"),rs.getString("firstname"),rs.getString("lastname"),
+                                       rs.getString("phonenum"),rs.getString("mail"),new Address(rs.getString("country"),
+                                       rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),new CreditCard(rs.getString("cardnumber"),
+                                       rs.getString("cardholdername"),rs.getDate("cardexpiry").getMonth(),rs.getDate("cardexpiry").getYear()),
+                                       rs.getDate("checkin"),rs.getDate("checkout"),rs.getInt("occupants_number"),
+                                       rs.getInt("room_number"),new Bill(rs.getDouble("totalamount"),rs.getDouble("paidamount")));
+                 found.add(guest);
+                }
+            }
+            catch(SQLException e)
+            {
+                    System.out.println(e);
+            }
+       dbc.closeconnection();
+       return found;
+   }
+   
+   public void modifyGuest(int id,String firstname,String lastName,String phonenumber,String email, 
+            String country,String city,String street,String zipCode , 
+            String cardnumber,String cardholder, double total,double paid)
+   {
+      if (total==0) query = "UPDATE guests SET firstname='"+firstname+"', lastname='"+lastName+"', phonenum='"+phonenumber
+               +"',mail='"+email+"',country='"+country+"',city='"+city+"',street='"+street+"',zipcode='"+
+               zipCode+"',cardnumber='"+cardnumber+"' ,cardholdername='"+cardholder+"',totalamount='"
+               +total+"',paidamount='"+paid+"' WHERE id='"+id+"' ;";
+      else query = "UPDATE guests SET firstname='"+firstname+"', lastname='"+lastName+"', phonenum='"+phonenumber
+               +"',mail='"+email+"',country='"+country+"',city='"+city+"',street='"+street+"',zipcode='"+
+               zipCode+"',cardnumber='"+cardnumber+"' ,cardholdername='"+cardholder+"', WHERE id='"+id+"' ;";
+        dbc.storeData(query);
+        dbc.closeconnection();}
+   public void checkOut(int id){
+   query="Delete from guests WHERE id='"+id+"';";
+         dbc.deleteData(query);
+         dbc.closeconnection(); 
+   }
+   
 }
+
+

@@ -2,6 +2,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.Date;
 
 public class Manager extends User {
     DatabaseConnection dbc=new DatabaseConnection();
@@ -141,5 +142,7 @@ public class Manager extends User {
          dbc.deleteData(query);
          dbc.closeconnection();   
    }
+   
+   
    
 }

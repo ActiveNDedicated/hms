@@ -100,6 +100,25 @@ public class MainFrame extends javax.swing.JFrame {
                             fireTableChanged(null);
                         }
         };
+    javax.swing.table.DefaultTableModel guestManagementTableModel = new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {"ID",
+                "First Name", "Last Name","Room Number","Occupants Number", "Checkin","Checkout","Total amount",
+                "Paid amount","Card Number","Card Holder Name",
+                "Phone Number", "E-mail", "Country", "City", "Street", "ZIP-Code","Card Expiry Month","Card Expiry Year"
+            }
+        )   {
+                            public boolean isCellEditable(int row, int column)
+                        {
+                          return false;
+                        }
+            
+                        public void refresh(Object[][] objects)
+                        {
+                            fireTableChanged(null);
+                        }
+        };
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1178,7 +1197,7 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
         guestsManagementPanel1.setLayout(null);
 
-        guestsManagementTable.setModel(staffManagementTableModel);
+        guestsManagementTable.setModel(guestManagementTableModel);
         guestsManagementScrollPane.setViewportView(guestsManagementTable);
 
         guestsManagementPanel1.add(guestsManagementScrollPane);
@@ -1429,7 +1448,7 @@ public class MainFrame extends javax.swing.JFrame {
         bookingManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
         bookingManagementPanel1.setLayout(null);
 
-        bookingManagementTable.setModel(staffManagementTableModel);
+        bookingManagementTable.setModel(guestManagementTableModel);
         bookingManagementScrollPane.setViewportView(bookingManagementTable);
 
         bookingManagementPanel1.add(bookingManagementScrollPane);
@@ -2521,7 +2540,36 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_modifyRoomsManagementButton3MouseEntered
 
     private void searchGuestsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchGuestsManagementButton1MouseClicked
-        // TODO add your handling code here:
+       
+        Vector <Guest> found=user.searchGuest(firstNameGuestsManagementField1.getText(),
+                lastNameGuestsManagementField1.getText(),date,true);
+        guestManagementTableModel.setRowCount(0);
+        for (int i=0;i<found.size();i++)
+                {
+                    Object[] row = { null, null, null, null, null, null, null, null,
+                        null, null, null, null, null, null, null, null,null,null,null};
+                    guestManagementTableModel.addRow(row); 
+                    guestsManagementTable.setValueAt(found.get(i).getGuestID(), i, 0);
+                    guestsManagementTable.setValueAt(found.get(i).getFirstName(), i, 1);
+                    guestsManagementTable.setValueAt(found.get(i).getLastName(), i, 2);
+                    guestsManagementTable.setValueAt(found.get(i).getGuestRoom(), i, 3);
+                    guestsManagementTable.setValueAt(found.get(i).getOccupantsNumber(), i, 4);
+                    guestsManagementTable.setValueAt(found.get(i).getCheckIn(), i, 5);
+                    guestsManagementTable.setValueAt(found.get(i).getCheckOut(), i, 6);
+                    guestsManagementTable.setValueAt(found.get(i).getBill().getTotalamount(), i, 7);
+                    guestsManagementTable.setValueAt(found.get(i).getBill().getPaidamount(), i, 8);
+                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getCardNumber(), i, 9);
+                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getCardHolder(), i, 10);
+                    guestsManagementTable.setValueAt(found.get(i).getPhoneNumber(), i, 11);
+                    guestsManagementTable.setValueAt(found.get(i).getEmail(), i, 12);
+                    guestsManagementTable.setValueAt(found.get(i).getAddress().getCountry(), i, 13);
+                    guestsManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
+                    guestsManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
+                    guestsManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
+                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getMonth(), i, 17);
+                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getYear(), i, 18);
+                    
+                }
     }//GEN-LAST:event_searchGuestsManagementButton1MouseClicked
 
     private void searchGuestsManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchGuestsManagementButton1MouseEntered
@@ -2529,7 +2577,37 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchGuestsManagementButton1MouseEntered
 
     private void showAllGuestsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllGuestsManagementButton1MouseClicked
-        // TODO add your handling code here:
+        
+        Vector <Guest> found=user.searchGuest(null, null,date,true);
+        guestManagementTableModel.setRowCount(0);
+        for (int i=0;i<found.size();i++)
+                {
+                    Object[] row = { null, null, null, null, null, null, null, null,
+                        null, null, null, null, null, null, null, null,null,null,null};
+                    guestManagementTableModel.addRow(row); 
+                    guestsManagementTable.setValueAt(found.get(i).getGuestID(), i, 0);
+                    guestsManagementTable.setValueAt(found.get(i).getFirstName(), i, 1);
+                    guestsManagementTable.setValueAt(found.get(i).getLastName(), i, 2);
+                    guestsManagementTable.setValueAt(found.get(i).getGuestRoom(), i, 3);
+                    guestsManagementTable.setValueAt(found.get(i).getOccupantsNumber(), i, 4);
+                    guestsManagementTable.setValueAt(found.get(i).getCheckIn(), i, 5);
+                    guestsManagementTable.setValueAt(found.get(i).getCheckOut(), i, 6);
+                    guestsManagementTable.setValueAt(found.get(i).getBill().getTotalamount(), i, 7);
+                    guestsManagementTable.setValueAt(found.get(i).getBill().getPaidamount(), i, 8);
+                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getCardNumber(), i, 9);
+                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getCardHolder(), i, 10);
+                    guestsManagementTable.setValueAt(found.get(i).getPhoneNumber(), i, 11);
+                    guestsManagementTable.setValueAt(found.get(i).getEmail(), i, 12);
+                    guestsManagementTable.setValueAt(found.get(i).getAddress().getCountry(), i, 13);
+                    guestsManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
+                    guestsManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
+                    guestsManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
+                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getMonth(), i, 17);
+                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getYear(), i, 18);
+                    
+                }
+        
+        
     }//GEN-LAST:event_showAllGuestsManagementButton1MouseClicked
 
     private void showAllGuestsManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllGuestsManagementButton1MouseEntered
@@ -2537,6 +2615,24 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_showAllGuestsManagementButton1MouseEntered
 
     private void modifyGuestsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyGuestsManagementButton1MouseClicked
+        if(guestsManagementTable.getSelectedRow()>=0){  
+        row =guestsManagementTable.getSelectedRow();
+        firstNameGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,1)));
+        lastNameGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,2)));
+        countryGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,13)));
+        cityGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,14)));
+        streetGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,15)));
+        zipCodeGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,16)));
+        cardNumberGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,9)));
+        emailGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,12)));
+        phoneNumberGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,11)));
+        cardHolderGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,10)));
+        payedAmountGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,8)));
+        totalAmountGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,7)));
+        expiryMonthGuestsManagementCalendar2.setMonth(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(row,17))));
+        expiryYearGuestsManagementCalendar2.setYear(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(row,18))));
+        
+        
         roomBookingPanel1.setVisible(false);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
@@ -2556,6 +2652,12 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPane.setVisible(true);
         bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
+    }
+        else 
+            JOptionPane.showMessageDialog(null, "Guest is not selected!", "Guest info!", JOptionPane.ERROR_MESSAGE);
+      
+        
+        
     }//GEN-LAST:event_modifyGuestsManagementButton1MouseClicked
 
     private void modifyGuestsManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyGuestsManagementButton1MouseEntered
@@ -2563,7 +2665,21 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_modifyGuestsManagementButton1MouseEntered
 
     private void checkOutGuestsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutGuestsManagementButton1MouseClicked
-        // TODO add your handling code here:
+        if(guestsManagementTable.getSelectedRow()>=0)
+        {
+            double cost= Double.parseDouble(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),7 )))
+                    -Double.parseDouble(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),8)));
+           if (cost>0) 
+               JOptionPane.showMessageDialog(null, "Guest should pay '"+cost+"' $!","Checkout Guest", JOptionPane.INFORMATION_MESSAGE);
+           else 
+           {user.checkOut(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),0)))); 
+             JOptionPane.showMessageDialog(null, "Guest Checked out!", "Guest info!", JOptionPane.INFORMATION_MESSAGE);
+             showAllGuestsManagementButton1MouseClicked(evt);
+           }
+        }else
+            JOptionPane.showMessageDialog(null, "Guest is not selected!", "Guest info!", JOptionPane.ERROR_MESSAGE);
+
+
     }//GEN-LAST:event_checkOutGuestsManagementButton1MouseClicked
 
     private void checkOutGuestsManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutGuestsManagementButton1MouseEntered
@@ -2571,7 +2687,42 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_checkOutGuestsManagementButton1MouseEntered
 
     private void modifyGuestsManagementButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyGuestsManagementButton2MouseClicked
-        // TODO add your handling code here:
+
+        if (Double.parseDouble(totalAmountGuestsManagementField2.getText())<Double.parseDouble(payedAmountGuestsManagementField2.getText()))
+            JOptionPane.showMessageDialog(null, "Overpay!", "Payment!", JOptionPane.ERROR_MESSAGE);
+        else
+        {
+            user.modifyGuest(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(row,0))),
+        firstNameGuestsManagementField2.getText(),lastNameGuestsManagementField2.getText(),
+        phoneNumberGuestsManagementField2.getText(),emailGuestsManagementField2.getText(),
+        countryGuestsManagementField2.getText(),cityGuestsManagementField2.getText(),
+        streetGuestsManagementField2.getText(),zipCodeGuestsManagementField2.getText(),
+        cardNumberGuestsManagementField2.getText(),cardHolderGuestsManagementField2.getText(),
+        Double.parseDouble(totalAmountGuestsManagementField2.getText()),
+        Double.parseDouble(payedAmountGuestsManagementField2.getText()));
+        JOptionPane.showMessageDialog(null, "Guest info was sucessfully modified !", "Success!", JOptionPane.INFORMATION_MESSAGE);
+        showAllGuestsManagementButton1MouseClicked(evt);
+        roomBookingPanel1.setVisible(false);
+        roomBookingPanel2.setVisible(false);
+        roomBookingPanel3.setVisible(false);
+        staffManagementPanel1.setVisible(false);
+        staffManagementPanel2.setVisible(false);
+        staffManagementPanel3.setVisible(false);
+        roomsManagementPanel1.setVisible(false);
+        roomsManagementPanel2.setVisible(false);
+        roomsManagementPanel3.setVisible(false);
+        guestsManagementPanel1.setVisible(true);
+        guestsManagementPanel2.setVisible(false);
+        bookingManagementPanel1.setVisible(false);
+        bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(true);
+        bookingManagementPane.setVisible(false);
+        aboutPanel.setVisible(false);
+        }
+      
     }//GEN-LAST:event_modifyGuestsManagementButton2MouseClicked
 
     private void modifyGuestsManagementButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyGuestsManagementButton2MouseEntered
@@ -2579,7 +2730,35 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_modifyGuestsManagementButton2MouseEntered
 
     private void searchBookingManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBookingManagementButton1MouseClicked
-        // TODO add your handling code here:
+Vector <Guest> found=user.searchGuest(firstNameBookingManagementField1.getText(),
+                lastNameBookingManagementField1.getText(),date,false);
+        guestManagementTableModel.setRowCount(0);
+        for (int i=0;i<found.size();i++)
+                {
+                    Object[] row = { null, null, null, null, null, null, null, null,
+                        null, null, null, null, null, null, null, null,null,null,null};
+                    guestManagementTableModel.addRow(row); 
+                    bookingManagementTable.setValueAt(found.get(i).getGuestID(), i, 0);
+                    bookingManagementTable.setValueAt(found.get(i).getFirstName(), i, 1);
+                    bookingManagementTable.setValueAt(found.get(i).getLastName(), i, 2);
+                    bookingManagementTable.setValueAt(found.get(i).getGuestRoom(), i, 3);
+                    bookingManagementTable.setValueAt(found.get(i).getOccupantsNumber(), i, 4);
+                    bookingManagementTable.setValueAt(found.get(i).getCheckIn(), i, 5);
+                    bookingManagementTable.setValueAt(found.get(i).getCheckOut(), i, 6);
+                    bookingManagementTable.setValueAt(found.get(i).getBill().getTotalamount(), i, 7);
+                    bookingManagementTable.setValueAt(found.get(i).getBill().getPaidamount(), i, 8);
+                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getCardNumber(), i, 9);
+                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getCardHolder(), i, 10);
+                    bookingManagementTable.setValueAt(found.get(i).getPhoneNumber(), i, 11);
+                    bookingManagementTable.setValueAt(found.get(i).getEmail(), i, 12);
+                    bookingManagementTable.setValueAt(found.get(i).getAddress().getCountry(), i, 13);
+                    bookingManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
+                    bookingManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
+                    bookingManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
+                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getMonth()+1, i, 17);
+                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getYear()+3799, i, 18);
+                    
+                }
     }//GEN-LAST:event_searchBookingManagementButton1MouseClicked
 
     private void searchBookingManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBookingManagementButton1MouseEntered
@@ -2587,7 +2766,34 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_searchBookingManagementButton1MouseEntered
 
     private void showAllBookingManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllBookingManagementButton1MouseClicked
-        // TODO add your handling code here:
+Vector <Guest> found=user.searchGuest(null, null,date,false);
+        guestManagementTableModel.setRowCount(0);
+        for (int i=0;i<found.size();i++)
+                {
+                    Object[] row = { null, null, null, null, null, null, null, null,
+                        null, null, null, null, null, null, null, null,null,null,null};
+                    guestManagementTableModel.addRow(row); 
+                    bookingManagementTable.setValueAt(found.get(i).getGuestID(), i, 0);
+                    bookingManagementTable.setValueAt(found.get(i).getFirstName(), i, 1);
+                    bookingManagementTable.setValueAt(found.get(i).getLastName(), i, 2);
+                    bookingManagementTable.setValueAt(found.get(i).getGuestRoom(), i, 3);
+                    bookingManagementTable.setValueAt(found.get(i).getOccupantsNumber(), i, 4);
+                    bookingManagementTable.setValueAt(found.get(i).getCheckIn(), i, 5);
+                    bookingManagementTable.setValueAt(found.get(i).getCheckOut(), i, 6);
+                    bookingManagementTable.setValueAt(found.get(i).getBill().getTotalamount(), i, 7);
+                    bookingManagementTable.setValueAt(found.get(i).getBill().getPaidamount(), i, 8);
+                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getCardNumber(), i, 9);
+                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getCardHolder(), i, 10);
+                    bookingManagementTable.setValueAt(found.get(i).getPhoneNumber(), i, 11);
+                    bookingManagementTable.setValueAt(found.get(i).getEmail(), i, 12);
+                    bookingManagementTable.setValueAt(found.get(i).getAddress().getCountry(), i, 13);
+                    bookingManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
+                    bookingManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
+                    bookingManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
+                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getMonth(), i, 17);
+                    bookingManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getYear(), i, 18);
+                    
+                }     
     }//GEN-LAST:event_showAllBookingManagementButton1MouseClicked
 
     private void showAllBookingManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllBookingManagementButton1MouseEntered
@@ -2595,6 +2801,22 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_showAllBookingManagementButton1MouseEntered
 
     private void modifyBookingManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyBookingManagementButton1MouseClicked
+        if(bookingManagementTable.getSelectedRow()>=0){  
+        row =bookingManagementTable.getSelectedRow();
+        firstNameBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,1)));
+        lastNameBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,2)));
+        countryBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,13)));
+        cityBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,14)));
+        streetBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,15)));
+        zipCodeBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,16)));
+        cardNumberBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,9)));
+        emailBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,12)));
+        phoneNumberBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,11)));
+        cardHolderBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,10)));
+        expiryMonthBookingManagementCalendar2.setMonth(Integer.parseInt(String.valueOf(bookingManagementTable.getValueAt(row,17))));
+        expiryYearBookingManagementCalendar2.setYear(Integer.parseInt(String.valueOf(bookingManagementTable.getValueAt(row,18))));
+        
+        
         roomBookingPanel1.setVisible(false);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
@@ -2614,6 +2836,10 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPane.setVisible(false);
         bookingManagementPane.setVisible(true);
         aboutPanel.setVisible(false);
+    }
+        else 
+            JOptionPane.showMessageDialog(null, "Booking is not selected!", "Booking info!", JOptionPane.ERROR_MESSAGE);
+      
     }//GEN-LAST:event_modifyBookingManagementButton1MouseClicked
 
     private void modifyBookingManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyBookingManagementButton1MouseEntered
@@ -2621,7 +2847,15 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_modifyBookingManagementButton1MouseEntered
 
     private void cancelBookingManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelBookingManagementButton1MouseClicked
-        // TODO add your handling code here:
+        if(bookingManagementTable.getSelectedRow()>=0)
+        { 
+             user.checkOut(Integer.parseInt(String.valueOf(bookingManagementTable.getValueAt(bookingManagementTable.getSelectedRow(),0)))); 
+             JOptionPane.showMessageDialog(null, "Booking Cancelled!", "Booking info!", JOptionPane.INFORMATION_MESSAGE);
+             showAllBookingManagementButton1MouseClicked(evt);
+           
+        }else
+            JOptionPane.showMessageDialog(null, "Booking is not selected!", "Booking info!", JOptionPane.ERROR_MESSAGE);
+        
     }//GEN-LAST:event_cancelBookingManagementButton1MouseClicked
 
     private void cancelBookingManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cancelBookingManagementButton1MouseEntered
@@ -2629,7 +2863,33 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelBookingManagementButton1MouseEntered
 
     private void modifyBookingManagementButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyBookingManagementButton2MouseClicked
-        // TODO add your handling code here:
+        user.modifyGuest(Integer.parseInt(String.valueOf(bookingManagementTable.getValueAt(row,0))),
+        firstNameBookingManagementField2.getText(),lastNameBookingManagementField2.getText(),
+        phoneNumberBookingManagementField2.getText(),emailBookingManagementField2.getText(),
+        countryBookingManagementField2.getText(),cityBookingManagementField2.getText(),
+        streetBookingManagementField2.getText(),zipCodeBookingManagementField2.getText(),
+        cardNumberBookingManagementField2.getText(),cardHolderBookingManagementField2.getText(),0,0);
+        JOptionPane.showMessageDialog(null, "Booking info was sucessfully modified !", "Success!", JOptionPane.INFORMATION_MESSAGE);
+        showAllBookingManagementButton1MouseClicked(evt);
+        roomBookingPanel1.setVisible(false);
+        roomBookingPanel2.setVisible(false);
+        roomBookingPanel3.setVisible(false);
+        staffManagementPanel1.setVisible(false);
+        staffManagementPanel2.setVisible(false);
+        staffManagementPanel3.setVisible(false);
+        roomsManagementPanel1.setVisible(false);
+        roomsManagementPanel2.setVisible(false);
+        roomsManagementPanel3.setVisible(false);
+        guestsManagementPanel1.setVisible(false);
+        guestsManagementPanel2.setVisible(false);
+        bookingManagementPanel1.setVisible(true);
+        bookingManagementPanel2.setVisible(false);
+        roomBookingPane.setVisible(false);
+        staffManagementPane.setVisible(false);
+        roomsManagementPane.setVisible(false);
+        guestsManagementPane.setVisible(false);
+        bookingManagementPane.setVisible(true);
+        aboutPanel.setVisible(false);
     }//GEN-LAST:event_modifyBookingManagementButton2MouseClicked
 
     private void modifyBookingManagementButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyBookingManagementButton2MouseEntered
