@@ -3,6 +3,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
+import java.util.Calendar;
 
 
 /*
@@ -174,10 +175,11 @@ public class User extends Human{
      try
             {
                 while (rs.next()) 
-                {guest=new Guest(rs.getInt("id"),rs.getString("firstname"),rs.getString("lastname"),
+                {Date d=rs.getDate("cardexpiry");
+                    guest=new Guest(rs.getInt("id"),rs.getString("firstname"),rs.getString("lastname"),
                                        rs.getString("phonenum"),rs.getString("mail"),new Address(rs.getString("country"),
                                        rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),new CreditCard(rs.getString("cardnumber"),
-                                       rs.getString("cardholdername"),rs.getDate("cardexpiry").getMonth(),rs.getDate("cardexpiry").getYear()),
+                                       rs.getString("cardholdername"),d.getMonth(),d.getYear()),
                                        rs.getDate("checkin"),rs.getDate("checkout"),rs.getInt("occupants_number"),
                                        rs.getInt("room_number"),new Bill(rs.getDouble("totalamount"),rs.getDouble("paidamount")));
                  found.add(guest);
