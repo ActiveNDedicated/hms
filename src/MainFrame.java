@@ -1871,6 +1871,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_aboutButtonMouseClicked
 
     private void bookingManagementButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bookingManagementButtonMouseClicked
+guestManagementTableModel.setRowCount(0);
+        guestManagementTableModel.setRowCount(0);
         roomBookingPanel1.setVisible(false);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
@@ -1893,6 +1895,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_bookingManagementButtonMouseClicked
 
     private void guestsManagementButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guestsManagementButtonMouseClicked
+guestManagementTableModel.setRowCount(0);
         roomBookingPanel1.setVisible(false);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
@@ -1917,6 +1920,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void roomsManagementButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roomsManagementButtonMouseClicked
         if (user instanceof Manager)
         {
+        roomTableModel.setRowCount(0);
         roomBookingPanel1.setVisible(false);
         roomBookingPanel2.setVisible(false);
         roomBookingPanel3.setVisible(false);
