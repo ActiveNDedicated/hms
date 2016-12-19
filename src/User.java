@@ -197,7 +197,7 @@ public class User extends Human{
             String country,String city,String street,String zipCode , 
             String cardnumber,String cardholder, double total,double paid)
    {
-      if (total==0) query = "UPDATE guests SET firstname='"+firstname+"', lastname='"+lastName+"', phonenum='"+phonenumber
+      if (total!=0) query = "UPDATE guests SET firstname='"+firstname+"', lastname='"+lastName+"', phonenum='"+phonenumber
                +"',mail='"+email+"',country='"+country+"',city='"+city+"',street='"+street+"',zipcode='"+
                zipCode+"',cardnumber='"+cardnumber+"' ,cardholdername='"+cardholder+"',totalamount='"
                +total+"',paidamount='"+paid+"' WHERE id='"+id+"' ;";

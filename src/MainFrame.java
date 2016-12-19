@@ -2608,7 +2608,7 @@ guestManagementTableModel.setRowCount(0);
                     guestsManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
                     guestsManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
                     guestsManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
-                    guestsManagementTable.setValueAt(expiryDate.get(Calendar.MONTH), i, 17);
+                    guestsManagementTable.setValueAt(expiryDate.get(Calendar.MONTH)+1, i, 17);
                     guestsManagementTable.setValueAt(expiryDate.get(Calendar.YEAR), i, 18);
                     
                 }
@@ -2693,40 +2693,56 @@ guestManagementTableModel.setRowCount(0);
     }//GEN-LAST:event_checkOutGuestsManagementButton1MouseEntered
 
     private void modifyGuestsManagementButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyGuestsManagementButton2MouseClicked
-
+        
+        expiryDate.set(Calendar.HOUR_OF_DAY, 0);
+        expiryDate.set(Calendar.MINUTE, 0);
+        expiryDate.set(Calendar.SECOND, 0);
+        expiryDate.set(Calendar.MILLISECOND, 0); 
+        expiryDate.set(Calendar.MONTH, expiryMonthRoomBookingCalendar.getMonth());
+        expiryDate.set(Calendar.YEAR, expiryYearRoomBookingCalendar.getYear());
+        expiryDate.set(Calendar.DATE, expiryDate.getActualMaximum(Calendar.DATE));
+        
         if (Double.parseDouble(totalAmountGuestsManagementField2.getText())<Double.parseDouble(payedAmountGuestsManagementField2.getText()))
             JOptionPane.showMessageDialog(null, "Overpay!", "Payment!", JOptionPane.ERROR_MESSAGE);
+        
+        else if (expiryDate.before(today))
+        {
+            JOptionPane.showMessageDialog(null, "Your credit card is already expired or you entered wrong expiry date!", "Alert", JOptionPane.ERROR_MESSAGE);
+            expiryMonthRoomBookingCalendar.setMonth(Calendar.getInstance().get(Calendar.MONTH));
+            expiryYearRoomBookingCalendar.setYear(Calendar.getInstance().get(Calendar.YEAR));
+        }
+        
         else
         {
             user.modifyGuest(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(row,0))),
-        firstNameGuestsManagementField2.getText(),lastNameGuestsManagementField2.getText(),
-        phoneNumberGuestsManagementField2.getText(),emailGuestsManagementField2.getText(),
-        countryGuestsManagementField2.getText(),cityGuestsManagementField2.getText(),
-        streetGuestsManagementField2.getText(),zipCodeGuestsManagementField2.getText(),
-        cardNumberGuestsManagementField2.getText(),cardHolderGuestsManagementField2.getText(),
-        Double.parseDouble(totalAmountGuestsManagementField2.getText()),
-        Double.parseDouble(payedAmountGuestsManagementField2.getText()));
-        JOptionPane.showMessageDialog(null, "Guest info was sucessfully modified !", "Success!", JOptionPane.INFORMATION_MESSAGE);
-        showAllGuestsManagementButton1MouseClicked(evt);
-        roomBookingPanel1.setVisible(false);
-        roomBookingPanel2.setVisible(false);
-        roomBookingPanel3.setVisible(false);
-        staffManagementPanel1.setVisible(false);
-        staffManagementPanel2.setVisible(false);
-        staffManagementPanel3.setVisible(false);
-        roomsManagementPanel1.setVisible(false);
-        roomsManagementPanel2.setVisible(false);
-        roomsManagementPanel3.setVisible(false);
-        guestsManagementPanel1.setVisible(true);
-        guestsManagementPanel2.setVisible(false);
-        bookingManagementPanel1.setVisible(false);
-        bookingManagementPanel2.setVisible(false);
-        roomBookingPane.setVisible(false);
-        staffManagementPane.setVisible(false);
-        roomsManagementPane.setVisible(false);
-        guestsManagementPane.setVisible(true);
-        bookingManagementPane.setVisible(false);
-        aboutPanel.setVisible(false);
+            firstNameGuestsManagementField2.getText(),lastNameGuestsManagementField2.getText(),
+            phoneNumberGuestsManagementField2.getText(),emailGuestsManagementField2.getText(),
+            countryGuestsManagementField2.getText(),cityGuestsManagementField2.getText(),
+            streetGuestsManagementField2.getText(),zipCodeGuestsManagementField2.getText(),
+            cardNumberGuestsManagementField2.getText(),cardHolderGuestsManagementField2.getText(),
+            Double.parseDouble(totalAmountGuestsManagementField2.getText()),
+            Double.parseDouble(payedAmountGuestsManagementField2.getText()));
+            JOptionPane.showMessageDialog(null, "Guest info was sucessfully modified !", "Success!", JOptionPane.INFORMATION_MESSAGE);
+            showAllGuestsManagementButton1MouseClicked(evt);
+            roomBookingPanel1.setVisible(false);
+            roomBookingPanel2.setVisible(false);
+            roomBookingPanel3.setVisible(false);
+            staffManagementPanel1.setVisible(false);
+            staffManagementPanel2.setVisible(false);
+            staffManagementPanel3.setVisible(false);
+            roomsManagementPanel1.setVisible(false);
+            roomsManagementPanel2.setVisible(false);
+            roomsManagementPanel3.setVisible(false);
+            guestsManagementPanel1.setVisible(true);
+            guestsManagementPanel2.setVisible(false);
+            bookingManagementPanel1.setVisible(false);
+            bookingManagementPanel2.setVisible(false);
+            roomBookingPane.setVisible(false);
+            staffManagementPane.setVisible(false);
+            roomsManagementPane.setVisible(false);
+            guestsManagementPane.setVisible(true);
+            bookingManagementPane.setVisible(false);
+            aboutPanel.setVisible(false);
         }
       
     }//GEN-LAST:event_modifyGuestsManagementButton2MouseClicked
@@ -2798,7 +2814,7 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
                     bookingManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
                     bookingManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
                     bookingManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
-                    bookingManagementTable.setValueAt(expiryDate.get(Calendar.MONTH), i, 17);
+                    bookingManagementTable.setValueAt(expiryDate.get(Calendar.MONTH)+1, i, 17);
                     bookingManagementTable.setValueAt(expiryDate.get(Calendar.YEAR), i, 18);
                     
                 }     
