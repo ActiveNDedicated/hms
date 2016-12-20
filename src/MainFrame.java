@@ -2453,7 +2453,7 @@ guestManagementTableModel.setRowCount(0);
     }//GEN-LAST:event_modifyStaffManagementButton3MouseEntered
 
     private void modifyStaffManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyStaffManagementButton1MouseClicked
-        if(staffManagementTable.getSelectedRow()>=1){
+        if(staffManagementTable.getSelectedRow()>=0){
             row =staffManagementTable.getSelectedRow();
             firstNameStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 3));
             lastNameStaffManagementField3.setText((String)staffManagementTable.getValueAt(row, 4));
