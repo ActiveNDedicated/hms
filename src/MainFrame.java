@@ -1,9 +1,12 @@
 
 import java.awt.Cursor;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.joda.time.DateTime;
 
@@ -64,9 +67,11 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPane.setVisible(false);
         bookingManagementPane.setVisible(false);
         aboutPanel.setVisible(false);
+        date = today.getTime();
         checkInCalendar.setDate(date);
         checkOutCalendar.setDate(dateAfterTwo);
         this.user=user;
+        welcomingLabel.setText("Welcome, " + user.getUserName());
     }
 
     javax.swing.table.DefaultTableModel roomTableModel = new javax.swing.table.DefaultTableModel(
@@ -129,6 +134,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         userBoxGroup = new javax.swing.ButtonGroup();
+        welcomingLabel = new javax.swing.JLabel();
         tabsPane = new javax.swing.JLayeredPane();
         roomBookingPane = new javax.swing.JLayeredPane();
         roomBookingPanel1 = new javax.swing.JPanel();
@@ -300,12 +306,13 @@ public class MainFrame extends javax.swing.JFrame {
         creditCardGuestsManagementLabel2 = new javax.swing.JLabel();
         phoneNumberGuestsManagementLabel2 = new javax.swing.JLabel();
         cardHolderNameGuestsManagementLabel2 = new javax.swing.JLabel();
-        cardHolderGuestsManagementField2 = new javax.swing.JTextField();
+        cardHolderNameGuestsManagementField2 = new javax.swing.JTextField();
         firstNameGuestsManagementLabel2 = new javax.swing.JLabel();
         payedAmountGuestsManagementLabel2 = new javax.swing.JLabel();
         payedAmountGuestsManagementField2 = new javax.swing.JTextField();
         totalAmountGuestsManagementLabel2 = new javax.swing.JLabel();
         totalAmountGuestsManagementField2 = new javax.swing.JTextField();
+        mustBeFilledLabelGuestsManagementLabel2 = new javax.swing.JLabel();
         bookingManagementPane = new javax.swing.JLayeredPane();
         bookingManagementPanel1 = new javax.swing.JPanel();
         bookingManagementScrollPane = new javax.swing.JScrollPane();
@@ -342,8 +349,9 @@ public class MainFrame extends javax.swing.JFrame {
         creditCardBookingManagementLabel2 = new javax.swing.JLabel();
         phoneNumberBookingManagementLabel2 = new javax.swing.JLabel();
         cardHolderNameBookingManagementLabel2 = new javax.swing.JLabel();
-        cardHolderBookingManagementField2 = new javax.swing.JTextField();
+        cardHolderNameBookingManagementField2 = new javax.swing.JTextField();
         firstNameBookingManagementLabel2 = new javax.swing.JLabel();
+        mustBeFilledBookingManagementLabel3 = new javax.swing.JLabel();
         aboutPanel = new javax.swing.JPanel();
         aboutPanelBackground = new javax.swing.JLabel();
         roomBookingButton = new javax.swing.JLabel();
@@ -363,6 +371,11 @@ public class MainFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1300, 760));
         setPreferredSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(null);
+
+        welcomingLabel.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        welcomingLabel.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(welcomingLabel);
+        welcomingLabel.setBounds(1060, 20, 230, 40);
 
         tabsPane.setBackground(new java.awt.Color(0, 87, 167));
 
@@ -1342,15 +1355,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         lastNameGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         lastNameGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        lastNameGuestsManagementLabel2.setText("Last Name ");
+        lastNameGuestsManagementLabel2.setText("Last Name *");
         guestsManagementPanel2.add(lastNameGuestsManagementLabel2);
-        lastNameGuestsManagementLabel2.setBounds(370, 20, 91, 40);
+        lastNameGuestsManagementLabel2.setBounds(370, 20, 100, 40);
 
         countryGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         countryGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        countryGuestsManagementLabel2.setText("Country ");
+        countryGuestsManagementLabel2.setText("Country *");
         guestsManagementPanel2.add(countryGuestsManagementLabel2);
-        countryGuestsManagementLabel2.setBounds(50, 110, 70, 40);
+        countryGuestsManagementLabel2.setBounds(50, 110, 90, 40);
 
         cityGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cityGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1372,21 +1385,21 @@ public class MainFrame extends javax.swing.JFrame {
 
         cardNumberGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cardNumberGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        cardNumberGuestsManagementLabel2.setText("Card Number ");
+        cardNumberGuestsManagementLabel2.setText("Card Number *");
         guestsManagementPanel2.add(cardNumberGuestsManagementLabel2);
-        cardNumberGuestsManagementLabel2.setBounds(50, 330, 110, 40);
+        cardNumberGuestsManagementLabel2.setBounds(50, 330, 140, 40);
 
         expiryDateGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         expiryDateGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        expiryDateGuestsManagementLabel2.setText("Expiry Date ");
+        expiryDateGuestsManagementLabel2.setText("Expiry Date *");
         guestsManagementPanel2.add(expiryDateGuestsManagementLabel2);
-        expiryDateGuestsManagementLabel2.setBounds(650, 330, 100, 40);
+        expiryDateGuestsManagementLabel2.setBounds(650, 330, 110, 40);
 
         emailGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         emailGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        emailGuestsManagementLabel2.setText("E-mail ");
+        emailGuestsManagementLabel2.setText("E-mail *");
         guestsManagementPanel2.add(emailGuestsManagementLabel2);
-        emailGuestsManagementLabel2.setBounds(50, 200, 60, 40);
+        emailGuestsManagementLabel2.setBounds(50, 200, 80, 40);
 
         creditCardGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         creditCardGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1402,20 +1415,20 @@ public class MainFrame extends javax.swing.JFrame {
 
         cardHolderNameGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cardHolderNameGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        cardHolderNameGuestsManagementLabel2.setText("Card Holder Name ");
+        cardHolderNameGuestsManagementLabel2.setText("Card Holder Name *");
         guestsManagementPanel2.add(cardHolderNameGuestsManagementLabel2);
-        cardHolderNameGuestsManagementLabel2.setBounds(350, 330, 150, 40);
+        cardHolderNameGuestsManagementLabel2.setBounds(350, 330, 170, 40);
 
-        cardHolderGuestsManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardHolderGuestsManagementField2.setBorder(null);
-        guestsManagementPanel2.add(cardHolderGuestsManagementField2);
-        cardHolderGuestsManagementField2.setBounds(350, 370, 260, 30);
+        cardHolderNameGuestsManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardHolderNameGuestsManagementField2.setBorder(null);
+        guestsManagementPanel2.add(cardHolderNameGuestsManagementField2);
+        cardHolderNameGuestsManagementField2.setBounds(350, 370, 260, 30);
 
         firstNameGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         firstNameGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        firstNameGuestsManagementLabel2.setText("First Name ");
+        firstNameGuestsManagementLabel2.setText("First Name *");
         guestsManagementPanel2.add(firstNameGuestsManagementLabel2);
-        firstNameGuestsManagementLabel2.setBounds(50, 20, 91, 40);
+        firstNameGuestsManagementLabel2.setBounds(50, 20, 110, 40);
 
         payedAmountGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         payedAmountGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1438,6 +1451,12 @@ public class MainFrame extends javax.swing.JFrame {
         totalAmountGuestsManagementField2.setBorder(null);
         guestsManagementPanel2.add(totalAmountGuestsManagementField2);
         totalAmountGuestsManagementField2.setBounds(540, 470, 140, 30);
+
+        mustBeFilledLabelGuestsManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
+        mustBeFilledLabelGuestsManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        mustBeFilledLabelGuestsManagementLabel2.setText("* Must be filled in gaps");
+        guestsManagementPanel2.add(mustBeFilledLabelGuestsManagementLabel2);
+        mustBeFilledLabelGuestsManagementLabel2.setBounds(80, 450, 180, 40);
 
         guestsManagementPane.add(guestsManagementPanel2);
         guestsManagementPanel2.setBounds(0, 0, 1030, 640);
@@ -1593,15 +1612,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         lastNameBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         lastNameBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        lastNameBookingManagementLabel2.setText("Last Name ");
+        lastNameBookingManagementLabel2.setText("Last Name *");
         bookingManagementPanel2.add(lastNameBookingManagementLabel2);
-        lastNameBookingManagementLabel2.setBounds(370, 50, 91, 40);
+        lastNameBookingManagementLabel2.setBounds(370, 50, 110, 40);
 
         countryBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         countryBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        countryBookingManagementLabel2.setText("Country ");
+        countryBookingManagementLabel2.setText("Country *");
         bookingManagementPanel2.add(countryBookingManagementLabel2);
-        countryBookingManagementLabel2.setBounds(50, 140, 70, 40);
+        countryBookingManagementLabel2.setBounds(50, 140, 90, 40);
 
         cityBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cityBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1623,21 +1642,21 @@ public class MainFrame extends javax.swing.JFrame {
 
         cardNumberBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cardNumberBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        cardNumberBookingManagementLabel2.setText("Card Number ");
+        cardNumberBookingManagementLabel2.setText("Card Number *");
         bookingManagementPanel2.add(cardNumberBookingManagementLabel2);
-        cardNumberBookingManagementLabel2.setBounds(50, 360, 110, 40);
+        cardNumberBookingManagementLabel2.setBounds(50, 360, 130, 40);
 
         expiryDateBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         expiryDateBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        expiryDateBookingManagementLabel2.setText("Expiry Date ");
+        expiryDateBookingManagementLabel2.setText("Expiry Date *");
         bookingManagementPanel2.add(expiryDateBookingManagementLabel2);
-        expiryDateBookingManagementLabel2.setBounds(650, 360, 100, 40);
+        expiryDateBookingManagementLabel2.setBounds(650, 360, 110, 40);
 
         emailBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         emailBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        emailBookingManagementLabel2.setText("E-mail ");
+        emailBookingManagementLabel2.setText("E-mail *");
         bookingManagementPanel2.add(emailBookingManagementLabel2);
-        emailBookingManagementLabel2.setBounds(50, 230, 60, 40);
+        emailBookingManagementLabel2.setBounds(50, 230, 70, 40);
 
         creditCardBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         creditCardBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1653,20 +1672,26 @@ public class MainFrame extends javax.swing.JFrame {
 
         cardHolderNameBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         cardHolderNameBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        cardHolderNameBookingManagementLabel2.setText("Card Holder Name ");
+        cardHolderNameBookingManagementLabel2.setText("Card Holder Name *");
         bookingManagementPanel2.add(cardHolderNameBookingManagementLabel2);
-        cardHolderNameBookingManagementLabel2.setBounds(350, 360, 150, 40);
+        cardHolderNameBookingManagementLabel2.setBounds(350, 360, 170, 40);
 
-        cardHolderBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        cardHolderBookingManagementField2.setBorder(null);
-        bookingManagementPanel2.add(cardHolderBookingManagementField2);
-        cardHolderBookingManagementField2.setBounds(350, 400, 260, 30);
+        cardHolderNameBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        cardHolderNameBookingManagementField2.setBorder(null);
+        bookingManagementPanel2.add(cardHolderNameBookingManagementField2);
+        cardHolderNameBookingManagementField2.setBounds(350, 400, 260, 30);
 
         firstNameBookingManagementLabel2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         firstNameBookingManagementLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        firstNameBookingManagementLabel2.setText("First Name ");
+        firstNameBookingManagementLabel2.setText("First Name *");
         bookingManagementPanel2.add(firstNameBookingManagementLabel2);
-        firstNameBookingManagementLabel2.setBounds(50, 50, 91, 40);
+        firstNameBookingManagementLabel2.setBounds(50, 50, 110, 40);
+
+        mustBeFilledBookingManagementLabel3.setFont(new java.awt.Font("Roboto Lt", 0, 14)); // NOI18N
+        mustBeFilledBookingManagementLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        mustBeFilledBookingManagementLabel3.setText("* Must be filled in gaps");
+        bookingManagementPanel2.add(mustBeFilledBookingManagementLabel3);
+        mustBeFilledBookingManagementLabel3.setBounds(60, 500, 180, 40);
 
         bookingManagementPane.add(bookingManagementPanel2);
         bookingManagementPanel2.setBounds(0, 0, 1030, 640);
@@ -2046,7 +2071,7 @@ guestManagementTableModel.setRowCount(0);
             guestsManagementPane.setVisible(false);
             bookingManagementPane.setVisible(false);
             aboutPanel.setVisible(false);
-            
+            roomTableModel.setRowCount(0);
             for (int i=0;i<availableRooms.size();i++)
                 {
                     Object[] row = { null, null, null,null};
@@ -2197,6 +2222,14 @@ guestManagementTableModel.setRowCount(0);
     }//GEN-LAST:event_bookItButtonMouseEntered
 
     private void registerUserStaffManagementButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerUserStaffManagementButton2MouseClicked
+       boolean f=false;
+       Vector <User> u=user.searchUser(null,null);
+        for (int i =0;i<u.size();i++)
+        {
+            if (u.get(i).getUserName().equals(userNameStaffManagementField2.getText()))
+                f=true;
+            break;
+        }
         if (firstNameStaffManagementField2.getText().equals("")||
         lastNameStaffManagementField2.getText().equals("")||
         countryStaffManagementField2.getText().equals("")||
@@ -2211,6 +2244,10 @@ guestManagementTableModel.setRowCount(0);
            JOptionPane.showMessageDialog(null, "You Must Fill In All Fields!", "Alert", JOptionPane.ERROR_MESSAGE); 
         }
        
+        else if (f)
+        {
+            JOptionPane.showMessageDialog(null, "UserName is already taken!", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
         else {
             user.registerUser(firstNameStaffManagementField2.getText(), lastNameStaffManagementField2.getText(), phoneNumberStaffManagementField2.getText(), 
                     emailStaffManagementField2.getText(), countryStaffManagementField2.getText(), cityStaffManagementField2.getText(),
@@ -2327,23 +2364,26 @@ guestManagementTableModel.setRowCount(0);
 
         Vector<User> found=user.searchUser(null, null);
         staffManagementTableModel.setRowCount(0);
+        int c=0;
         for (int i=0;i<found.size();i++)
                 {
-                    if (found.get(i).getUserName()!="admin")
+                    if ((found.get(i).getUserName().equals("admin"))) 
+                    {c++;continue;} 
+                    else
                     {
                     Object[] row = { null, null, null, null, null, null, null, null, null, null, null};
                     staffManagementTableModel.addRow(row); 
-                    staffManagementTable.setValueAt(found.get(i).getUserName(), i, 0);
-                    staffManagementTable.setValueAt(found.get(i).getPassword(), i, 1);
-                    staffManagementTable.setValueAt(found.get(i).isManager(), i, 2);
-                    staffManagementTable.setValueAt(found.get(i).getFirstName(), i, 3);
-                    staffManagementTable.setValueAt(found.get(i).getLastName(), i, 4);
-                    staffManagementTable.setValueAt(found.get(i).getPhoneNumber(), i, 5);
-                    staffManagementTable.setValueAt(found.get(i).getEmail(), i, 6);
-                    staffManagementTable.setValueAt(found.get(i).getAddress().getCountry(), i, 7);
-                    staffManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 8);
-                    staffManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 9);
-                    staffManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 10);
+                    staffManagementTable.setValueAt(found.get(i).getUserName(), i-c, 0);
+                    staffManagementTable.setValueAt(found.get(i).getPassword(), i-c, 1);
+                    staffManagementTable.setValueAt(found.get(i).isManager(), i-c, 2);
+                    staffManagementTable.setValueAt(found.get(i).getFirstName(), i-c, 3);
+                    staffManagementTable.setValueAt(found.get(i).getLastName(), i-c, 4);
+                    staffManagementTable.setValueAt(found.get(i).getPhoneNumber(), i-c, 5);
+                    staffManagementTable.setValueAt(found.get(i).getEmail(), i-c, 6);
+                    staffManagementTable.setValueAt(found.get(i).getAddress().getCountry(), i-c, 7);
+                    staffManagementTable.setValueAt(found.get(i).getAddress().getCity(), i-c, 8);
+                    staffManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i-c, 9);
+                    staffManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i-c, 10);
                     }
                     
                 }
@@ -2461,10 +2501,20 @@ guestManagementTableModel.setRowCount(0);
     }//GEN-LAST:event_modifyStaffManagementButton1MouseEntered
 
     private void addRoomsManagementButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addRoomsManagementButton2MouseClicked
+        boolean f=false;
+       Vector <Room> u=user.searchRoom(Integer.parseInt((String)roomNumberRoomsManagementField2.getText()));
+        
+            if (u.size()>0)
+                f=true;
+            
         
        if( roomNumberRoomsManagementField2.getText()==null|| roomRateRoomsManagementField2.getText()==null)
            JOptionPane.showMessageDialog(null, "Fields are not filled!", "Room Info!", JOptionPane.ERROR_MESSAGE);
-      else
+       else if(f)
+       {
+           JOptionPane.showMessageDialog(null, "Room Number is already taken!", "Room Info!", JOptionPane.ERROR_MESSAGE);
+       } 
+       else
        {int bedtype=0;
        if(bedTypeBox2.getSelectedItem()=="Single")
            bedtype=1;
@@ -2550,7 +2600,7 @@ guestManagementTableModel.setRowCount(0);
                 lastNameGuestsManagementField1.getText(),date,true);
         guestManagementTableModel.setRowCount(0);
         for (int i=0;i<found.size();i++)
-                {
+                {expiryDate.setTime(found.get(i).getCreditCard().getExpiryDate());
                     Object[] row = { null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null, null, null,null,null,null};
                     guestManagementTableModel.addRow(row); 
@@ -2571,8 +2621,8 @@ guestManagementTableModel.setRowCount(0);
                     guestsManagementTable.setValueAt(found.get(i).getAddress().getCity(), i, 14);
                     guestsManagementTable.setValueAt(found.get(i).getAddress().getStreet(), i, 15);
                     guestsManagementTable.setValueAt(found.get(i).getAddress().getZipCode(), i, 16);
-                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getMonth(), i, 17);
-                    guestsManagementTable.setValueAt(found.get(i).getCreditCard().getExpiryDate().getYear(), i, 18);
+                    guestsManagementTable.setValueAt(expiryDate.get(Calendar.MONTH)+1, i, 17);
+                    guestsManagementTable.setValueAt(expiryDate.get(Calendar.YEAR), i, 18);
                     
                 }
     }//GEN-LAST:event_searchGuestsManagementButton1MouseClicked
@@ -2632,7 +2682,7 @@ guestManagementTableModel.setRowCount(0);
         cardNumberGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,9)));
         emailGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,12)));
         phoneNumberGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,11)));
-        cardHolderGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,10)));
+        cardHolderNameGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,10)));
         payedAmountGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,8)));
         totalAmountGuestsManagementField2.setText(String.valueOf(guestsManagementTable.getValueAt(row,7)));
         expiryMonthGuestsManagementCalendar2.setMonth(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(row,17))));
@@ -2673,15 +2723,34 @@ guestManagementTableModel.setRowCount(0);
     private void checkOutGuestsManagementButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutGuestsManagementButton1MouseClicked
         if(guestsManagementTable.getSelectedRow()>=0)
         {
-            double cost= Double.parseDouble(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),7 )))
-                    -Double.parseDouble(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),8)));
-           if (cost>0) 
-               JOptionPane.showMessageDialog(null, "Guest should pay '"+cost+"' $!","Checkout Guest", JOptionPane.INFORMATION_MESSAGE);
-           else 
-           {user.checkOut(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),0)))); 
-             JOptionPane.showMessageDialog(null, "Guest Checked out!", "Guest info!", JOptionPane.INFORMATION_MESSAGE);
-             showAllGuestsManagementButton1MouseClicked(evt);
-           }
+        try {
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+                Date checkIn = format.parse(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),5)));
+                double roomRate= user.searchRoom(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),3)))).get(0).getCost();
+                double mustPay=user.showRoomPrice(checkIn, date,roomRate );
+                double cost= mustPay-Double.parseDouble(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),8)));
+                if (cost>0)
+                    JOptionPane.showMessageDialog(null, "Guest should pay '"+cost+"' $!","Checkout Guest", JOptionPane.INFORMATION_MESSAGE);
+                else if (cost<0)
+                {
+                    user.checkOut(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),0))));
+                    JOptionPane.showMessageDialog(null, "Guest Checked out!"+Math.abs(cost)+"$ was refunded!", "Guest info!", JOptionPane.INFORMATION_MESSAGE);
+                    showAllGuestsManagementButton1MouseClicked(evt);
+                } 
+                else if (mustPay==0) {
+                    user.checkOut(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),0))));
+                    JOptionPane.showMessageDialog(null, "As the guest is checking out on the day of checking in,\n50$ fine was taken from guest!","Checkout Guest", JOptionPane.INFORMATION_MESSAGE);
+                    showAllGuestsManagementButton1MouseClicked(evt);
+                }
+                else
+                {
+                    user.checkOut(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(guestsManagementTable.getSelectedRow(),0))));
+                    JOptionPane.showMessageDialog(null, "Guest Checked out!", "Guest info!", JOptionPane.INFORMATION_MESSAGE);
+                    showAllGuestsManagementButton1MouseClicked(evt);
+                }
+            } catch (ParseException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else
             JOptionPane.showMessageDialog(null, "Guest is not selected!", "Guest info!", JOptionPane.ERROR_MESSAGE);
 
@@ -2698,9 +2767,10 @@ guestManagementTableModel.setRowCount(0);
         expiryDate.set(Calendar.MINUTE, 0);
         expiryDate.set(Calendar.SECOND, 0);
         expiryDate.set(Calendar.MILLISECOND, 0); 
-        expiryDate.set(Calendar.MONTH, expiryMonthRoomBookingCalendar.getMonth());
-        expiryDate.set(Calendar.YEAR, expiryYearRoomBookingCalendar.getYear());
+        expiryDate.set(Calendar.MONTH, expiryMonthGuestsManagementCalendar2.getMonth());
+        expiryDate.set(Calendar.YEAR, expiryYearGuestsManagementCalendar2.getYear());
         expiryDate.set(Calendar.DATE, expiryDate.getActualMaximum(Calendar.DATE));
+        
         
         if (Double.parseDouble(totalAmountGuestsManagementField2.getText())<Double.parseDouble(payedAmountGuestsManagementField2.getText()))
             JOptionPane.showMessageDialog(null, "Overpay!", "Payment!", JOptionPane.ERROR_MESSAGE);
@@ -2708,18 +2778,31 @@ guestManagementTableModel.setRowCount(0);
         else if (expiryDate.before(today))
         {
             JOptionPane.showMessageDialog(null, "Your credit card is already expired or you entered wrong expiry date!", "Alert", JOptionPane.ERROR_MESSAGE);
-            expiryMonthRoomBookingCalendar.setMonth(Calendar.getInstance().get(Calendar.MONTH));
-            expiryYearRoomBookingCalendar.setYear(Calendar.getInstance().get(Calendar.YEAR));
+            expiryMonthGuestsManagementCalendar2.setMonth(Calendar.getInstance().get(Calendar.MONTH));
+            expiryYearGuestsManagementCalendar2.setYear(Calendar.getInstance().get(Calendar.YEAR));
+        }
+        else if(firstNameGuestsManagementField2.getText().equals("")||
+                lastNameGuestsManagementField2.getText().equals("")||
+                countryGuestsManagementField2.getText().equals("")||
+                emailGuestsManagementField2.getText().equals("")||
+                cardNumberGuestsManagementField2.getText().equals("")||
+                cardHolderNameGuestsManagementField2.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "You Must Fill In All '*' Fields!", "Alert", JOptionPane.ERROR_MESSAGE);    
         }
         
-        else
-        {
+        else if (!(new CreditCard().validateCard(cardNumberGuestsManagementField2.getText()))){
+            JOptionPane.showMessageDialog(null, "Your credit card number is not valid. Please enter again", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        else 
+        {Date cardExpiry = expiryDate.getTime();
             user.modifyGuest(Integer.parseInt(String.valueOf(guestsManagementTable.getValueAt(row,0))),
             firstNameGuestsManagementField2.getText(),lastNameGuestsManagementField2.getText(),
             phoneNumberGuestsManagementField2.getText(),emailGuestsManagementField2.getText(),
             countryGuestsManagementField2.getText(),cityGuestsManagementField2.getText(),
             streetGuestsManagementField2.getText(),zipCodeGuestsManagementField2.getText(),
-            cardNumberGuestsManagementField2.getText(),cardHolderGuestsManagementField2.getText(),
+            cardNumberGuestsManagementField2.getText(),cardHolderNameGuestsManagementField2.getText(),cardExpiry,
             Double.parseDouble(totalAmountGuestsManagementField2.getText()),
             Double.parseDouble(payedAmountGuestsManagementField2.getText()));
             JOptionPane.showMessageDialog(null, "Guest info was sucessfully modified !", "Success!", JOptionPane.INFORMATION_MESSAGE);
@@ -2817,7 +2900,7 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
                     bookingManagementTable.setValueAt(expiryDate.get(Calendar.MONTH)+1, i, 17);
                     bookingManagementTable.setValueAt(expiryDate.get(Calendar.YEAR), i, 18);
                     
-                }     
+                }    
     }//GEN-LAST:event_showAllBookingManagementButton1MouseClicked
 
     private void showAllBookingManagementButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showAllBookingManagementButton1MouseEntered
@@ -2836,7 +2919,7 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
         cardNumberBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,9)));
         emailBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,12)));
         phoneNumberBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,11)));
-        cardHolderBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,10)));
+        cardHolderNameBookingManagementField2.setText(String.valueOf(bookingManagementTable.getValueAt(row,10)));
         expiryMonthBookingManagementCalendar2.setMonth(Integer.parseInt(String.valueOf(bookingManagementTable.getValueAt(row,17))));
         expiryYearBookingManagementCalendar2.setYear(Integer.parseInt(String.valueOf(bookingManagementTable.getValueAt(row,18))));
         
@@ -2891,12 +2974,43 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     }//GEN-LAST:event_cancelBookingManagementButton1MouseEntered
 
     private void modifyBookingManagementButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyBookingManagementButton2MouseClicked
+        expiryDate.set(Calendar.HOUR_OF_DAY, 0);
+        expiryDate.set(Calendar.MINUTE, 0);
+        expiryDate.set(Calendar.SECOND, 0);
+        expiryDate.set(Calendar.MILLISECOND, 0); 
+        expiryDate.set(Calendar.MONTH, expiryMonthBookingManagementCalendar2.getMonth());
+        expiryDate.set(Calendar.YEAR, expiryYearBookingManagementCalendar2.getYear());
+        expiryDate.set(Calendar.DATE, expiryDate.getActualMaximum(Calendar.DATE));
+        Date cardExpiry = expiryDate.getTime();
+        
+        if(firstNameBookingManagementField2.getText().equals("")||
+                lastNameBookingManagementField2.getText().equals("")||
+                countryBookingManagementField2.getText().equals("")||
+                emailBookingManagementField2.getText().equals("")||
+                cardNumberBookingManagementField2.getText().equals("")||
+                cardHolderNameBookingManagementField2.getText().equals(""))
+        {
+            JOptionPane.showMessageDialog(null, "You Must Fill In All '*' Fields!", "Alert", JOptionPane.ERROR_MESSAGE);    
+        }
+        
+        else if (expiryDate.before(today))
+        {
+            JOptionPane.showMessageDialog(null, "Your credit card is already expired or you entered wrong expiry date!", "Alert", JOptionPane.ERROR_MESSAGE);
+            expiryMonthBookingManagementCalendar2.setMonth(Calendar.getInstance().get(Calendar.MONTH));
+            expiryYearBookingManagementCalendar2.setYear(Calendar.getInstance().get(Calendar.YEAR));
+        }
+        
+        else if (!(new CreditCard().validateCard(cardNumberBookingManagementField2.getText()))){
+            JOptionPane.showMessageDialog(null, "Your credit card number is not valid. Please enter again", "Alert", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        else {
         user.modifyGuest(Integer.parseInt(String.valueOf(bookingManagementTable.getValueAt(row,0))),
         firstNameBookingManagementField2.getText(),lastNameBookingManagementField2.getText(),
         phoneNumberBookingManagementField2.getText(),emailBookingManagementField2.getText(),
         countryBookingManagementField2.getText(),cityBookingManagementField2.getText(),
         streetBookingManagementField2.getText(),zipCodeBookingManagementField2.getText(),
-        cardNumberBookingManagementField2.getText(),cardHolderBookingManagementField2.getText(),0,0);
+        cardNumberBookingManagementField2.getText(),cardHolderNameBookingManagementField2.getText(),cardExpiry,0,0);
         JOptionPane.showMessageDialog(null, "Booking info was sucessfully modified !", "Success!", JOptionPane.INFORMATION_MESSAGE);
         showAllBookingManagementButton1MouseClicked(evt);
         roomBookingPanel1.setVisible(false);
@@ -2918,6 +3032,7 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
         guestsManagementPane.setVisible(false);
         bookingManagementPane.setVisible(true);
         aboutPanel.setVisible(false);
+        }
     }//GEN-LAST:event_modifyBookingManagementButton2MouseClicked
 
     private void modifyBookingManagementButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifyBookingManagementButton2MouseEntered
@@ -3094,9 +3209,9 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     private javax.swing.JScrollPane bookingManagementScrollPane;
     private javax.swing.JTable bookingManagementTable;
     private javax.swing.JLabel cancelBookingManagementButton1;
-    private javax.swing.JTextField cardHolderBookingManagementField2;
-    private javax.swing.JTextField cardHolderGuestsManagementField2;
+    private javax.swing.JTextField cardHolderNameBookingManagementField2;
     private javax.swing.JLabel cardHolderNameBookingManagementLabel2;
+    private javax.swing.JTextField cardHolderNameGuestsManagementField2;
     private javax.swing.JLabel cardHolderNameGuestsManagementLabel2;
     private javax.swing.JTextField cardHolderNameRoomBookingField;
     private javax.swing.JLabel cardHolderNameRoomBookingLabel;
@@ -3209,6 +3324,8 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     private javax.swing.JLabel modifyRoomsManagementButton3;
     private javax.swing.JLabel modifyStaffManagementButton1;
     private javax.swing.JLabel modifyStaffManagementButton3;
+    private javax.swing.JLabel mustBeFilledBookingManagementLabel3;
+    private javax.swing.JLabel mustBeFilledLabelGuestsManagementLabel2;
     private javax.swing.JTextField passwordStaffManagementField2;
     private javax.swing.JTextField passwordStaffManagementField3;
     private javax.swing.JLabel passwordStaffManagementLabel2;
@@ -3291,6 +3408,7 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     private javax.swing.JTextField userNameStaffManagementField3;
     private javax.swing.JLabel userNameStaffManagementLabel2;
     private javax.swing.JLabel userNameStaffManagementLabel3;
+    private javax.swing.JLabel welcomingLabel;
     private javax.swing.JTextField zipCodeBookingManagementField2;
     private javax.swing.JLabel zipCodeBookingManagementLabel2;
     private javax.swing.JTextField zipCodeGuestsManagementField2;

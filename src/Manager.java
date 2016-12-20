@@ -73,6 +73,7 @@ public class Manager extends User {
                 while (rs.next()) 
                 {
                    if (rs.getInt("isManager")==1)
+                       
                       user=new Manager(rs.getString("firstname"),rs.getString("lastname"),
                                        rs.getString("phonenumber"),rs.getString("email"),new Address(rs.getString("country"),
                                        rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),rs.getString("username"),
@@ -92,42 +93,7 @@ public class Manager extends User {
        return found;
    }
    
-   public Vector<Room> searchRoom(int roomNum){
-    Vector  <Room> available=new Vector<Room>();
-    if(roomNum==0)
-        query="SELECT * FROM roomdetails;";
-    else   
-        query="SELECT * FROM roomdetails where room_no='"+roomNum+"';";  
-    ResultSet resultSet = dbc.getData(query);
-      try
-             {
-                 while (resultSet.next()) 
-                 {
-                         int roomno = resultSet.getInt("room_no");
-                         int bedtype= resultSet.getInt("typeofbed");
-                         double cost=resultSet.getDouble("cost");
-                         String roomtype=resultSet.getString("typeofroom");
-                         boolean ava = (resultSet.getInt("availability")==1)?true:false;
-                         Room r=new Room();
-                         r.setAvailability(ava);
-                         r.setCost(cost);
-                         r.setRoomNo(roomno);
-                         r.setTypeOfBed(bedtype);
-                         r.setTypeOfRoom(roomtype);
-                         available.add(r);
-
-
-                 }
-             }
-             catch(SQLException e)
-             {
-                     System.out.println(e);
-             }
-
-        dbc.closeconnection();
-        return available;
-
-   }
+   
    
    public void modifyRoom(int roomNum,double cost, int typeOfBed,String typeOfRoom)
    {

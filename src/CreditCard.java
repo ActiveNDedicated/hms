@@ -27,6 +27,11 @@ public class CreditCard {
         setCardHolder(cardHolder);
         setExpiryDate(month, year);
     }
+    public CreditCard(String cardNumber, String cardHolder, Date d){
+        setCardNumber(cardNumber);
+        setCardHolder(cardHolder);
+        expiryDate=d;
+    }
     
   public boolean validateCard (String cardNumber)
   {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Vector;
 import java.util.Calendar;
+import static java.util.Calendar.getInstance;
 
 
 /*
@@ -70,6 +71,8 @@ public class User extends Human{
         public Vector<Room> CheckRoomAvailability (Date checkin,Date checkout,int numOccupants)
     {
      Vector  <Room> available=new Vector<Room>();
+     if(numOccupants%2!=0)
+         numOccupants+=1;
       query="SELECT * FROM roomdetails "
                 + "where room_no NOT IN (SELECT room_number FROM guests WHERE (DATE(checkin) >= '" 
                 + checkin + "' AND DATE(checkin) <= '" + new java.sql.Date(checkout.getTime()) + "') OR(DATE(checkout) > '" 
@@ -141,7 +144,7 @@ public class User extends Human{
     public void deleteUser(String username) {}
     public void modifyUser(String fname,String lname,String phone,String mail, String usern,String passw,String country,String city,String street,String zipcode,int ismanager)
         {}
-   public Vector<Room> searchRoom(int roomNum){return null;}
+   
    public void createRoom(int roomNum,int typeOfBed,int cost, String typeofRoom)
     {}
     
@@ -155,11 +158,11 @@ public class User extends Human{
        if (checkedIn){
                 if (fname==null&&lname==null)
                     query="SELECT * FROM guests WHERE (DATE(checkin)<='"+new java.sql.Date(today.getTime())
-                            +"' AND DATE(checkout)>='"+new java.sql.Date(today.getTime())+"' )";
+                            +"' )";//AND DATE(checkout)>='"+new java.sql.Date(today.getTime())+"' 
             else
                     query="SELECT * FROM guests WHERE (DATE(checkin)<='"+new java.sql.Date(today.getTime())
-                            +"' AND DATE(checkout)>='"+new java.sql.Date(today.getTime())+"' )AND (firstname='"+fname
-                            +"' OR lastname='"+lname+"');";
+                            +"'  )AND (firstname='"+fname
+                            +"' OR lastname='"+lname+"');";//AND DATE(checkout)>='"+new java.sql.Date(today.getTime())+"'
        }
        else{    
                 if (fname==null&&lname==null)
@@ -172,14 +175,17 @@ public class User extends Human{
            Vector  <Guest> found=new Vector<Guest>();
        ResultSet rs = dbc.getData(query);
        Guest guest;
+       Calendar cl=getInstance();
+       
      try
             {
                 while (rs.next()) 
                 {Date d=rs.getDate("cardexpiry");
+                cl.setTime(d);
                     guest=new Guest(rs.getInt("id"),rs.getString("firstname"),rs.getString("lastname"),
                                        rs.getString("phonenum"),rs.getString("mail"),new Address(rs.getString("country"),
                                        rs.getString("city"),rs.getString("street"),rs.getString("zipcode")),new CreditCard(rs.getString("cardnumber"),
-                                       rs.getString("cardholdername"),d.getMonth(),d.getYear()),
+                                       rs.getString("cardholdername"),cl.get(Calendar.MONTH),cl.get(Calendar.YEAR)),
                                        rs.getDate("checkin"),rs.getDate("checkout"),rs.getInt("occupants_number"),
                                        rs.getInt("room_number"),new Bill(rs.getDouble("totalamount"),rs.getDouble("paidamount")));
                  found.add(guest);
@@ -195,22 +201,61 @@ public class User extends Human{
    
    public void modifyGuest(int id,String firstname,String lastName,String phonenumber,String email, 
             String country,String city,String street,String zipCode , 
-            String cardnumber,String cardholder, double total,double paid)
+            String cardnumber,String cardholder,Date d, double total,double paid)
    {
       if (total!=0) query = "UPDATE guests SET firstname='"+firstname+"', lastname='"+lastName+"', phonenum='"+phonenumber
                +"',mail='"+email+"',country='"+country+"',city='"+city+"',street='"+street+"',zipcode='"+
                zipCode+"',cardnumber='"+cardnumber+"' ,cardholdername='"+cardholder+"',totalamount='"
-               +total+"',paidamount='"+paid+"' WHERE id='"+id+"' ;";
+               +total+"',paidamount='"+paid+"',cardexpiry='"+new java.sql.Date(d.getTime())+"' WHERE id='"+id+"' ;";
       else query = "UPDATE guests SET firstname='"+firstname+"', lastname='"+lastName+"', phonenum='"+phonenumber
                +"',mail='"+email+"',country='"+country+"',city='"+city+"',street='"+street+"',zipcode='"+
-               zipCode+"',cardnumber='"+cardnumber+"' ,cardholdername='"+cardholder+"', WHERE id='"+id+"' ;";
+               zipCode+"',cardnumber='"+cardnumber+"' ,cardholdername='"+cardholder+"', cardexpiry='"+new java.sql.Date(d.getTime())+"' WHERE id='"+id+"' ;";
         dbc.storeData(query);
         dbc.closeconnection();}
+   
    public void checkOut(int id){
    query="Delete from guests WHERE id='"+id+"';";
          dbc.deleteData(query);
          dbc.closeconnection(); 
    }
+   
+   public Vector<Room> searchRoom(int roomNum){
+    Vector  <Room> available=new Vector<Room>();
+    if(roomNum==0)
+        query="SELECT * FROM roomdetails;";
+    else   
+        query="SELECT * FROM roomdetails where room_no='"+roomNum+"';";  
+    ResultSet resultSet = dbc.getData(query);
+      try
+             {
+                 while (resultSet.next()) 
+                 {
+                         int roomno = resultSet.getInt("room_no");
+                         int bedtype= resultSet.getInt("typeofbed");
+                         double cost=resultSet.getDouble("cost");
+                         String roomtype=resultSet.getString("typeofroom");
+                         boolean ava = (resultSet.getInt("availability")==1)?true:false;
+                         Room r=new Room();
+                         r.setAvailability(ava);
+                         r.setCost(cost);
+                         r.setRoomNo(roomno);
+                         r.setTypeOfBed(bedtype);
+                         r.setTypeOfRoom(roomtype);
+                         available.add(r);
+
+
+                 }
+             }
+             catch(SQLException e)
+             {
+                     System.out.println(e);
+             }
+
+        dbc.closeconnection();
+        return available;
+
+   }
+   
    
 }
 
