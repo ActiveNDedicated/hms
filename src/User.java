@@ -74,9 +74,10 @@ public class User extends Human{
      if(numOccupants%2!=0)
          numOccupants+=1;
       query="SELECT * FROM roomdetails "
-                + "where room_no NOT IN (SELECT room_number FROM guests WHERE (DATE(checkin) >= '" 
-                + checkin + "' AND DATE(checkin) <= '" + new java.sql.Date(checkout.getTime()) + "') OR(DATE(checkout) > '" 
-                + new java.sql.Date(checkin.getTime()) + "') ) AND typeofbed>='"+numOccupants/2+"';";
+                + "where room_no NOT IN (SELECT room_number FROM guests WHERE (DATE(checkin) >= '" + new java.sql.Date(checkin.getTime()) 
+                + "' AND DATE(checkin) <= '" + new java.sql.Date(checkout.getTime()) 
+                + "') OR(DATE(checkout) > '" + new java.sql.Date(checkin.getTime()) 
+                + "' AND DATE(checkin)<='"+ new java.sql.Date(checkin.getTime()) + "') ) AND typeofbed>='"+numOccupants/2+"';";
      ResultSet resultSet = dbc.getData(query);
      /*
      */
