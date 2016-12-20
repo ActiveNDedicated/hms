@@ -38,9 +38,9 @@ public class Manager extends User {
    }
    else 
    {
-       Receptionist m=new Receptionist(fname,lname,phone,mail,addr,usern,passw);
-       query = "INSERT INTO users ( username, password, isManager, firstname, lastname, phonenumber, email, country, city, street, zipcode ) VALUES ( '"+m.getUserName()+"', '"+m.getPassword()+"', '"+0+"', '"+m.getFirstName()+"', '"
-               +m.getLastName()+"', '"+m.getPhoneNumber()+"', '"+m.getEmail()+"', '"+m.getAddress().getCountry()+"', '"+m.getAddress().getCity()+"', '"+m.getAddress().getStreet()+"', '"+m.getAddress().getZipCode()+"')";
+       Receptionist r=new Receptionist(fname,lname,phone,mail,addr,usern,passw);
+       query = "INSERT INTO users ( username, password, isManager, firstname, lastname, phonenumber, email, country, city, street, zipcode ) VALUES ( '"+r.getUserName()+"', '"+r.getPassword()+"', '"+0+"', '"+r.getFirstName()+"', '"
+               +r.getLastName()+"', '"+r.getPhoneNumber()+"', '"+r.getEmail()+"', '"+r.getAddress().getCountry()+"', '"+r.getAddress().getCity()+"', '"+r.getAddress().getStreet()+"', '"+r.getAddress().getZipCode()+"')";
        dbc.storeData(query);
    }
        dbc.closeconnection();

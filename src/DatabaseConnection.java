@@ -72,31 +72,7 @@ public class DatabaseConnection
     	{
     		System.out.println(e);
     	}
-//    	finally
-//    	{
-//    		try{
-//    			if(statement!=null)
-//    			{
-//    				connection.close();
-//    			}
-//    		}
-//    		catch(SQLException se)
-//    		{
-//    		}
-//    	      
-//    		try
-//    		{
-//    			if(connection!=null)
-//    			{
-//    				connection.close();
-//    			}
-//    		}
-//    		catch(SQLException se)
-//    		{
-//    			se.printStackTrace();
-//    		}
-//    	}	
-		System.out.println("Getting data .........\n");
+                System.out.println("Getting data .........\n");
 
     	return this.resultSet;
      }
