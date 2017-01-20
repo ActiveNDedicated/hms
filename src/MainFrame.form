@@ -60,7 +60,7 @@
     <Container class="javax.swing.JLayeredPane" name="tabsPane">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="a7" green="57" red="0" type="rgb"/>
+          <Color blue="b6" green="48" red="6f" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -76,7 +76,7 @@
         <Container class="javax.swing.JLayeredPane" name="roomBookingPane">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="a7" green="57" red="0" type="rgb"/>
+              <Color blue="b6" green="48" red="6f" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -92,7 +92,7 @@
             <Container class="javax.swing.JPanel" name="roomBookingPanel1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -243,7 +243,7 @@
             <Container class="javax.swing.JPanel" name="roomBookingPanel2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -298,7 +298,7 @@
             <Container class="javax.swing.JPanel" name="roomBookingPanel3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -717,7 +717,7 @@
             <Container class="javax.swing.JPanel" name="staffManagementPanel1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -880,7 +880,7 @@
                 <Component class="javax.swing.JLabel" name="registerUserStaffManagementButton1">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/registerUserButton.png"/>
+                      <Image iconType="3" name="/registerButton.png"/>
                     </Property>
                   </Properties>
                   <Events>
@@ -898,7 +898,7 @@
             <Container class="javax.swing.JPanel" name="staffManagementPanel2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1194,7 +1194,7 @@
                 <Component class="javax.swing.JCheckBox" name="receptionistStaffManagementCheckBox1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="a0" green="57" red="0" type="rgb"/>
+                      <Color blue="b6" green="48" red="6f" type="rgb"/>
                     </Property>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="userBoxGroup"/>
@@ -1216,7 +1216,7 @@
                 <Component class="javax.swing.JCheckBox" name="managerStaffManagementCheckBox1">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="a0" green="57" red="0" type="rgb"/>
+                      <Color blue="b6" green="48" red="6f" type="rgb"/>
                     </Property>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="userBoxGroup"/>
@@ -1286,7 +1286,7 @@
             <Container class="javax.swing.JPanel" name="staffManagementPanel3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1582,7 +1582,7 @@
                 <Component class="javax.swing.JCheckBox" name="receptionistStaffManagementCheckBox3">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="a0" green="57" red="0" type="rgb"/>
+                      <Color blue="b6" green="48" red="6f" type="rgb"/>
                     </Property>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="userBoxGroup"/>
@@ -1601,10 +1601,10 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JCheckBox" name="managerStaffManagementCheckBox2">
+                <Component class="javax.swing.JCheckBox" name="managerStaffManagementCheckBox3">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="a0" green="57" red="0" type="rgb"/>
+                      <Color blue="b6" green="48" red="6f" type="rgb"/>
                     </Property>
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="userBoxGroup"/>
@@ -1687,7 +1687,7 @@
             <Container class="javax.swing.JPanel" name="roomsManagementPanel1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1837,7 +1837,7 @@
             <Container class="javax.swing.JPanel" name="roomsManagementPanel2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -2009,7 +2009,7 @@
             <Container class="javax.swing.JPanel" name="roomsManagementPanel3">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -2194,7 +2194,7 @@
             <Container class="javax.swing.JPanel" name="guestsManagementPanel1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -2359,7 +2359,7 @@
             <Container class="javax.swing.JPanel" name="guestsManagementPanel2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -2840,7 +2840,7 @@
             <Container class="javax.swing.JPanel" name="bookingManagementPanel1">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -3005,7 +3005,7 @@
             <Container class="javax.swing.JPanel" name="bookingManagementPanel2">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="a7" green="57" red="0" type="rgb"/>
+                  <Color blue="b6" green="48" red="6f" type="rgb"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -3413,7 +3413,7 @@
         <Container class="javax.swing.JPanel" name="aboutPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="a7" green="57" red="0" type="rgb"/>
+              <Color blue="b6" green="48" red="6f" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -3537,10 +3537,10 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Container class="javax.swing.JPanel" name="blueBackground">
+    <Container class="javax.swing.JPanel" name="purpleBackground">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="a7" green="57" red="0" type="rgb"/>
+          <Color blue="b6" green="48" red="6f" type="rgb"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1920, 1080]"/>

@@ -235,7 +235,7 @@ public class MainFrame extends javax.swing.JFrame {
         phoneNumberStaffManagementLabel3 = new javax.swing.JLabel();
         emailStaffManagementLabel3 = new javax.swing.JLabel();
         receptionistStaffManagementCheckBox3 = new javax.swing.JCheckBox();
-        managerStaffManagementCheckBox2 = new javax.swing.JCheckBox();
+        managerStaffManagementCheckBox3 = new javax.swing.JCheckBox();
         emailStaffManagementField3 = new javax.swing.JTextField();
         userNameStaffManagementLabel3 = new javax.swing.JLabel();
         userNameStaffManagementField3 = new javax.swing.JTextField();
@@ -362,7 +362,7 @@ public class MainFrame extends javax.swing.JFrame {
         aboutButton = new javax.swing.JLabel();
         logoutButton = new javax.swing.JLabel();
         mainBackground = new javax.swing.JLabel();
-        blueBackground = new javax.swing.JPanel();
+        purpleBackground = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -377,11 +377,11 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(welcomingLabel);
         welcomingLabel.setBounds(1060, 20, 230, 40);
 
-        tabsPane.setBackground(new java.awt.Color(0, 87, 167));
+        tabsPane.setBackground(new java.awt.Color(111, 72, 182));
 
-        roomBookingPane.setBackground(new java.awt.Color(0, 87, 167));
+        roomBookingPane.setBackground(new java.awt.Color(111, 72, 182));
 
-        roomBookingPanel1.setBackground(new java.awt.Color(0, 87, 167));
+        roomBookingPanel1.setBackground(new java.awt.Color(111, 72, 182));
         roomBookingPanel1.setLayout(null);
 
         adultsNumberBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
@@ -435,7 +435,7 @@ public class MainFrame extends javax.swing.JFrame {
         roomBookingPane.add(roomBookingPanel1);
         roomBookingPanel1.setBounds(0, 0, 1030, 640);
 
-        roomBookingPanel2.setBackground(new java.awt.Color(0, 87, 167));
+        roomBookingPanel2.setBackground(new java.awt.Color(111, 72, 182));
         roomBookingPanel2.setLayout(null);
 
         roomsTable.setModel(roomTableModel);
@@ -459,7 +459,7 @@ public class MainFrame extends javax.swing.JFrame {
         roomBookingPane.add(roomBookingPanel2);
         roomBookingPanel2.setBounds(0, 0, 1030, 640);
 
-        roomBookingPanel3.setBackground(new java.awt.Color(0, 87, 167));
+        roomBookingPanel3.setBackground(new java.awt.Color(111, 72, 182));
         roomBookingPanel3.setLayout(null);
 
         firstNameRoomBookingField.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
@@ -612,7 +612,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabsPane.add(roomBookingPane);
         roomBookingPane.setBounds(0, 0, 1030, 640);
 
-        staffManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
+        staffManagementPanel1.setBackground(new java.awt.Color(111, 72, 182));
         staffManagementPanel1.setLayout(null);
 
         staffManagementTable.setModel(staffManagementTableModel);
@@ -691,7 +691,7 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementPanel1.add(lastNameStaffManagementField1);
         lastNameStaffManagementField1.setBounds(30, 90, 290, 30);
 
-        registerUserStaffManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registerUserButton.png"))); // NOI18N
+        registerUserStaffManagementButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/registerButton.png"))); // NOI18N
         registerUserStaffManagementButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registerUserStaffManagementButton1MouseClicked(evt);
@@ -706,7 +706,7 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementPane.add(staffManagementPanel1);
         staffManagementPanel1.setBounds(0, 0, 1030, 640);
 
-        staffManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
+        staffManagementPanel2.setBackground(new java.awt.Color(111, 72, 182));
         staffManagementPanel2.setLayout(null);
 
         firstNameStaffManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
@@ -815,7 +815,7 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementPanel2.add(emailStaffManagementLabel2);
         emailStaffManagementLabel2.setBounds(50, 240, 50, 40);
 
-        receptionistStaffManagementCheckBox1.setBackground(new java.awt.Color(0, 87, 160));
+        receptionistStaffManagementCheckBox1.setBackground(new java.awt.Color(111, 72, 182));
         userBoxGroup.add(receptionistStaffManagementCheckBox1);
         receptionistStaffManagementCheckBox1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         receptionistStaffManagementCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
@@ -823,7 +823,7 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementPanel2.add(receptionistStaffManagementCheckBox1);
         receptionistStaffManagementCheckBox1.setBounds(540, 440, 123, 30);
 
-        managerStaffManagementCheckBox1.setBackground(new java.awt.Color(0, 87, 160));
+        managerStaffManagementCheckBox1.setBackground(new java.awt.Color(111, 72, 182));
         userBoxGroup.add(managerStaffManagementCheckBox1);
         managerStaffManagementCheckBox1.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         managerStaffManagementCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
@@ -850,7 +850,7 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementPane.add(staffManagementPanel2);
         staffManagementPanel2.setBounds(0, 0, 1030, 640);
 
-        staffManagementPanel3.setBackground(new java.awt.Color(0, 87, 167));
+        staffManagementPanel3.setBackground(new java.awt.Color(111, 72, 182));
         staffManagementPanel3.setLayout(null);
 
         firstNameStaffManagementField3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
@@ -959,7 +959,7 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementPanel3.add(emailStaffManagementLabel3);
         emailStaffManagementLabel3.setBounds(50, 240, 50, 40);
 
-        receptionistStaffManagementCheckBox3.setBackground(new java.awt.Color(0, 87, 160));
+        receptionistStaffManagementCheckBox3.setBackground(new java.awt.Color(111, 72, 182));
         userBoxGroup.add(receptionistStaffManagementCheckBox3);
         receptionistStaffManagementCheckBox3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         receptionistStaffManagementCheckBox3.setForeground(new java.awt.Color(255, 255, 255));
@@ -967,13 +967,13 @@ public class MainFrame extends javax.swing.JFrame {
         staffManagementPanel3.add(receptionistStaffManagementCheckBox3);
         receptionistStaffManagementCheckBox3.setBounds(540, 440, 123, 30);
 
-        managerStaffManagementCheckBox2.setBackground(new java.awt.Color(0, 87, 160));
-        userBoxGroup.add(managerStaffManagementCheckBox2);
-        managerStaffManagementCheckBox2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
-        managerStaffManagementCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
-        managerStaffManagementCheckBox2.setText("Manager");
-        staffManagementPanel3.add(managerStaffManagementCheckBox2);
-        managerStaffManagementCheckBox2.setBounds(350, 440, 100, 30);
+        managerStaffManagementCheckBox3.setBackground(new java.awt.Color(111, 72, 182));
+        userBoxGroup.add(managerStaffManagementCheckBox3);
+        managerStaffManagementCheckBox3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
+        managerStaffManagementCheckBox3.setForeground(new java.awt.Color(255, 255, 255));
+        managerStaffManagementCheckBox3.setText("Manager");
+        staffManagementPanel3.add(managerStaffManagementCheckBox3);
+        managerStaffManagementCheckBox3.setBounds(350, 440, 100, 30);
 
         emailStaffManagementField3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
         emailStaffManagementField3.setBorder(null);
@@ -997,7 +997,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabsPane.add(staffManagementPane);
         staffManagementPane.setBounds(0, 0, 1030, 640);
 
-        roomsManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
+        roomsManagementPanel1.setBackground(new java.awt.Color(111, 72, 182));
         roomsManagementPanel1.setLayout(null);
 
         roomsManagementTable.setModel(roomTableModel);
@@ -1080,7 +1080,7 @@ public class MainFrame extends javax.swing.JFrame {
         roomsManagementPane.add(roomsManagementPanel1);
         roomsManagementPanel1.setBounds(0, 0, 1030, 640);
 
-        roomsManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
+        roomsManagementPanel2.setBackground(new java.awt.Color(111, 72, 182));
         roomsManagementPanel2.setLayout(null);
 
         roomNumberRoomsManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
@@ -1142,7 +1142,7 @@ public class MainFrame extends javax.swing.JFrame {
         roomsManagementPane.add(roomsManagementPanel2);
         roomsManagementPanel2.setBounds(0, 0, 1030, 640);
 
-        roomsManagementPanel3.setBackground(new java.awt.Color(0, 87, 167));
+        roomsManagementPanel3.setBackground(new java.awt.Color(111, 72, 182));
         roomsManagementPanel3.setLayout(null);
 
         roomNumberRoomsManagementField3.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
@@ -1207,7 +1207,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabsPane.add(roomsManagementPane);
         roomsManagementPane.setBounds(0, 0, 1030, 640);
 
-        guestsManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
+        guestsManagementPanel1.setBackground(new java.awt.Color(111, 72, 182));
         guestsManagementPanel1.setLayout(null);
 
         guestsManagementTable.setModel(guestManagementTableModel);
@@ -1289,7 +1289,7 @@ public class MainFrame extends javax.swing.JFrame {
         guestsManagementPane.add(guestsManagementPanel1);
         guestsManagementPanel1.setBounds(0, 0, 1030, 640);
 
-        guestsManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
+        guestsManagementPanel2.setBackground(new java.awt.Color(111, 72, 182));
         guestsManagementPanel2.setLayout(null);
 
         firstNameGuestsManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
@@ -1464,7 +1464,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabsPane.add(guestsManagementPane);
         guestsManagementPane.setBounds(-1, -1, 1030, 640);
 
-        bookingManagementPanel1.setBackground(new java.awt.Color(0, 87, 167));
+        bookingManagementPanel1.setBackground(new java.awt.Color(111, 72, 182));
         bookingManagementPanel1.setLayout(null);
 
         bookingManagementTable.setModel(guestManagementTableModel);
@@ -1546,7 +1546,7 @@ public class MainFrame extends javax.swing.JFrame {
         bookingManagementPane.add(bookingManagementPanel1);
         bookingManagementPanel1.setBounds(0, 0, 1030, 640);
 
-        bookingManagementPanel2.setBackground(new java.awt.Color(0, 87, 167));
+        bookingManagementPanel2.setBackground(new java.awt.Color(111, 72, 182));
         bookingManagementPanel2.setLayout(null);
 
         firstNameBookingManagementField2.setFont(new java.awt.Font("Roboto Lt", 0, 18)); // NOI18N
@@ -1699,7 +1699,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabsPane.add(bookingManagementPane);
         bookingManagementPane.setBounds(0, 0, 1030, 640);
 
-        aboutPanel.setBackground(new java.awt.Color(0, 87, 167));
+        aboutPanel.setBackground(new java.awt.Color(111, 72, 182));
 
         aboutPanelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AboutPanel.png"))); // NOI18N
         aboutPanel.add(aboutPanelBackground);
@@ -1796,10 +1796,10 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(mainBackground);
         mainBackground.setBounds(0, -180, 1920, 1080);
 
-        blueBackground.setBackground(new java.awt.Color(0, 87, 167));
-        blueBackground.setMinimumSize(new java.awt.Dimension(1920, 1080));
-        getContentPane().add(blueBackground);
-        blueBackground.setBounds(0, 0, 1920, 1080);
+        purpleBackground.setBackground(new java.awt.Color(111, 72, 182));
+        purpleBackground.setMinimumSize(new java.awt.Dimension(1920, 1080));
+        getContentPane().add(purpleBackground);
+        purpleBackground.setBounds(0, 0, 1920, 1080);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2469,7 +2469,7 @@ guestManagementTableModel.setRowCount(0);
             if((boolean)staffManagementTable.getValueAt(row,2)==false)
                 receptionistStaffManagementCheckBox3.setSelected(true);
             else 
-                managerStaffManagementCheckBox2.setSelected(true);
+                managerStaffManagementCheckBox3.setSelected(true);
             
             roomBookingPanel1.setVisible(false);
             roomBookingPanel2.setVisible(false);
@@ -3111,7 +3111,7 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
         aboutPanel.setVisible(false);
     }
         else 
-            JOptionPane.showMessageDialog(null, "Staff is not selected!", "Modification of staff info!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Room is not selected!", "Modification of room info!", JOptionPane.ERROR_MESSAGE);
         
     }//GEN-LAST:event_modifyRoomsManagementButton1MouseClicked
 
@@ -3200,7 +3200,6 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     private javax.swing.JComboBox<String> bedTypeBox3;
     private javax.swing.JLabel bedTypeRoomsManagementLabel2;
     private javax.swing.JLabel bedTypeRoomsManagementLabel3;
-    private javax.swing.JPanel blueBackground;
     private javax.swing.JLabel bookItButton;
     private javax.swing.JLabel bookingManagementButton;
     private javax.swing.JLayeredPane bookingManagementPane;
@@ -3315,7 +3314,7 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     private javax.swing.JLabel mainBackground;
     private javax.swing.JLabel makeBookingButton;
     private javax.swing.JCheckBox managerStaffManagementCheckBox1;
-    private javax.swing.JCheckBox managerStaffManagementCheckBox2;
+    private javax.swing.JCheckBox managerStaffManagementCheckBox3;
     private javax.swing.JLabel modifyBookingManagementButton1;
     private javax.swing.JLabel modifyBookingManagementButton2;
     private javax.swing.JLabel modifyGuestsManagementButton1;
@@ -3342,6 +3341,7 @@ Vector <Guest> found=user.searchGuest(null, null,date,false);
     private javax.swing.JTextField phoneNumberStaffManagementField3;
     private javax.swing.JLabel phoneNumberStaffManagementLabel2;
     private javax.swing.JLabel phoneNumberStaffManagementLabel3;
+    private javax.swing.JPanel purpleBackground;
     private javax.swing.JCheckBox receptionistStaffManagementCheckBox1;
     private javax.swing.JCheckBox receptionistStaffManagementCheckBox3;
     private javax.swing.JLabel registerUserStaffManagementButton1;
